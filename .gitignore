@@ -9,6 +9,8 @@
 
 # -- ECLIPSE 
 
+.project
+/target
 .metadata
 bin/
 tmp/
