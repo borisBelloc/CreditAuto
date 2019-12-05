@@ -9,6 +9,7 @@
 
 # -- ECLIPSE 
 .project
+/back/target
 /target
 .metadata
 bin/
@@ -21,6 +22,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
 
 # External tool builders
 .externalToolBuilders/
