@@ -1,3 +1,4 @@
+package fr.team.benks;
 
 
 public class Main {

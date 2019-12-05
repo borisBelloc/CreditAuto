@@ -9,6 +9,7 @@
 
 # -- ECLIPSE 
 .project
+.classpath
 /target
 .metadata
 bin/

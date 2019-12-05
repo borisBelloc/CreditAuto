@@ -1,4 +1,4 @@
-package models;
+package fr.team.benks.model;
 
 
 import javax.persistence.Column;
