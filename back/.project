@@ -34,4 +34,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>target/test-classes</name>
+			<type>2</type>
+			<location>C:/Users/formation/Documents/PROJET/CreditAuto/back/target/test-classes</location>
+		</link>
+	</linkedResources>
 </projectDescription>
