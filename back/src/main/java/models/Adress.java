@@ -1,4 +1,4 @@
-package models.java;
+package main.java.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,25 +6,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Adress {
 	
 	@Id
 	@GeneratedValue
 	private long id;
 	
 	@Column
-	private String firstName;
+	private String adress;
 	
 	@Column
-	private String lastName;
+	private int zipCode;
 	
 	@Column
-	private String userName;
-	
-	@Column
-	private String password;
-	
-	@Column
-	private String email;
+	private String city;
 
 }

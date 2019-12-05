@@ -1,4 +1,4 @@
-package models.java;
+package main.java.models;
 
 import java.math.BigDecimal;
 import java.time.Duration;
