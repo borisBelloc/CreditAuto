@@ -1,4 +1,4 @@
-package main.java.models;
+package models;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class LoanContact {
+public class LoanContract {
 	
 	@Id
 	@GeneratedValue
