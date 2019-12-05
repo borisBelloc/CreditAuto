@@ -8,7 +8,8 @@
 *.code-workspace
 
 # -- ECLIPSE 
-
+.project
+/target
 .metadata
 bin/
 tmp/
