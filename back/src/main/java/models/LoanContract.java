@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class LoanContact {
+public class LoanContract {
 	
 	@Id
 	@GeneratedValue
