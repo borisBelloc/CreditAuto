@@ -19,5 +19,11 @@ public class UserService {
 		return userDAO.get(id);
 	
 	}
+	
+	public void save(User t) {
+		
+		userDAO.save(t);
+		
+	}
 
 }
