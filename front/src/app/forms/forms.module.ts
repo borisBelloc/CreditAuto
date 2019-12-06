@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { FormsRoutingModule } from './forms-routing.module';
 import { LoansimulateComponent } from './loansimulate/loansimulate.component';
+import { SearchAndAddClientComponent } from './search-and-add-client/search-and-add-client.component';
 
 
 @NgModule({
-  declarations: [LoansimulateComponent],
+  declarations: [LoansimulateComponent, SearchAndAddClientComponent],
   exports: [
     LoansimulateComponent
   ],
