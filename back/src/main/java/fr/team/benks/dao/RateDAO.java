@@ -24,7 +24,7 @@ public class RateDAO implements DAO<Rate> {
 	@Override
 	public List<Rate> getAll() {
 		
-		Query query = entityManager.createQuery("SELECT e FROM User e");
+		Query query = entityManager.createQuery("SELECT e FROM Rate e");
 		return query.getResultList();
 	}
 
