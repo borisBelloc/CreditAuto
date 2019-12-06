@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import fr.team.benks.model.User;
 
-public class ClientDAO implements DAO<User> {
+public class UserDAO implements DAO<User> {
 	
 	private EntityManager entityManager;
 
