@@ -179,6 +179,13 @@
 			<version>1.7.25</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+</dependency>
+		
+		
 	</dependencies>
 
 
