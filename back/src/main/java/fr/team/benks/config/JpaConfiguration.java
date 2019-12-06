@@ -57,10 +57,6 @@ public class JpaConfiguration {
 		return properties;
 	}
 
-//	@Bean
-//	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-//		return new PersistenceExceptionTranslationPostProcessor();
-//	}
 
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class LoanContract {
@@ -27,7 +28,7 @@ public class LoanContract {
 	@ManyToOne
 	private Client client;
 	
-	@Column
+	@OneToOne
 	private Vehicle vehicle;
 	
 	@Column

@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client {
@@ -17,8 +18,8 @@ public class Client {
 	@GeneratedValue
 	private long id;
 	
-	@Column
-	private String adress;
+	@OneToOne
+	private Adress adress;
 	
 	@Column
 	private int numClient;
