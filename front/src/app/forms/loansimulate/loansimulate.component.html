@@ -1,1 +1,59 @@
-<p>loansimulate works!</p>
+<fieldset class="scheduler-border">
+  <legend class="scheduler-border">Simulation d'un crédit</legend>
+
+  <!-- <form #monForm="ngForm" (ngSubmit)="submit(monForm)"> -->
+  <form>
+    <!-- [(ngModel)]="query" -->
+
+    <div class="row">
+      <div class="col-6">
+
+        <div class="form-group row">
+            <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat</label>
+          <div class="col-6">
+            <input id="purchasePrice" class="form-control sharp glowOrange" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="loanAmount" class="col-5 col-form-label">Montant du crédit</label>
+          <div class="col-6">
+            <input id="loanAmount" class="form-control sharp glowOrange" />
+          </div>
+        </div>
+
+        <!-- TODO: change color border select -->
+        <div class="form-group row">
+            <label for="category" class="col-5 col-form-label">Catégorie</label>
+          <div class="col-6">
+            <select class="form-control sharp glowOrange" id="category">
+              <option>A</option>
+              <option>B</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="category" class="col-5 col-form-label">Durée du crédit (en mois)</label>
+          <div class="col-6">
+            <input id="category" class="form-control sharp glowOrange" type="number" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="loanPrice" class="col-5 col-form-label">Coût du crédit</label>
+          <div class="col-6">
+            <input id="loanPrice" disabled class="form-control sharp" />
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-dark sharp mt-4" type="submit">
+            Calculer crédit
+          </button>
+          <button class="btn btn-dark sharp mt-4" type="submit">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</fieldset>
