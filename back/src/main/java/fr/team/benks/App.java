@@ -5,11 +5,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan
-public class Main {
+public class App {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public App() {
+		System.out.println("Start created");
 	}
-
 }
