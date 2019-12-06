@@ -16,15 +16,5 @@ public class CalculService {
 		return null;
 
 	}
-	
-	public BigDecimal calculTaux(Vehicle v) {
-		
-		BigDecimal taux = new BigDecimal(0);
-		
-		if()
-		
-		return null;
-		
-	}
 
 }
