@@ -1,3 +1,9 @@
+[class*="col-"] {
+  // border: 1px red solid;
+}
+
+
+
 .darkDropdown {
   color: #ffffff;
 }
@@ -9,4 +15,25 @@
 .darkDropdown:focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(39, 40, 41, 0.25);
+}
+
+#headerNavbar {
+  background-color: #343a40;
+}
+
+#headerNavbar span,
+#headerNavbar .fa-user {
+  color: rgb(104, 104, 103);
+}
+
+#logo {
+  max-height: 100px;
+}
+
+
+.icon-baseline {
+  display: inline-flex;
+  align-self: center;
+  top: .125em;
+  position: relative;
 }

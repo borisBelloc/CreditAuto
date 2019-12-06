@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  logo: string;
   isCollapsed = true;
 
-  constructor() { }
+  constructor() {
+    this.logo = 'assets/img/logo.png';
+  }
 
   ngOnInit() {
   }
