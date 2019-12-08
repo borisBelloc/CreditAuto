@@ -15,7 +15,7 @@
 ### Run the project
 
 ##### Development 
-- Front/Angular : use `npm install` to instal the node modules requiered (you first need to install nodeJs and AngularCLI)
+- Front/Angular : use `npm install` to instal the requiered node modules (you first need to install nodeJs and AngularCLI)
 
 
 
