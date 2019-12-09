@@ -8,14 +8,6 @@ import { Component, OnInit } from "@angular/core";
 export class LoansimulateComponent implements OnInit {
   lastUpdate = new Date();
 
-  ops = [
-    {
-      date: this.lastUpdate,
-      montant: 376,
-      montantCumule: 376
-    }
-  ];
-
   constructor() {}
 
   ngOnInit() {}
