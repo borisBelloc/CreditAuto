@@ -1,19 +1,26 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Simulation d'un crédit</legend>
 
-  <!-- <form #monForm="ngForm" (ngSubmit)="submit(monForm)"> -->
-  <form>
-    <!-- [(ngModel)]="query" -->
-
-    <div class="row">
-      <!-- TODO: Formulaire simulation -->
-      <div class="col-6">
+  <!-- TODO: responsive mobile col-12 -->
+  <!-- TODO: tous les champs de formulaire 'number only' -->
+  <div class="row">
+    <div class="col-6">
+      <!-- [formGroup]="simulateForm"   -->
+      <form
+        [formGroup]="simulateForm"
+        (ngSubmit)="onSubmit(simulateForm.value)"
+      >
         <div class="form-group row">
           <label for="purchasePrice" class="col-5 col-form-label"
             >Montant de l'achat</label
           >
           <div class="col-6">
-            <input id="purchasePrice" class="form-control sharp glowOrange" />
+            <input
+              id="purchasePrice"
+              class="form-control sharp glowOrange"
+              formControlName="amountPurchase"
+              type="number"
+            />
           </div>
         </div>
 
@@ -22,7 +29,12 @@
             >Montant du crédit</label
           >
           <div class="col-6">
-            <input id="loanAmount" class="form-control sharp glowOrange" />
+            <input
+              id="loanAmount"
+              class="form-control sharp glowOrange"
+              formControlName="amountLoan"
+              type="number"
+            />
           </div>
         </div>
 
@@ -30,7 +42,11 @@
         <div class="form-group row">
           <label for="category" class="col-5 col-form-label">Catégorie</label>
           <div class="col-6">
-            <select id="category" class="form-control sharp glowOrange">
+            <select
+              id="category"
+              class="form-control sharp glowOrange"
+              formControlName="category"
+            >
               <option>A</option>
               <option>B</option>
             </select>
@@ -38,13 +54,14 @@
         </div>
 
         <div class="form-group row">
-          <label for="category" class="col-5 col-form-label"
+          <label for="durationLoan" class="col-5 col-form-label"
             >Durée du crédit (en mois)</label
           >
           <div class="col-6">
             <input
-              id="category"
+              id="durationLoan"
               class="form-control sharp glowOrange"
+              formControlName="durationLoan"
               type="number"
             />
           </div>
@@ -55,7 +72,12 @@
             >Coût du crédit</label
           >
           <div class="col-6">
-            <input id="loanPrice" disabled class="form-control sharp" />
+            <input
+              id="loanPrice"
+              disabled
+              class="form-control sharp"
+              formControlName="loanCost"
+            />
           </div>
         </div>
 
@@ -63,10 +85,16 @@
           <button class="btn btn-dark sharp mt-4" type="submit">
             Calculer crédit
           </button>
-          <button class="btn btn-dark sharp mt-4" type="submit">Annuler</button>
+          <!-- if you don't want a btn to submit the form, you could add : type="button" -->
+          <button
+            class="btn btn-dark sharp mt-4"
+            type="reset"
+            (click)="reset()"
+          >
+            Annuler
+          </button>
         </div>
-      </div>
-
+      </form>
       <!-- TODO: Tableau echeance -->
       <div class="col-5">
         <table class="table" table-striped>
@@ -94,5 +122,5 @@
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </fieldset>
