@@ -6,10 +6,11 @@ import { LoansimulateComponent } from './loansimulate/loansimulate.component';
 
 //  IMPORTANT ! IMPORT REACTIVEFORMSMODULE !!
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
-  declarations: [LoansimulateComponent],
+  declarations: [LoansimulateComponent, CustomerComponent],
   exports: [
     LoansimulateComponent
   ],
