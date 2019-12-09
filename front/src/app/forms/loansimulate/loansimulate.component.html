@@ -1,34 +1,50 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Simulation d'un crédit</legend>
 
-  <!-- <form #monForm="ngForm" (ngSubmit)="submit(monForm)"> -->
-  <form>
-    <!-- [(ngModel)]="query" -->
+  <!-- TODO: responsive mobile col-12 -->
+  <!-- TODO: tous les champs de formulaire 'number only' -->
+  <div class="row">
+    <div class="col-6">
 
-    <!-- TODO: responsive mobile col-12 -->
-    <!-- TODO: tous les champs de formulaire 'number only' -->
-    <div class="row">
-      <div class="col-6">
+      <!-- [formGroup]="simulateForm"   -->
+      <form [formGroup]="simulateForm"
+      (ngSubmit)="onSubmit(simulateForm.value)">
 
         <div class="form-group row">
-            <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat</label>
+          <label for="purchasePrice" class="col-5 col-form-label"
+            >Montant de l'achat</label
+          >
           <div class="col-6">
-            <input id="purchasePrice" class="form-control sharp glowOrange" />
+            <input
+              id="purchasePrice"
+              class="form-control sharp glowOrange"
+              formControlName="amountPurchase"
+            />
           </div>
         </div>
 
         <div class="form-group row">
-            <label for="loanAmount" class="col-5 col-form-label">Montant du crédit</label>
+          <label for="loanAmount" class="col-5 col-form-label"
+            >Montant du crédit</label
+          >
           <div class="col-6">
-            <input id="loanAmount" class="form-control sharp glowOrange" />
+            <input
+              id="loanAmount"
+              class="form-control sharp glowOrange"
+              formControlName="amountLoan"
+            />
           </div>
         </div>
 
         <!-- TODO: change color border select -->
         <div class="form-group row">
-            <label for="category" class="col-5 col-form-label">Catégorie</label>
+          <label for="category" class="col-5 col-form-label">Catégorie</label>
           <div class="col-6">
-            <select id="category" class="form-control sharp glowOrange">
+            <select
+              id="category"
+              class="form-control sharp glowOrange"
+              formControlName="category"
+            >
               <option>A</option>
               <option>B</option>
             </select>
@@ -36,28 +52,43 @@
         </div>
 
         <div class="form-group row">
-            <label for="category" class="col-5 col-form-label">Durée du crédit (en mois)</label>
+          <label for="category" class="col-5 col-form-label"
+            >Durée du crédit (en mois)</label
+          >
           <div class="col-6">
-            <input id="category" class="form-control sharp glowOrange" type="number" />
+            <input
+              id="category"
+              class="form-control sharp glowOrange"
+              type="number"
+              formControlName="durationLoan"
+            />
           </div>
         </div>
 
         <div class="form-group row">
-            <label for="loanPrice" class="col-5 col-form-label">Coût du crédit</label>
+          <label for="loanPrice" class="col-5 col-form-label"
+            >Coût du crédit</label
+          >
           <div class="col-6">
-            <input id="loanPrice" disabled class="form-control sharp" />
+            <input
+              id="loanPrice"
+              disabled
+              class="form-control sharp"
+              formControlName="loanCost"
+            />
           </div>
         </div>
 
         <div class="d-flex justify-content-around">
-          <button class="btn btn-dark sharp mt-4" type="submit">
+          <!-- <button class="btn btn-dark sharp mt-4" type="submit">
             Calculer crédit
-          </button>
-          <button class="btn btn-dark sharp mt-4" type="submit">Annuler</button>
+          </button> -->
+          <!-- <button class="btn btn-dark sharp mt-4">Annuler</button> -->
+          <button class="button" type="submit">Send</button>
         </div>
-      </div>
+
+      </form>
+
     </div>
-
-  </form>
+  </div>
 </fieldset>
-
