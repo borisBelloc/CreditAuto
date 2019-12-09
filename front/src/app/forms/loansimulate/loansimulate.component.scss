@@ -1,0 +1,29 @@
+fieldset.fieldsetBorder {
+  border: 1px groove #ddd;
+  padding: 0 1.4em 1.4em 1.4em;
+  margin: 1.5em;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.fieldsetBorder {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+.sharp {
+  border-radius: 0;
+}
+
+.glowOrange:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2.9px rgba(242, 136, 6, 0.336);
+  border: 1px solid #f28606;
+}
+
+// Impossible to change select:hover color with CSS
+// source : https://stackoverflow.com/questions/19388011/how-to-change-colour-of-blue-highlight-on-select-box-dropdown/19388345
