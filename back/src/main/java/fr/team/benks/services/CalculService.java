@@ -19,10 +19,10 @@ public class CalculService {
 	 * @return BigDecimal Cost of the loan
 	 */
 
-	private MathContext finalResultRounding = new MathContext(4, RoundingMode.HALF_UP);
-	private MathContext preciseRounding = new MathContext(20, RoundingMode.HALF_UP);
+	private static MathContext finalResultRounding = new MathContext(5, RoundingMode.HALF_UP);
+	private static MathContext preciseRounding = new MathContext(20, RoundingMode.HALF_UP);
 
-	public BigDecimal calculTotalCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
+	public static BigDecimal calculTotalCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
 
 		BigDecimal mtEch = calculMonthlyCost(txAnnuel, nbEch, mtEmp);
 
@@ -40,7 +40,7 @@ public class CalculService {
 	 * @param mtEmp
 	 * @return
 	 */
-	public BigDecimal calculMonthlyCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
+	public static BigDecimal calculMonthlyCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
 
 		BigDecimal txPer = txAnnuel.divide(new BigDecimal(12), finalResultRounding);
 		System.out.println("txPer : " + txPer);
@@ -56,7 +56,14 @@ public class CalculService {
 	}
 
 	
-	public void afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp, LocalDate souscription) {
+	/**
+	 * 
+	 * @param txAnnuel
+	 * @param nbEch
+	 * @param mtEmp
+	 * @param souscription
+	 */
+	public static void afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp, LocalDate souscription) {
 		
 		BigDecimal mtEch = calculMonthlyCost(txAnnuel, nbEch, mtEmp);
 		
