@@ -23,14 +23,15 @@ public class RateDAO implements DAO<Rate> {
 	
 	}
 	
-	public Rate getRate(CategorieVehicle categorie, int valMin, int valMax, int duree) {
+	public Rate getRate(BigDecimal value, CategorieVehicle categorie, int valMin, int valMax, int duree) {
 		
-		Query query = entityManager.createQuery("SELECT e FROM Rate e WHERE e.categorie = ? and e.valMin = ? and e.valMax = ? and e.duree = ?");
+		Query query = entityManager.createQuery("SELECT e FROM Rate e WHERE e.value = ? and e.categorie = ? and e.valMin = ? and e.valMax = ? and e.duree = ?");
 		
-		query.setParameter(1, categorie);
-		query.setParameter(2, valMin);
-		query.setParameter(3, valMax);
-		query.setParameter(4, duree);
+		query.setParameter(1, value);
+		query.setParameter(2, categorie);
+		query.setParameter(3, valMin);
+		query.setParameter(4, valMax);
+		query.setParameter(5, duree);
 		
 		return (Rate) query.getSingleResult();
 		
