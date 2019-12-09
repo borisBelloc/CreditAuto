@@ -11,29 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
+import fr.team.benks.services.RateService;
 import fr.team.benks.services.UserService;
 
 @Controller
-@RequestMapping("/api/users")
+@RequestMapping("/api/rates")
 @ResponseBody
-public class UserController {
+public class RateController {
 	
 	@Autowired
-	private UserService us;
+	private RateService rs;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@RequestBody User resource){
+	public void create(@RequestBody Rate resource){
 		
-		us.save(resource);
+		rs.save(resource);
 		
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Optional<User> findById(@PathVariable Long id) {
+	public Optional<Rate> findById(@PathVariable Long id) {
 		
-		return us.get(id);
+		return rs.get(id);
 		
 	}
 
