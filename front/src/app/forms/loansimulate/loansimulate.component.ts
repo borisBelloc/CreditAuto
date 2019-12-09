@@ -42,6 +42,8 @@ export class LoansimulateComponent implements OnInit {
     // this.checkoutForm.reset();
   }
 
+  // this.simulateForm.disable();
+
   ngOnInit() {
   }
 }
