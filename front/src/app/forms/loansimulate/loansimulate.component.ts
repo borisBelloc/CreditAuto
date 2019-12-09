@@ -37,6 +37,7 @@ export class LoansimulateComponent implements OnInit {
    */
   onSubmit(formData) {
     console.warn('Your form has been submitted', formData);
+    this.simulateForm.disable();
 
     // this.items = this.cartService.clearCart();
     // this.checkoutForm.reset();

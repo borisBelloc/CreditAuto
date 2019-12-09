@@ -19,6 +19,7 @@
               id="purchasePrice"
               class="form-control sharp glowOrange"
               formControlName="amountPurchase"
+              type="number"
             />
           </div>
         </div>
@@ -32,6 +33,7 @@
               id="loanAmount"
               class="form-control sharp glowOrange"
               formControlName="amountLoan"
+              type="number"
             />
           </div>
         </div>
@@ -60,6 +62,7 @@
               id="durationLoan"
               class="form-control sharp glowOrange"
               formControlName="durationLoan"
+              type="number"
             />
           </div>
         </div>
@@ -82,11 +85,20 @@
           <button class="btn btn-dark sharp mt-4" type="submit">
             Calculer crédit
           </button>
-          <!-- type="button" -->
+          <!-- if you don't want a btn to submit the form, you could add : type="button" -->
           <button class="btn btn-dark sharp mt-4" type="reset">Annuler</button>
         </div>
 
       </form>
+
+
+      <br><br><br><br><br><br><br><br><br><br>
+
+      <div class="d-flex justify-content-start" style="border: 1px red solid">
+        <button class="aligne btn btn-primary" ng-click="start()">Acces Crédit Auto</button>
+      </div>
+
+
 
     </div>
   </div>
