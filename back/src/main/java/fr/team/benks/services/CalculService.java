@@ -60,7 +60,7 @@ public class CalculService {
 		
 		BigDecimal mtEch = calculMonthlyCost(txAnnuel, nbEch, mtEmp);
 		
-		System.out.println("Date         Montant            Montant cumulé");
+		System.out.println("Date           Montant     Montant cumulé");
 		for (int i = 0; i< nbEch; i++) {
 			System.out.println(souscription.plusMonths(i)+"     "+mtEch+"     "
 		+(mtEch.add(mtEch.multiply(new BigDecimal(i)))));
