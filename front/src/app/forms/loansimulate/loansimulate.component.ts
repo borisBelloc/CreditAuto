@@ -31,10 +31,6 @@ export class LoansimulateComponent implements OnInit {
 
   }
 
-  /**
-   * @param customerData  users need to be able to submit the form data (their name and address)
-   *  When the order is submitted, the form should reset and the cart should clear
-   */
   onSubmit(formData) {
     console.warn('Your form has been submitted', formData);
     this.simulateForm.disable();
