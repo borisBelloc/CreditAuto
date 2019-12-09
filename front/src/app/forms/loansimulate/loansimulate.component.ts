@@ -26,7 +26,7 @@ export class LoansimulateComponent implements OnInit {
       amountLoan: '',
       category: 'A',
       durationLoan: '',
-      loanCost: '' // Not writable input TODO: check how to copy it
+      loanCost: ''
     });
 
   }
@@ -39,9 +39,13 @@ export class LoansimulateComponent implements OnInit {
     console.warn('Your form has been submitted', formData);
     this.simulateForm.disable();
     // this.items = this.cartService.clearCart();
-    // this.checkoutForm.reset();
+    // console.log('qqq ', formData.category);
   }
-
+  reset()   {
+    console.log('rrr');
+    // this.simulateForm.reset();
+    this.simulateForm.enable();
+  }
   // this.simulateForm.disable();
 
   ngOnInit() {

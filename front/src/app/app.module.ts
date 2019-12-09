@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 // forms
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from './forms/forms.module';
 
 
@@ -25,7 +24,6 @@ import { FormsModule } from './forms/forms.module';
     BodyModule,
     NgbModule,
     NavigationModule,
-    // ReactiveFormsModule,
     FormsModule,
     // Routing
     // RouterModule.forRoot([
