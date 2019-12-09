@@ -42,11 +42,11 @@ export class LoansimulateComponent implements OnInit {
     // console.log('qqq ', formData.category);
   }
   reset()   {
-    console.log('rrr');
-    // this.simulateForm.reset();
-    this.simulateForm.enable();
+    this.simulateForm.get('amountPurchase').enable();
+    this.simulateForm.get('amountLoan').enable();
+    this.simulateForm.get('category').enable();
+    this.simulateForm.get('durationLoan').enable();
   }
-  // this.simulateForm.disable();
 
   ngOnInit() {
   }
