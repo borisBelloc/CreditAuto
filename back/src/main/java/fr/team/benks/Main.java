@@ -1,10 +1,14 @@
 package fr.team.benks;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 import fr.team.benks.services.CalculService;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan
 public class Main {
 
 	public static void main(String[] args) {
