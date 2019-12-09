@@ -44,9 +44,9 @@ public class RateController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Optional<Rate> findByParams(@RequestParam("value") BigDecimal value, @RequestParam("categorie") CategorieVehicle categorie, @RequestParam("valMin") int valMin, @RequestParam("valMax") int valMax, @RequestParam("duree") int duree) {
+	public Optional<Rate> findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("valMin") int valMin, @RequestParam("valMax") int valMax, @RequestParam("duree") int duree) {
 		
-		return rs.getRate(value, categorie, valMin, valMax, duree);
+		return rs.getRate(categorie, valMin, valMax, duree);
 		
 	}
 

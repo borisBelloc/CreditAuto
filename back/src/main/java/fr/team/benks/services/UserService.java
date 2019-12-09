@@ -14,6 +14,10 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
+	public UserService() {
+		
+	}
+	
 	public Optional<User> get(long id) {
 		
 		return userDAO.get(id);
