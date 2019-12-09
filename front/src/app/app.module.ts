@@ -25,7 +25,7 @@ import { FormsModule } from './forms/forms.module';
     BodyModule,
     NgbModule,
     NavigationModule,
-    ReactiveFormsModule,
+    // ReactiveFormsModule,
     FormsModule,
     // Routing
     // RouterModule.forRoot([
