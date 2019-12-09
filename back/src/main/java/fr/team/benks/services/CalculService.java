@@ -61,7 +61,8 @@ public class CalculService {
 	 * @param txAnnuel
 	 * @param nbEch
 	 * @param mtEmp
-	 * @param souscription
+	 * @param souscription LocalDate
+	 * 
 	 */
 	public static void afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp, LocalDate souscription) {
 		
