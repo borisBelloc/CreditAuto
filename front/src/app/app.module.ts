@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { NavigationModule } from './navigation/navigation.module';
 import { BodyModule } from './body/body.module';
 import { FormsModule } from './forms/forms.module';
+// Router
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     // Routing
     // RouterModule.forRoot([
-      // { path: '', component: ProductListComponent },
+      // { path: '', component: AppComponent },
       // { path: 'shipping', component: ShippingComponent }
     // ])
   ],
