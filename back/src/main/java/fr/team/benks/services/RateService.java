@@ -28,7 +28,7 @@ public class RateService {
 		
 	}
 	
-	public Rate getRate(BigDecimal value, CategorieVehicle categorie, int valMin, int valMax, int duree) {
+	public Optional<Rate> getRate(BigDecimal value, CategorieVehicle categorie, int valMin, int valMax, int duree) {
 		
 		return rateDAO.getRate(value, categorie, valMin, valMax, duree);
 		

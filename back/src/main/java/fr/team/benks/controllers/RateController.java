@@ -1,5 +1,6 @@
 package fr.team.benks.controllers;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 import fr.team.benks.services.RateService;
@@ -37,6 +40,13 @@ public class RateController {
 	public Optional<Rate> findById(@PathVariable Long id) {
 		
 		return rs.get(id);
+		
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public Optional<Rate> findByParams(@RequestParam("value") BigDecimal value, @RequestParam("categorie") CategorieVehicle categorie, @RequestParam("valMin") int valMin, @RequestParam("valMax") int valMax, @RequestParam("duree") int duree) {
+		
+		return rs.getRate(value, categorie, valMin, valMax, duree);
 		
 	}
 
