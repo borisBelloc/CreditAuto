@@ -7,14 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Adress {
+public class Address {
 	
 	@Id
 	@GeneratedValue
 	private long id;
 	
 	@Column
-	private String adress;
+	private String address;
 	
 	@Column
 	private int zipCode;
@@ -30,12 +30,12 @@ public class Adress {
 		this.id = id;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String adress) {
+		this.address = adress;
 	}
 
 	public int getZipCode() {

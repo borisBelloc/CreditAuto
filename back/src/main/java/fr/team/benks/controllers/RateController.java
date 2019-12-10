@@ -36,7 +36,7 @@ public class RateController {
 		
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Optional<Rate> findById(@PathVariable Long id) {
 		
 		return rs.get(id);
