@@ -13,11 +13,13 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 
 // forms
 import { FormsModule } from './forms/forms.module';
+import { HomeComponent } from './body/home/home.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ import { FormsModule } from './forms/forms.module';
     // ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HomeComponent]
 })
 export class AppModule { }
