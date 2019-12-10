@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import fr.team.benks.model.User;
 
 @Repository
-@Transactional
 public class UserDAO implements DAO<User> {
 	
 	@Autowired

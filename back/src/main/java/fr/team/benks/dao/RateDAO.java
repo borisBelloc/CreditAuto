@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
@@ -17,10 +18,9 @@ import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
 
 @Repository
-@Transactional
 public class RateDAO implements DAO<Rate> {
 	
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
