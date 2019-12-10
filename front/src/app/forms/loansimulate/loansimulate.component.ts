@@ -1,11 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 
-import { CreateloanService } from "src/app/services/createloan.service";
-
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { FormBuilder } from "@angular/forms";
 import { Simulation } from "../class/simulation";
-import { LoanCalculService } from "../service/loan-calcul.service";
+import { LoanCalculService } from '../service/loan-calcul.service';
 
 @Component({
   selector: "app-loansimulate",
@@ -17,10 +15,14 @@ export class LoansimulateComponent implements OnInit {
   simulation: Simulation = new Simulation();
   submitted = false;
 
-  simulateForm;
 
   // Inject service to create Loan (forms)
-  constructor() { };
+  constructor () { }
+
+  simulateForm;
+
+  ngOnInit() { }
+
 
   newEmployee(): void {
     this.submitted = false;
@@ -41,5 +43,4 @@ export class LoansimulateComponent implements OnInit {
   }
   // this.simulateForm.disable();
 
-  ngOnInit() { }
 }

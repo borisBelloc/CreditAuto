@@ -8,20 +8,21 @@
     <!-- [formGroup]="simulateForm"   -->
     <div class="col-6">
 
-      <!-- [formGroup]="simulateForm"   -->
-      <form [formGroup]="simulateForm" (ngSubmit)="onSubmit(simulateForm.value)">
+      <form [formGroup]="filterSimulation" (ngSubmit)="filter()">
+
         <div class="form-group row">
           <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat</label>
           <div class="col-6">
-            <input id="purchasePrice" class="form-control sharp glowOrange" formControlName="amountPurchase"
-              type="number" />
+            <input id="purchasePrice" name="amountPurchase" class="form-control sharp glowOrange"
+              formControlName="amountPurchase" type="number" />
           </div>
         </div>
 
         <div class="form-group row">
           <label for="loanAmount" class="col-5 col-form-label">Montant du crédit</label>
           <div class="col-6">
-            <input id="loanAmount" class="form-control sharp glowOrange" formControlName="amountLoan" type="number" />
+            <input id="loanAmount" name="amountLoan" class="form-control sharp glowOrange" formControlName="amountLoan"
+              type="number" />
           </div>
         </div>
 
@@ -29,7 +30,7 @@
         <div class="form-group row">
           <label for="category" class="col-5 col-form-label">Catégorie</label>
           <div class="col-6">
-            <select id="category" class="form-control sharp glowOrange" formControlName="category">
+            <select id="category" name="category" class="form-control sharp glowOrange" formControlName="category">
               <option>A</option>
               <option>B</option>
             </select>
@@ -39,15 +40,15 @@
         <div class="form-group row">
           <label for="durationLoan" class="col-5 col-form-label">Durée du crédit (en mois)</label>
           <div class="col-6">
-            <input id="durationLoan" class="form-control sharp glowOrange" formControlName="durationLoan"
-              type="number" />
+            <input id="durationLoan" name="durationLoan" class="form-control sharp glowOrange"
+              formControlName="durationLoan" type="number" />
           </div>
         </div>
 
         <div class="form-group row">
           <label for="loanPrice" class="col-5 col-form-label">Coût du crédit</label>
           <div class="col-6">
-            <input id="loanPrice" disabled class="form-control sharp" formControlName="loanCost" />
+            <input id="loanPrice" disabled name="loanCost" class="form-control sharp" formControlName="loanCost" />
           </div>
         </div>
 
@@ -59,8 +60,11 @@
           <button class="btn btn-dark sharp mt-4" type="reset" (click)="reset()">
             Annuler
           </button>
+
         </div>
+
       </form>
+
     </div>
 
     <!-- TODO: Tableau echeance -->
