@@ -19,7 +19,7 @@ public class Client {
 	private long id;
 	
 	@OneToOne
-	private Adress adress;
+	private Address address;
 	
 	@Column
 	private int numClient;

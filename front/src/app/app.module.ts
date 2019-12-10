@@ -6,10 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './navigation/navigation.module';
 import { BodyModule } from './body/body.module';
-import { FormsModule } from './forms/forms.module';
 // Router
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { LoansimulateComponent } from './forms/loansimulate/loansimulate.component';
+
+// forms
+import { FormsModule } from './forms/forms.module';
+
 
 @NgModule({
   declarations: [
@@ -23,9 +27,13 @@ import { NavbarComponent } from './navigation/navbar/navbar.component';
     NavigationModule,
     FormsModule,
     // Routing
+    // Suprim AppRoutingModule + composant dans app.component.html (laisser que navbar car sur toutes les pages)
+    // + supprim app-routing.module
     // RouterModule.forRoot([
-      // { path: '', component: AppComponent },
-      // { path: 'shipping', component: ShippingComponent }
+    //   // { path: '', component: AppComponent },
+    //   { path: '', redirectTo: 'simul', pathMatch: 'full' },
+    //   { path: 'simul', component: LoansimulateComponent }
+    //   // { path: 'shipping', component: ShippingComponent }
     // ])
   ],
   providers: [],
