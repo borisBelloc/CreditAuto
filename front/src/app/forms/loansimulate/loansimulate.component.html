@@ -6,7 +6,6 @@
   <div class="row">
     <div class="col-6">
 
-      <!-- [formGroup]="simulateForm"   -->
       <form [formGroup]="simulateForm"
       (ngSubmit)="onSubmit(simulateForm.value)">
 
@@ -82,8 +81,15 @@
         </div>
 
         <div class="d-flex justify-content-around">
-          <button class="btn btn-dark sharp mt-4" type="submit">
+          <button *ngIf="isBtnsVisible"
+          class="btn btn-dark sharp mt-4" type="submit">
             Calculer crédit
+          </button>
+
+          <!-- TODO: ajout method pour creer le contrat (click) -->
+          <button *ngIf="!isBtnsVisible"
+          class="btn btn-dark sharp mt-4" (click)="toggleDisplayBtn()" type="button">
+            Créer contrat
           </button>
           <!-- if you don't want a btn to submit the form, you could add : type="button" -->
           <button class="btn btn-dark sharp mt-4" type="reset" (click)="reset()">Annuler</button>

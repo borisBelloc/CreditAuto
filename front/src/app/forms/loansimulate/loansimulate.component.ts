@@ -17,10 +17,16 @@ export class LoansimulateComponent implements OnInit {
   simulateForm;
   simulateLoanContract: SimulateLoanContract = new SimulateLoanContract();
 
+  isBtnsVisible = true;
 
-  // Inject service to create Loan (forms)
+  /**
+   * Used to swap btn 'Calculer crédit' & 'Créer contrat'
+   */
+  toggleDisplayBtn() {
+    this.isBtnsVisible = !this.isBtnsVisible;
+  }
+
   constructor(
-    // private createLoanService: CreateloanService,
     private formBuilder: FormBuilder
   ) {
 
@@ -36,11 +42,12 @@ export class LoansimulateComponent implements OnInit {
 
   onSubmit(formData) {
     console.warn('FORM ICI -> ', formData);
+    // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
+    this.toggleDisplayBtn();
     this.simulateForm.disable();
 
     this.simulateLoanContract.amountLoan = formData.amountLoan;
     console.warn('TON OBJET ICI -> ', this.simulateLoanContract);
-    // console.log('qqq ', formData.category);
   }
   reset()   {
     this.simulateForm.enable();
