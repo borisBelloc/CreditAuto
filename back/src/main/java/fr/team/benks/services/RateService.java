@@ -17,6 +17,7 @@ import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 
 @Service
+@Transactional
 public class RateService {
 	
 	@Autowired
@@ -32,13 +33,13 @@ public class RateService {
 	
 	}
 	
-	@Transactional
+	
 	public Rate save(Rate t) {
 		
 		return rateDAO.save(t);
 		
 	}
-	
+
 	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 		
 		return rateDAO.getRate(categorie, montant, duree);
