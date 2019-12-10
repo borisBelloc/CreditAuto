@@ -4,6 +4,7 @@ import { CreateloanService } from 'src/app/services/createloan.service';
 
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { SimulateLoanContract } from 'src/model/model-simulateloancontract';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 export class LoansimulateComponent implements OnInit {
 
   simulateForm;
+  simulateLoanContract: SimulateLoanContract = new SimulateLoanContract();
+
 
   // Inject service to create Loan (forms)
   constructor(
@@ -32,8 +35,11 @@ export class LoansimulateComponent implements OnInit {
   }
 
   onSubmit(formData) {
-    console.warn('Your form has been submitted', formData);
+    console.warn('FORM ICI -> ', formData);
     this.simulateForm.disable();
+
+    this.simulateLoanContract.amountLoan = formData.amountLoan;
+    console.warn('TON OBJET ICI -> ', this.simulateLoanContract);
     // console.log('qqq ', formData.category);
   }
   reset()   {
