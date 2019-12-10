@@ -21,7 +21,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan
 @PropertySource("classpath:application.properties")
 public class JpaConfiguration {
 
