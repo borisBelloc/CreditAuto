@@ -51,6 +51,7 @@ export class LoansimulateComponent implements OnInit {
   }
   reset()   {
     this.simulateForm.enable();
+    this.toggleDisplayBtn();
     //  use this if loanCost is inside the form
     // this.simulateForm.get('amountPurchase').enable();
     // this.simulateForm.get('amountLoan').enable();

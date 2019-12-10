@@ -86,9 +86,14 @@
             Calculer crédit
           </button>
 
+          <!-- TODO: ajout method pour afficher Echeancier (click) -->
+          <button *ngIf="!isBtnsVisible"
+          class="btn btn-dark sharp mt-4" type="button">
+            Echéancier
+          </button>
           <!-- TODO: ajout method pour creer le contrat (click) -->
           <button *ngIf="!isBtnsVisible"
-          class="btn btn-dark sharp mt-4" (click)="toggleDisplayBtn()" type="button">
+          class="btn btn-dark sharp mt-4" type="button">
             Créer contrat
           </button>
           <!-- if you don't want a btn to submit the form, you could add : type="button" -->
