@@ -13,7 +13,9 @@ const routes: Routes = [
   //   }
   { path: '', redirectTo: 'simulation', pathMatch: 'full' },
   { path: 'simulation', component: LoansimulateComponent },
-  { path: 'client', component: CustomerComponent }
+  { path: 'client', component: CustomerComponent },
+  // TODO remove client2; used for test
+  { path: 'client2', component: CustomerComponent }
 ];
 
 @NgModule({
