@@ -1,18 +1,18 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Simulation } from "../class/simulation";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Simulation } from '../class/simulation';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SimulationService {
-  private baseUrl = "http://localhost:8080/CreditAuto/loanSimulation";
+  private baseUrl = 'http://localhost:8080/CreditAuto/loanSimulation';
 
   constructor(private httpClient: HttpClient) {}
 
   get httpOptions(): { headers: HttpHeaders } {
-    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return {
       headers
     };

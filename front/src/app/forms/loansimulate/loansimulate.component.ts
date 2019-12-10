@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { SimulateLoanContract } from 'src/model/model-simulateloancontract';
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Simulation } from '../class/simulation';
+import { Observable, Subject, BehaviorSubject, merge } from 'rxjs';
 import { SimulationService } from '../service/simulation.service';
 
 @Component({
@@ -11,14 +13,14 @@ import { SimulationService } from '../service/simulation.service';
   styleUrls: ['./loansimulate.component.scss']
 })
 export class LoansimulateComponent implements OnInit {
-  simulateLoanContract: SimulateLoanContract = new SimulateLoanContract();
-
-  isBtnsVisible = true;
-
   dataSimulate: string;
   lastUpdate = new Date();
   submitted = false;
   simulateForm: FormGroup;
+
+  simulation: Simulation;
+
+  isBtnsVisible = true;
 
   /**
    * Used to swap btn 'Calculer crédit' & 'Créer contrat'
@@ -27,9 +29,9 @@ export class LoansimulateComponent implements OnInit {
     this.isBtnsVisible = !this.isBtnsVisible;
   }
 
-
   constructor(
     private formBuilder: FormBuilder,
+    private simulationService: SimulationService,
   ) {}
 
   ngOnInit() {
@@ -38,23 +40,29 @@ export class LoansimulateComponent implements OnInit {
       amountLoan: ['', Validators.required],
       category: ['A', Validators.required],
       durationLoan: ['', Validators.required],
-      loanCost: ['', Validators.required]
+      loanCost: ['']
     });
-  }
-
-  // convenience getter for easy access to form fields (ex:f.amountPurchase)
-  get f() {
-    return this.simulateForm.controls;
   }
 
   onSubmit(formData) {
     console.warn('FORM ICI -> ', formData);
+
+    this.simulation = new Simulation(
+      formData.amountPurchase,
+      formData.amountLoan,
+      formData.category,
+      formData.durationLoan
+    );
+
+    this.simulationService.postSimulation(this.simulation);
+
+    console.log(this.simulation);
+
     // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
     this.toggleDisplayBtn();
     this.simulateForm.disable();
-
-    this.simulateLoanContract.amountLoan = formData.amountLoan;
-    console.warn('TON OBJET ICI -> ', this.simulateLoanContract);
+    //this.simulateLoanContract.amountLoan = formData.amountLoan;
+    //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
     this.simulateForm.enable();
