@@ -1,6 +1,7 @@
 package fr.team.benks.controllers;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
@@ -20,9 +22,9 @@ import fr.team.benks.model.User;
 import fr.team.benks.services.RateService;
 import fr.team.benks.services.UserService;
 
-@Controller
+@RestController
 @RequestMapping("/api/rates")
-@ResponseBody
+
 public class RateController {
 	
 	@Autowired
@@ -36,18 +38,26 @@ public class RateController {
 		
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	@ResponseBody
 	public Optional<Rate> findById(@PathVariable Long id) {
 		
 		return rs.get(id);
 		
 	}
 	
+//	@RequestMapping(method = RequestMethod.GET)
+//	public Optional<Rate> findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("montant") int montant, @RequestParam("duree") int duree) {
+//		
+//		return rs.getRate(categorie, montant, duree);
+//		
+//	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public Optional<Rate> findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("montant") int montant, @RequestParam("duree") int duree) {
+	@ResponseBody
+	public List<Rate> getAll() {
 		
-		return rs.getRate(categorie, montant, duree);
-		
+		return rs.getAll();
 	}
 
 }

@@ -53,9 +53,9 @@ public class RateDAO implements DAO<Rate> {
 	}
 
 	@Override
-	public void save(Rate t) {
-		
+	public Rate save(Rate t) {
 		entityManager.persist(t);
+		return t;
 		
 	}
 

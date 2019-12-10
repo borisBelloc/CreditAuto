@@ -24,9 +24,9 @@ public class UserService {
 	
 	}
 	
-	public void save(User t) {
+	public User save(User t) {
 		
-		userDAO.save(t);
+		return userDAO.save(t);
 		
 	}
 
