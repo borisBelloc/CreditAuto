@@ -1,19 +1,23 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
-import { SimulateLoanContract } from "src/model/model-simulateloancontract";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Simulation } from "../class/simulation";
-import { Observable, Subject, BehaviorSubject, merge } from "rxjs";
-import { SimulationService } from "../service/simulation.service";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Simulation } from '../class/simulation';
+import { Observable, Subject, BehaviorSubject, merge } from 'rxjs';
+import { SimulationService } from '../service/simulation.service';
 
 @Component({
-  selector: "app-loansimulate",
-  templateUrl: "./loansimulate.component.html",
-  styleUrls: ["./loansimulate.component.scss"]
+  selector: 'app-loansimulate',
+  templateUrl: './loansimulate.component.html',
+  styleUrls: ['./loansimulate.component.scss']
 })
 export class LoansimulateComponent implements OnInit {
-  simulateLoanContract: SimulateLoanContract = new SimulateLoanContract();
+  dataSimulate: string;
+  lastUpdate = new Date();
+  submitted = false;
+  simulateForm: FormGroup;
+
+  simulation: Simulation;
 
   isBtnsVisible = true;
 
@@ -23,10 +27,6 @@ export class LoansimulateComponent implements OnInit {
   toggleDisplayBtn() {
     this.isBtnsVisible = !this.isBtnsVisible;
   }
-  dataSimulate: string;
-  lastUpdate = new Date();
-  submitted = false;
-  simulateForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,27 +35,33 @@ export class LoansimulateComponent implements OnInit {
 
   ngOnInit() {
     this.simulateForm = this.formBuilder.group({
-      amountPurchase: ["", Validators.required],
-      amountLoan: ["", Validators.required],
-      category: ["A", Validators.required],
-      durationLoan: ["", Validators.required],
-      loanCost: ["", Validators.required]
+      amountPurchase: ['', Validators.required],
+      amountLoan: ['', Validators.required],
+      category: ['A', Validators.required],
+      durationLoan: ['', Validators.required],
+      loanCost: ['']
     });
   }
 
-  // convenience getter for easy access to form fields (ex:f.amountPurchase)
-  get f() {
-    return this.simulateForm.controls;
-  }
-
   onSubmit(formData) {
-    console.warn("FORM ICI -> ", formData);
+    console.warn('FORM ICI -> ', formData);
+
+    this.simulation = new Simulation(
+      formData.amountPurchase,
+      formData.amountLoan,
+      formData.category,
+      formData.durationLoan
+    );
+
+    this.simulationService.postSimulation(this.simulation);
+
+    console.log(this.simulation);
+
     // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
     this.toggleDisplayBtn();
     this.simulateForm.disable();
-
-    this.simulateLoanContract.amountLoan = formData.amountLoan;
-    console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
+    //this.simulateLoanContract.amountLoan = formData.amountLoan;
+    //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
     this.simulateForm.enable();
