@@ -4,8 +4,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Simulation } from "../class/simulation";
 import { Observable, Subject, BehaviorSubject, merge } from 'rxjs';
-
-import { LoanCalculService } from '../service/loan-calcul.service';
+import { SimulationService } from '../service/simulation.service';
 
 @Component({
   selector: "app-loansimulate",
@@ -14,14 +13,14 @@ import { LoanCalculService } from '../service/loan-calcul.service';
 })
 
 export class LoansimulateComponent implements OnInit {
+  dataSimulate: string;
   lastUpdate = new Date();
-  simulation: Simulation = new Simulation();
   submitted = false;
   simulateForm: FormGroup;
 
 
   // Inject service to create Loan (forms)
-  constructor(private formBuilder: FormBuilder
+  constructor(private formBuilder: FormBuilder, private simulationService: SimulationService
   ) { }
 
   ngOnInit() {
@@ -40,18 +39,15 @@ export class LoansimulateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.simulateForm.value);
-
+    // console.log(this.simulateForm.value);
+    this.dataSimulate = JSON.stringify(this.simulateForm.value);
+    console.log(this.dataSimulate);
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.simulateForm.invalid) {
       return;
     }
-
-    // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4));
-
   }
 
   reset() {

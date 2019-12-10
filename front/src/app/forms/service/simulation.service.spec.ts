@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoanCalculService } from './loan-calcul.service';
+import { SimulationService } from './simulation.service';
 
-describe('LoanCalculService', () => {
+describe('SimulationService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LoanCalculService = TestBed.get(LoanCalculService);
+    const service: SimulationService = TestBed.get(SimulationService);
     expect(service).toBeTruthy();
   });
 });
