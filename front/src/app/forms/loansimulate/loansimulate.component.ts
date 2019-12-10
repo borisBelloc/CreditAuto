@@ -20,34 +20,14 @@ export class LoansimulateComponent implements OnInit {
   simulateForm;
 
   // Inject service to create Loan (forms)
-  constructor(
-    private loanCalculService: LoanCalculService,
-    private formBuilder: FormBuilder
-  ) {
-    this.simulateForm = this.formBuilder.group({
-      amountPurchase: "",
-      amountLoan: "",
-      category: "A",
-      durationLoan: "",
-      loanCost: ""
-    });
-  }
+  constructor() { };
 
   newEmployee(): void {
     this.submitted = false;
   }
 
-  saveSimulation() {
-    this.loanCalculService.createSimulation(this.simulation).subscribe(
-      data => console.log(data),
-      error => console.log(error)
-    );
-    this.simulation = new Simulation();
-  }
-
   onSubmit() {
     this.submitted = true;
-    this.saveSimulation();
     //console.warn("Your form has been submitted", formData);
     //this.simulateForm.disable();
     // this.items = this.cartService.clearCart();
@@ -61,5 +41,5 @@ export class LoansimulateComponent implements OnInit {
   }
   // this.simulateForm.disable();
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

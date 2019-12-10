@@ -4,37 +4,24 @@
   <!-- TODO: responsive mobile col-12 -->
   <!-- TODO: tous les champs de formulaire 'number only' -->
   <div class="row">
+
+    <!-- [formGroup]="simulateForm"   -->
     <div class="col-6">
+
       <!-- [formGroup]="simulateForm"   -->
-      <form
-        [formGroup]="simulateForm"
-        (ngSubmit)="onSubmit(simulateForm.value)"
-      >
+      <form [formGroup]="simulateForm" (ngSubmit)="onSubmit(simulateForm.value)">
         <div class="form-group row">
-          <label for="purchasePrice" class="col-5 col-form-label"
-            >Montant de l'achat</label
-          >
+          <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat</label>
           <div class="col-6">
-            <input
-              id="purchasePrice"
-              class="form-control sharp glowOrange"
-              formControlName="amountPurchase"
-              type="number"
-            />
+            <input id="purchasePrice" class="form-control sharp glowOrange" formControlName="amountPurchase"
+              type="number" />
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="loanAmount" class="col-5 col-form-label"
-            >Montant du crédit</label
-          >
+          <label for="loanAmount" class="col-5 col-form-label">Montant du crédit</label>
           <div class="col-6">
-            <input
-              id="loanAmount"
-              class="form-control sharp glowOrange"
-              formControlName="amountLoan"
-              type="number"
-            />
+            <input id="loanAmount" class="form-control sharp glowOrange" formControlName="amountLoan" type="number" />
           </div>
         </div>
 
@@ -42,11 +29,7 @@
         <div class="form-group row">
           <label for="category" class="col-5 col-form-label">Catégorie</label>
           <div class="col-6">
-            <select
-              id="category"
-              class="form-control sharp glowOrange"
-              formControlName="category"
-            >
+            <select id="category" class="form-control sharp glowOrange" formControlName="category">
               <option>A</option>
               <option>B</option>
             </select>
@@ -54,30 +37,17 @@
         </div>
 
         <div class="form-group row">
-          <label for="durationLoan" class="col-5 col-form-label"
-            >Durée du crédit (en mois)</label
-          >
+          <label for="durationLoan" class="col-5 col-form-label">Durée du crédit (en mois)</label>
           <div class="col-6">
-            <input
-              id="durationLoan"
-              class="form-control sharp glowOrange"
-              formControlName="durationLoan"
-              type="number"
-            />
+            <input id="durationLoan" class="form-control sharp glowOrange" formControlName="durationLoan"
+              type="number" />
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="loanPrice" class="col-5 col-form-label"
-            >Coût du crédit</label
-          >
+          <label for="loanPrice" class="col-5 col-form-label">Coût du crédit</label>
           <div class="col-6">
-            <input
-              id="loanPrice"
-              disabled
-              class="form-control sharp"
-              formControlName="loanCost"
-            />
+            <input id="loanPrice" disabled class="form-control sharp" formControlName="loanCost" />
           </div>
         </div>
 
@@ -86,40 +56,37 @@
             Calculer crédit
           </button>
           <!-- if you don't want a btn to submit the form, you could add : type="button" -->
-          <button
-            class="btn btn-dark sharp mt-4"
-            type="reset"
-            (click)="reset()"
-          >
+          <button class="btn btn-dark sharp mt-4" type="reset" (click)="reset()">
             Annuler
           </button>
         </div>
       </form>
-      <!-- TODO: Tableau echeance -->
-      <div class="col-5">
-        <table class="table" table-striped>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Montant</th>
-              <th>Montant cumulé</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let op of ops">
-              <td>{{ op.date | date: "MM/dd/yyyy" }}</td>
-              <td>{{ op.montant }}</td>
-              <td>{{ op.montantCumule }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="container spacer">
-          <ul class="nav nav-pills">
-            <li ng-repeat="p in pages track by $index">
-              <a ng-click="goToPage">{{ $index }}</a>
-            </li>
-          </ul>
-        </div>
+    </div>
+
+    <!-- TODO: Tableau echeance -->
+    <div class="col-6">
+      <table class="table" table-striped>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Montant cumulé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let op of ops">
+            <td>{{ op.date | date: "MM/dd/yyyy" }}</td>
+            <td>{{ op.montant }}</td>
+            <td>{{ op.montantCumule }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container spacer">
+        <ul class="nav nav-pills">
+          <li ng-repeat="p in pages track by $index">
+            <a ng-click="goToPage">{{ $index }}</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
