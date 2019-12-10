@@ -8,15 +8,19 @@ import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
 
 @Repository
+@Transactional
 public class RateDAO implements DAO<Rate> {
 	
+	@Autowired
 	private EntityManager entityManager;
 
 	@Override
@@ -50,7 +54,7 @@ public class RateDAO implements DAO<Rate> {
 	@Override
 	public void save(Rate t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.persist(t));
+		entityManager.persist(t);
 		
 	}
 
@@ -62,10 +66,11 @@ public class RateDAO implements DAO<Rate> {
 	@Override
 	public void delete(Rate t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.remove(t));
+		entityManager.remove(t);
 		
 	}
 	
+	/*
     private void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
         try {
@@ -77,6 +82,6 @@ public class RateDAO implements DAO<Rate> {
             tx.rollback();
             throw e;
         }
-    }
+    }*/
 
 }
