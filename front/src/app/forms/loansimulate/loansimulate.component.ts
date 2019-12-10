@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateloanService } from 'src/app/services/createloan.service';
 
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class LoansimulateComponent implements OnInit {
       amountLoan: '',
       category: 'A',
       durationLoan: '',
-      loanCost: ''
+      // loanCost: '' // valeur qui n'est pas récupéré dans le front
     });
 
   }
@@ -37,10 +37,12 @@ export class LoansimulateComponent implements OnInit {
     // console.log('qqq ', formData.category);
   }
   reset()   {
-    this.simulateForm.get('amountPurchase').enable();
-    this.simulateForm.get('amountLoan').enable();
-    this.simulateForm.get('category').enable();
-    this.simulateForm.get('durationLoan').enable();
+    this.simulateForm.enable();
+    //  use this if loanCost is inside the form
+    // this.simulateForm.get('amountPurchase').enable();
+    // this.simulateForm.get('amountLoan').enable();
+    // this.simulateForm.get('category').enable();
+    // this.simulateForm.get('durationLoan').enable();
   }
 
   ngOnInit() {
