@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-// Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { SimulateLoanContract } from 'src/model/model-simulateloancontract';
+// Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Simulation } from '../class/simulation';
-import { Observable, Subject, BehaviorSubject, merge } from 'rxjs';
 import { SimulationService } from '../service/simulation.service';
 
 @Component({
@@ -32,7 +30,6 @@ export class LoansimulateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private simulationService: SimulationService
   ) {}
 
   ngOnInit() {
