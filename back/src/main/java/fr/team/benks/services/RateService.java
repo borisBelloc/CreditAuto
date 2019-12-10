@@ -34,9 +34,9 @@ public class RateService {
 		
 	}
 	
-	public Optional<Rate> getRate(CategorieVehicle categorie, int valMin, int valMax, int duree) {
+	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 		
-		return rateDAO.getRate(categorie, valMin, valMax, duree);
+		return rateDAO.getRate(categorie, montant, duree);
 		
 	}
 

@@ -6,8 +6,11 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.team.benks.model.User;
@@ -15,6 +18,7 @@ import fr.team.benks.model.User;
 @Repository
 public class UserDAO implements DAO<User> {
 	
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
@@ -34,7 +38,7 @@ public class UserDAO implements DAO<User> {
 	@Override
 	public void save(User t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.persist(t));
+		entityManager.persist(t);
 		
 	}
 
@@ -47,10 +51,11 @@ public class UserDAO implements DAO<User> {
 	@Override
 	public void delete(User t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.remove(t));
+		entityManager.remove(t);
 		
 	}
 	
+	/*
     private void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
         try {
@@ -62,6 +67,6 @@ public class UserDAO implements DAO<User> {
             tx.rollback();
             throw e;
         }
-    }
+    }*/
 
 }

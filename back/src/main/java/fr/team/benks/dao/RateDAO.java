@@ -7,8 +7,11 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.team.benks.model.CategorieVehicle;
@@ -17,6 +20,7 @@ import fr.team.benks.model.Rate;
 @Repository
 public class RateDAO implements DAO<Rate> {
 	
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
@@ -26,14 +30,15 @@ public class RateDAO implements DAO<Rate> {
 	
 	}
 	
-	public Optional<Rate> getRate(CategorieVehicle categorie, int valMin, int valMax, int duree) {
+	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 		
-		Query query = entityManager.createQuery("SELECT e FROM Rate e WHERE e.categorie = ? and e.valMin = ? and e.valMax = ? and e.duree = ?");
+		Query query = entityManager.createQuery("SELECT e FROM Rate e WHERE e.categorie = ? and e.valMin <= ? and e.valMax > ? and e.dureeMin < ? and e.dureeMax >= ?");
 		
 		query.setParameter(1, categorie);
-		query.setParameter(2, valMin);
-		query.setParameter(3, valMax);
+		query.setParameter(2, montant);
+		query.setParameter(3, montant);
 		query.setParameter(4, duree);
+		query.setParameter(5, duree);
 		
 		return Optional.ofNullable((Rate) query.getSingleResult());
 
@@ -50,7 +55,7 @@ public class RateDAO implements DAO<Rate> {
 	@Override
 	public void save(Rate t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.persist(t));
+		entityManager.persist(t);
 		
 	}
 
@@ -62,10 +67,11 @@ public class RateDAO implements DAO<Rate> {
 	@Override
 	public void delete(Rate t) {
 		
-		executeInsideTransaction(entityManager -> entityManager.remove(t));
+		entityManager.remove(t);
 		
 	}
 	
+	/*
     private void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
         try {
@@ -77,6 +83,6 @@ public class RateDAO implements DAO<Rate> {
             tx.rollback();
             throw e;
         }
-    }
+    }*/
 
 }

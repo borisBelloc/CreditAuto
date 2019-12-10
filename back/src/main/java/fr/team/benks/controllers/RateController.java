@@ -36,7 +36,7 @@ public class RateController {
 		
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Optional<Rate> findById(@PathVariable Long id) {
 		
 		return rs.get(id);
@@ -44,9 +44,9 @@ public class RateController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Optional<Rate> findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("valMin") int valMin, @RequestParam("valMax") int valMax, @RequestParam("duree") int duree) {
+	public Optional<Rate> findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("montant") int montant, @RequestParam("duree") int duree) {
 		
-		return rs.getRate(categorie, valMin, valMax, duree);
+		return rs.getRate(categorie, montant, duree);
 		
 	}
 

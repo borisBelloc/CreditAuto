@@ -28,6 +28,9 @@ public class Rate {
 	private int valMax;
 	
 	@Column
-	private int duree;
+	private int dureeMin;
+	
+	@Column
+	private int dureeMax;
 	
 }
