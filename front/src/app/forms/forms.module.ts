@@ -1,22 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { FormsRoutingModule } from './forms-routing.module';
-import { LoansimulateComponent } from './loansimulate/loansimulate.component';
+import { FormsRoutingModule } from "./forms-routing.module";
+import { LoansimulateComponent } from "./loansimulate/loansimulate.component";
 
 //  IMPORTANT ! IMPORT REACTIVEFORMSMODULE !!
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [LoansimulateComponent],
-  exports: [
-    LoansimulateComponent
-  ],
+  exports: [LoansimulateComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
-export class FormsModule { }
+export class FormsModule {}

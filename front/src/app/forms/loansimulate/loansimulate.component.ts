@@ -18,7 +18,7 @@ export class LoansimulateComponent implements OnInit {
   submitted = false;
   simulateForm: FormGroup;
 
-
+  
   // Inject service to create Loan (forms)
   constructor(private formBuilder: FormBuilder, private simulationService: SimulationService
   ) { }
@@ -39,11 +39,10 @@ export class LoansimulateComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.simulateForm.value);
-    this.dataSimulate = JSON.stringify(this.simulateForm.value);
+    console.log(this.simulateForm.value);
     console.log(this.dataSimulate);
     this.submitted = true;
-
+    this.simulationService.postSimulation(this.simulateForm.value);
     // stop here if form is invalid
     if (this.simulateForm.invalid) {
       return;
