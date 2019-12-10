@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
@@ -15,10 +16,9 @@ import org.springframework.stereotype.Repository;
 import fr.team.benks.model.User;
 
 @Repository
-@Transactional
 public class UserDAO implements DAO<User> {
 	
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override

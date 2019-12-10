@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,9 @@ import org.springframework.stereotype.Repository;
 import fr.team.benks.model.LoanContract;
 
 @Repository
-@Transactional
 public class ContractDAO implements DAO<LoanContract>{
 	
-	@Autowired
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
