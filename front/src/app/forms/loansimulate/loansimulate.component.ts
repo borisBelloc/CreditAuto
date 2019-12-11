@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SimulateLoanContract } from 'src/model/model-simulateloancontract';
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Simulation } from '../class/simulation';

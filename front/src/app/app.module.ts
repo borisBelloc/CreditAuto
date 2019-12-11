@@ -19,6 +19,7 @@ import { IdentificationComponent } from './identification/identification.compone
 
 
 @NgModule({
+  // TODO: verif quoi mettre dans declarations : home/body ?
   declarations: [
     AppComponent, HomeComponent, IdentificationComponent
   ],
