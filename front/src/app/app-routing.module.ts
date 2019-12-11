@@ -5,6 +5,7 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 import { CustomerComponent } from './forms/customer/customer.component';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
+import { TransitionscreenComponent } from './body/transitionscreen/transitionscreen.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: 'login', component: IdentificationComponent },
+  { path: 'transition', component: TransitionscreenComponent },
 
 
   { path: 'simulation', component: LoansimulateComponent },
