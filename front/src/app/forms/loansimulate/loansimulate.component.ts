@@ -73,12 +73,13 @@ export class LoansimulateComponent implements OnInit {
     //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
-    this.simulateForm.enable();
+    //  use this if loanCost is outside the form
+    // this.simulateForm.enable();
     this.isBtnsVisible = true;
     //  use this if loanCost is inside the form
-    // this.simulateForm.get('amountPurchase').enable();
-    // this.simulateForm.get('amountLoan').enable();
-    // this.simulateForm.get('category').enable();
-    // this.simulateForm.get('durationLoan').enable();
+    this.simulateForm.get('amountPurchase').enable();
+    this.simulateForm.get('amountLoan').enable();
+    this.simulateForm.get('category').enable();
+    this.simulateForm.get('durationLoan').enable();
   }
 }
