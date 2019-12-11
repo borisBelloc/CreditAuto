@@ -17,7 +17,7 @@ import fr.team.benks.services.CalculService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/loans")
-public class LoanController {
+public class ContractController {
 
 //	@Autowired
 

@@ -4,14 +4,14 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import fr.team.benks.model.LoanContract;
+import fr.team.benks.model.Contract;
 
 @Transactional
 @Repository
-public class ContractDAO extends AbstractJpaRepository<LoanContract>{
+public class ContractDAO extends AbstractJpaRepository<Contract>{
 
 	protected ContractDAO() {
-		super(LoanContract.class);
+		super(Contract.class);
 		// TODO Auto-generated constructor stub
 	}
 	
