@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Address implements IdEntity{
 	
 	@Id
 	@GeneratedValue
@@ -22,11 +22,11 @@ public class Address {
 	@Column
 	private String city;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -53,7 +53,7 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+
 	
 
 }

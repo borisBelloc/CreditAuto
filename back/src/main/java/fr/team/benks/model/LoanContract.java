@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class LoanContract {
+public class LoanContract implements IdEntity{
 	
 	@Id
 	@GeneratedValue
@@ -48,5 +48,16 @@ public class LoanContract {
 	
 	@Column
 	private BigDecimal rate;
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
+		
+	}
 
 }

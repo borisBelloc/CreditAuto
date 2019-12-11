@@ -1,7 +1,6 @@
 package fr.team.benks.model;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Rate {
+public class Rate implements IdEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6625790952359549394L;
 
 	@Id
 	@GeneratedValue
@@ -49,9 +53,6 @@ public class Rate {
 		this.dureeMax = dureeMax;
 	}
 
-	public long getId() {
-		return id;
-	}
 
 	public void setId(long id) {
 		this.id = id;
@@ -110,5 +111,15 @@ public class Rate {
 	public String toString() {
 		return "Rate [id=" + id + ", value=" + value + ", categorie=" + categorie + ", valMin=" + valMin + ", valMax="
 				+ valMax + ", dureeMin=" + dureeMin + ", dureeMax=" + dureeMax + "]";
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

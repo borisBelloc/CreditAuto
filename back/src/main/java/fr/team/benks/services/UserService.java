@@ -18,9 +18,9 @@ public class UserService {
 		
 	}
 	
-	public Optional<User> get(long id) {
+	public User get(long id) {
 		
-		return userDAO.get(id);
+		return userDAO.find(id);
 	
 	}
 	

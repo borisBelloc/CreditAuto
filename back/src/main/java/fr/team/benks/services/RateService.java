@@ -27,9 +27,9 @@ public class RateService {
 		
 	}
 	
-	public Optional<Rate> get(long id) {
+	public Rate get(long id) {
 		
-		return rateDAO.get(id);
+		return rateDAO.find(id);
 	
 	}
 	
@@ -48,7 +48,7 @@ public class RateService {
 	
 	public List<Rate> getAll() {
 		
-		return rateDAO.getAll();
+		return rateDAO.findAll();
 	}
 
 

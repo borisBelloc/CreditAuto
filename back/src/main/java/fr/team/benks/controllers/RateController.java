@@ -25,7 +25,6 @@ import fr.team.benks.services.UserService;
 
 @RestController
 @RequestMapping("/api/rates")
-
 public class RateController {
 
 	@Autowired
@@ -39,12 +38,11 @@ public class RateController {
 
 	}
 
-	
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Rate findById(@PathVariable Long id) {
-		
-		return rs.get(id).get();
-		
+
+		return rs.get(id);
+
 	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
@@ -73,7 +71,7 @@ public class RateController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Rate> getAll() {
-		
+
 		return rs.getAll();
 	}
 

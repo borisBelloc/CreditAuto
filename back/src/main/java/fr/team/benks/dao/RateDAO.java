@@ -19,29 +19,20 @@ import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
 
 @Repository
-public class RateDAO implements DAO<Rate> {
+public class RateDAO extends AbstractJpaRepository<Rate> {
+	
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Override
-	public Optional<Rate> get(long id) {
-
-		return Optional.ofNullable(entityManager.find(Rate.class, id));
-
+	protected RateDAO() {
+		super(Rate.class);
 	}
+
+
 
 	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 
-//		Query query = entityManager.createQuery("SELECT e FROM Rate e WHERE e.categorie = ? and e.valMin <= ? and e.valMax > ? and e.dureeMin < ? and e.dureeMax >= ?");
-//		
-//		query.setParameter(1, categorie);
-//		query.setParameter(2, montant);
-//		query.setParameter(3, montant);
-//		query.setParameter(4, duree);
-//		query.setParameter(5, duree);
-//		
-//		return Optional.ofNullable((Rate) query.getSingleResult());
 
 		TypedQuery<Rate> query = entityManager.createQuery(
 				"SELECT e FROM Rate e WHERE e.categorie =:categorie and e.valMin <=:montant"
@@ -56,31 +47,9 @@ public class RateDAO implements DAO<Rate> {
 
 	}
 
-	@Override
-	public List<Rate> getAll() {
 
-		Query query = entityManager.createQuery("SELECT e FROM Rate e");
-		return query.getResultList();
-	}
 
-	@Override
-	public Rate save(Rate t) {
-		entityManager.persist(t);
-		return t;
 
-	}
-
-	@Override
-	public void update(Rate t, String[] params) {
-
-	}
-
-	@Override
-	public void delete(Rate t) {
-
-		entityManager.remove(t);
-
-	}
 
 	/*
 	 * private void executeInsideTransaction(Consumer<EntityManager> action) {

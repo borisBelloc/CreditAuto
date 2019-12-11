@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Optional<User> findById(@PathVariable Long id) {
+	public User findById(@PathVariable Long id) {
 		
 		return us.get(id);
 		
