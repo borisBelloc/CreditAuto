@@ -16,6 +16,11 @@ public class UserDAO extends AbstractJpaRepository<User> {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	public User findByLogin() {
+		return null;
+		
+	}
 
 
 

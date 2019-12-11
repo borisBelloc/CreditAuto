@@ -8,4 +8,11 @@ public class ClientDAO extends AbstractJpaRepository<Client>{
 		super(Client.class);
 	}
 
+	/*
+	 * TODO 
+	 * findByFirstNameAndLastName
+	 * 
+	 * findContract return List<Contract>
+	 */
+	
 }
