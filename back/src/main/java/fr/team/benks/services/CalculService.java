@@ -42,7 +42,7 @@ public class CalculService {
 	 */
 	public static BigDecimal calculMonthlyCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
 
-		BigDecimal txPer = txAnnuel.divide(new BigDecimal(12), finalResultRounding);
+		BigDecimal txPer = txAnnuel.divide(new BigDecimal(12), finalResultRounding).divide(new BigDecimal(100),finalResultRounding);
 		System.out.println("txPer : " + txPer);
 
 		BigDecimal divided = mtEmp.multiply(txPer, preciseRounding)
@@ -61,7 +61,8 @@ public class CalculService {
 	 * @param txAnnuel
 	 * @param nbEch
 	 * @param mtEmp
-	 * @param souscription
+	 * @param souscription LocalDate
+	 * 
 	 */
 	public static void afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp, LocalDate souscription) {
 		
