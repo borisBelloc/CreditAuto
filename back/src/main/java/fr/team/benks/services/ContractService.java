@@ -19,4 +19,14 @@ public class ContractService {
 		
 	}
 
+	public void save(Rate resource) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public LoanContract get(int number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

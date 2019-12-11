@@ -1,7 +1,5 @@
 package fr.team.benks.controllers;
 
-import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,23 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.LoanContract;
 import fr.team.benks.model.Rate;
-import fr.team.benks.services.CalculService;
-import fr.team.benks.services.LoanService;
+import fr.team.benks.services.ContractService;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/loans")
-public class LoanController {
+public class ContractController {
 
 	@Autowired
-	private LoanService ls;
+	private ContractService cs;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody Rate resource) {
 
-		ls.save(resource);
+		cs.save(resource);
 
 	}
 	
@@ -39,7 +36,7 @@ public class LoanController {
 	@ResponseBody
 	public LoanContract findByNumber(@PathVariable int number) {
 
-		return ls.get(number);
+		return cs.get(number);
 
 	}
 
