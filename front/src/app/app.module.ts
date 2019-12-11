@@ -16,32 +16,25 @@ import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
 
-
-
 @NgModule({
   // TODO: verif quoi mettre dans declarations : home/body ?
-  declarations: [
-    AppComponent, HomeComponent, IdentificationComponent
-  ],
+  declarations: [AppComponent, HomeComponent, IdentificationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BodyModule,
     NgbModule,
     NavigationModule,
-    FormsModule,
-    // Routing
-    // Suprim AppRoutingModule + composant dans app.component.html (laisser que navbar car sur toutes les pages)
-    // + supprim app-routing.module
+    FormsModule
+    // Exemple Routing simplifié
     // RouterModule.forRoot([
     //   // { path: '', component: AppComponent },
     //   { path: '', redirectTo: 'simul', pathMatch: 'full' },
     //   { path: 'simul', component: LoansimulateComponent }
-  //   // { path: 'shipping', component: ShippingComponent }
+    //   // { path: 'shipping', component: ShippingComponent }
     // ])
   ],
   providers: [],
-  bootstrap: [AppComponent, HomeComponent]
+  bootstrap: [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {}
