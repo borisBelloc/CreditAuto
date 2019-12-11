@@ -42,7 +42,7 @@ public class Client implements IdEntity {
 	private LocalDate birthdate;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
-	private List<LoanContract> loanContrat;
+	private List<Contract> loanContrat;
 
 	@Override
 	public Long getId() {

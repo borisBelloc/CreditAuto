@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.team.benks.model.LoanContract;
+import fr.team.benks.model.Contract;
 import fr.team.benks.model.Rate;
 import fr.team.benks.services.ContractService;
 
@@ -34,7 +34,7 @@ public class ContractController {
 	
 	@RequestMapping(value = "{number}", method = RequestMethod.GET)
 	@ResponseBody
-	public LoanContract findByNumber(@PathVariable int number) {
+	public Contract findByNumber(@PathVariable int number) {
 
 		return cs.get(number);
 

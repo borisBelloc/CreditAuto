@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class LoanContract implements IdEntity{
+public class Contract implements IdEntity{
 	
 	/**
 	 * 
