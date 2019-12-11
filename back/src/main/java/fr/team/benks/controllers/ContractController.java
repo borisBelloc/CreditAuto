@@ -27,19 +27,14 @@ public class ContractController {
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody Rate resource) {
-
 		cs.save(resource);
-
 	}
 	
 	@RequestMapping(value = "{number}", method = RequestMethod.GET)
 	@ResponseBody
 	public Contract findByNumber(@PathVariable int number) {
-
 		return cs.get(number);
-
 	}
 
-	
 }
 
