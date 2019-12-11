@@ -14,12 +14,13 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 // forms
 import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
+import { IdentificationComponent } from './identification/identification.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent
+    AppComponent, HomeComponent, IdentificationComponent
   ],
   imports: [
     BrowserModule,
@@ -35,10 +36,11 @@ import { HomeComponent } from './body/home/home.component';
     //   // { path: '', component: AppComponent },
     //   { path: '', redirectTo: 'simul', pathMatch: 'full' },
     //   { path: 'simul', component: LoansimulateComponent }
-    //   // { path: 'shipping', component: ShippingComponent }
+  //   // { path: 'shipping', component: ShippingComponent }
     // ])
   ],
   providers: [],
   bootstrap: [AppComponent, HomeComponent]
 })
+
 export class AppModule { }
