@@ -1,5 +1,11 @@
 package fr.team.benks.dao;
 
-public class ClientDAO {
+import fr.team.benks.model.Client;
+
+public class ClientDAO extends AbstractJpaRepository<Client>{
+
+	protected ClientDAO() {
+		super(Client.class);
+	}
 
 }

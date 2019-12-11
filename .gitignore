@@ -68,6 +68,11 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+<<<<<<< HEAD
 
 # Development properties
 application-dev.properties
+=======
+back/.classpath
+
+>>>>>>> 274857f2f209e8a7d14b1d7849efca318c2ed071
