@@ -9,6 +9,11 @@ import javax.persistence.Id;
 @Entity
 public class Address implements IdEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8424697508890000493L;
+
 	@Id
 	@GeneratedValue
 	private long id;

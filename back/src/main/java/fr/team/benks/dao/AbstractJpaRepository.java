@@ -15,7 +15,7 @@ import fr.team.benks.model.IdEntity;
 
 @Transactional
 @Repository
-public class AbstractJpaRepository <T extends IdEntity> {
+public abstract class AbstractJpaRepository <T extends IdEntity> {
 
 	@PersistenceContext
 	protected EntityManager entityManager;

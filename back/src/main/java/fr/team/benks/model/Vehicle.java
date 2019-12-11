@@ -6,8 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Vehicle {
+public class Vehicle implements IdEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6222968970154783614L;
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -21,11 +26,11 @@ public class Vehicle {
 	@Column
 	private String model;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
