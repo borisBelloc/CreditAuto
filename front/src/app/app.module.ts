@@ -18,6 +18,7 @@ import { HomeComponent } from './body/home/home.component';
 
 
 @NgModule({
+  // TODO: verif quoi mettre dans declarations : home/body ?
   declarations: [
     AppComponent, HomeComponent
   ],
