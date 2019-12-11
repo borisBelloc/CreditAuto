@@ -39,12 +39,12 @@ public class RateController {
 
 	}
 
+	
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	@ResponseBody
-	public Rate findById(@PathVariable Long id) {
-
-		return rs.get(id).get();
-
+	public Optional<Rate> findById(@PathVariable Long id) {
+		
+		return rs.get(id);
+		
 	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
