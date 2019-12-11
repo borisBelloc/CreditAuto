@@ -5,3 +5,11 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+
+body {
+  // background-color: #343A40;
+}
+
+[class*="col-"] {
+  // border: 1px red solid;
+}

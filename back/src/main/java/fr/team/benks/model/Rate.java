@@ -16,6 +16,21 @@ public class Rate {
 	private long id;
 	
 	@Column
-	private List<BigDecimal> values;
+	private BigDecimal value;
+	
+	@Column
+	private CategorieVehicle categorie;
+	
+	@Column
+	private int valMin;
+	
+	@Column
+	private int valMax;
+	
+	@Column
+	private int dureeMin;
+	
+	@Column
+	private int dureeMax;
 	
 }

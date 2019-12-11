@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  title = 'Mon App';
-  logo = './assets/logo.png';
-  constructor() { }
+
+  logo: string;
+  isCollapsed = true;
+
+  constructor() {
+    this.logo = 'assets/img/logo.png';
+  }
 
   ngOnInit() {
   }
