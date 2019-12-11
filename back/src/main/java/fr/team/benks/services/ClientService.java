@@ -13,4 +13,9 @@ public class ClientService {
 		return null;
 	}
 
+	public void save(Client resource) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
