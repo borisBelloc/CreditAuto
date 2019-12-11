@@ -7,8 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Address implements IdEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8424697508890000493L;
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -22,11 +27,11 @@ public class Address {
 	@Column
 	private String city;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -53,7 +58,7 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+
 	
 
 }

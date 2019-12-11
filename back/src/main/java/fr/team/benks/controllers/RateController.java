@@ -41,10 +41,9 @@ public class RateController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	@ResponseBody
 	public Rate findById(@PathVariable Long id) {
 
-		return rs.get(id).get();
+		return rs.get(id);
 
 	}
 
@@ -74,7 +73,7 @@ public class RateController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Rate> getAll() {
-		
+
 		return rs.getAll();
 	}
 

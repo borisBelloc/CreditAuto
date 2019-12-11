@@ -8,8 +8,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_") 
-public class User {
+public class User implements IdEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8449559893644101468L;
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -28,5 +33,17 @@ public class User {
 	
 	@Column
 	private String email;
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
+		
+	}
 
 }
