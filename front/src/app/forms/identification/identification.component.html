@@ -5,7 +5,7 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Authentification LDAP</legend>
 
-  <div class="form-group row">
+  <div class="form-group row mt-3">
     <label for="purchasePrice" class="col-5 col-form-label">Identifiant</label>
     <div class="col-4">
       <input id="purchasePrice" name="amountPurchase" class="form-control sharp glowOrange"
@@ -20,9 +20,13 @@
         type="password" />
     </div>
   </div>
+  <!-- TODO: Lien vers génération nouveau password -->
+  <div class="text-right">
+      <i class="fas fa-unlock-alt"></i><span class="ml-1">Mot de passe oublié</span>
+</div>
   <div>
 
-    <button class="aligne btn btn-dark sharp" ng-click="start()">Se Connecter</button>
+    <button class="btn btn-dark sharp" ng-click="start()">Se Connecter</button>
 
   </div>
   </fieldset>
