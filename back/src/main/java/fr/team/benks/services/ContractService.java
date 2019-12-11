@@ -26,7 +26,7 @@ public class ContractService {
 
 	public Contract get(int number) {
 		// TODO Auto-generated method stub
-		return null;
+		return cd.findByNumber(number);
 	}
 
 }
