@@ -36,9 +36,10 @@ public class UserDAO implements DAO<User> {
 	}
 
 	@Override
-	public void save(User t) {
+	public User save(User t) {
 		
 		entityManager.persist(t);
+		return t;
 		
 	}
 

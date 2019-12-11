@@ -58,7 +58,6 @@ public class JpaConfiguration {
 		return properties;
 	}
 
-
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
@@ -66,4 +65,3 @@ public class JpaConfiguration {
 		return transactionManager;
 	}
 }
-
