@@ -40,7 +40,8 @@ public abstract class AbstractJpaRepository <T extends IdEntity> {
 	}
 
 	public T find(Long id) {
-		return Optional.ofNullable(entityManager.find(type, id)).get();
+		Optional<T> query = Optional.ofNullable(entityManager.find(type, id));
+		return query.isPresent() ? query.get() : null;
 	}
 
 	public List<T> findAll() {
