@@ -22,7 +22,7 @@ public class UserDAO extends AbstractJpaRepository<User> {
 	public User findByLogin(String login) {
 		
 		TypedQuery<User> query = entityManager.createQuery(
-				"SELECT e FROM User u WHERE u.userName = ?", User.class);
+				"SELECT u FROM User u WHERE u.userName = ?", User.class);
 		
 		query.setParameter(1, login);
 		

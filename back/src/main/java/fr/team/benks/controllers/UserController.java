@@ -22,7 +22,7 @@ import fr.team.benks.model.User;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @Controller
 @RequestMapping("/api/users")
 @ResponseBody

@@ -21,7 +21,7 @@ import fr.team.benks.model.Rate;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.RateService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/rates")
 public class RateController {
@@ -44,7 +44,7 @@ public class RateController {
 
 	}
 
-//	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
+//	
 //	@RequestMapping( method = RequestMethod.GET)
 //	public BigDecimal findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("montant") int montant, @RequestParam("duree") int duree) {
 //		
@@ -56,6 +56,7 @@ public class RateController {
 //	}
 //	
 
+	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
 	@RequestMapping(params = { "categorie", "montant", "duree" }, method = RequestMethod.GET)
 	public BigDecimal findByParams(@RequestParam("categorie") CategorieVehicle categorie,
 			@RequestParam("montant") int montant, @RequestParam("duree") int duree) {

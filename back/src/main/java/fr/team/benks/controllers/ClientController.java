@@ -20,7 +20,7 @@ import fr.team.benks.model.Rate;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.ClientService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/clients")
 public class ClientController {
