@@ -22,12 +22,6 @@ export class LoansimulateComponent implements OnInit {
 
   isBtnsVisible = true;
 
-  /**
-   * Used to swap btn 'Calculer crédit' & 'Créer contrat'
-   */
-  toggleDisplayBtn() {
-    this.isBtnsVisible = !this.isBtnsVisible;
-  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,6 +38,20 @@ export class LoansimulateComponent implements OnInit {
     });
   }
 
+  // convenience getter for easy access to form fields (ex:f.amountPurchase)
+  get f() {
+    return this.simulateForm.controls;
+  }
+
+  /**
+   * DEPRECATED
+   * No more used, check later to see if needed
+   */
+  toggleDisplayBtn() {
+    this.isBtnsVisible = !this.isBtnsVisible;
+  }
+
+
   onSubmit(formData) {
     console.warn('FORM ICI -> ', formData);
 
@@ -59,14 +67,15 @@ export class LoansimulateComponent implements OnInit {
     console.log(this.simulation);
 
     // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
-    this.toggleDisplayBtn();
+    // this.toggleDisplayBtn();
+    this.isBtnsVisible = false;
     this.simulateForm.disable();
     //this.simulateLoanContract.amountLoan = formData.amountLoan;
     //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
     this.simulateForm.enable();
-    this.toggleDisplayBtn();
+    this.isBtnsVisible = true;
     //  use this if loanCost is inside the form
     // this.simulateForm.get('amountPurchase').enable();
     // this.simulateForm.get('amountLoan').enable();
