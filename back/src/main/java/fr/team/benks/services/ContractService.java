@@ -1,5 +1,7 @@
 package fr.team.benks.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +21,25 @@ public class ContractService {
 		
 	}
 
-	public void save(Rate resource) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public Contract get(int number) {
 		// TODO Auto-generated method stub
 		return cd.findByNumber(number);
+	}
+	
+	public void update(Contract c) {
+		cd.update(c);
+	}
+	
+	public List<Contract> getAll(){
+		
+		return cd.findAll();
+		
+	}
+
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		cd.delete(id);
+		
 	}
 
 }

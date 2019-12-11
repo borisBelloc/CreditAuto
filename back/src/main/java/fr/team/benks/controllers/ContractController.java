@@ -26,7 +26,7 @@ public class ContractController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@RequestBody Rate resource) {
+	public void create(@RequestBody Contract resource) {
 		cs.save(resource);
 	}
 	
@@ -34,6 +34,19 @@ public class ContractController {
 	@ResponseBody
 	public Contract findByNumber(@PathVariable int number) {
 		return cs.get(number);
+	}
+	
+	@RequestMapping(value = "{number}", method = RequestMethod.PUT)
+	@ResponseBody
+	public void delete(@PathVariable long id) {
+		
+		cs.delete(id);
+		
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public void update(@RequestBody Contract resource) {
+		cs.update(resource);
 	}
 
 }
