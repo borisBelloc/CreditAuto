@@ -1,6 +1,6 @@
 fieldset.scheduler-border {
   border: 1px groove #ddd;
-  padding: 0 1.4em 34em 1.4em;
+  padding: 14em ;
   /* haut | droit | bas | gauche */
   // margin: 0 0 1.5em 0 !important;
   margin: 1.5em;
@@ -9,10 +9,10 @@ fieldset.scheduler-border {
 }
 
 
-.aligne{
 
-display: flex;
-justify-content:center;
-align-items:center;
-
+.sharp {
+  border-radius: 0;
 }
+
+
+
