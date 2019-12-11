@@ -51,7 +51,7 @@ export class LoansimulateComponent implements OnInit {
 
 
   onSubmit(formData) {
-    //console.warn('FORM ICI -> ', formData);
+    // console.warn('FORM ICI -> ', formData);
     this.simulationService
       .getLoanValue(
         formData.category,
@@ -73,8 +73,8 @@ export class LoansimulateComponent implements OnInit {
     this.isBtnsVisible = false;
     this.simulateForm.disable();
 
-    //this.simulateLoanContract.amountLoan = formData.amountLoan;
-    //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
+    // this.simulateLoanContract.amountLoan = formData.amountLoan;
+    // console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
     //  use this if loanCost is outside the form
