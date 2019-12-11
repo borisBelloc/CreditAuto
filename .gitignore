@@ -10,6 +10,7 @@
 # -- ECLIPSE 
 .project
 /back/target
+back/.classpath
 .classpath
 /target
 .metadata
@@ -68,9 +69,3 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-<<<<<<< HEAD
-back/.classpath
-=======
-
-.application.properties
->>>>>>> 2964c0e624e0fc0fbb96690534b0bc1a0c051a3d
