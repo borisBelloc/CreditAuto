@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-contractsearch',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractsearchComponent implements OnInit {
 
-  constructor() { }
+  searchContractForm: FormGroup;
 
-  ngOnInit() {
+  constructor(private formBuilder: FormBuilder) {}
+
+  onSubmit(formData) {
+    console.warn('Identifiant client -> ', formData);
   }
 
+  // convenience getter for easy access to form fields (ex:f.amountPurchase)
+  get f() {
+    return this.searchContractForm.controls;
+  }
+
+  ngOnInit() {
+    this.searchContractForm = this.formBuilder.group({
+      customerLastname: [''],
+      customerFirstname: [''],
+      customerContractNumber: [''],
+    });
+  }
 }

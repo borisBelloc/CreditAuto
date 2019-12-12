@@ -1,0 +1,10 @@
+@media screen and (max-width: 991px) {
+  .secondRow {
+    margin-top: 2em;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
