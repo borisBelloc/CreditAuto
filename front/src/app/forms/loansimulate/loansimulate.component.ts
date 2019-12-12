@@ -12,25 +12,24 @@ import { SimulationService } from '../service/simulation.service';
   styleUrls: ['./loansimulate.component.scss']
 })
 export class LoansimulateComponent implements OnInit {
-  dataSimulate: string;
-  lastUpdate = new Date();
+  //dataSimulate: string;
+  //lastUpdate = new Date();
+  //simulation: Simulation;
   submitted = false;
   simulateForm: FormGroup;
   response: any;
-  simulation: Simulation;
   isBtnsVisible = true;
-
 
   constructor(
     private formBuilder: FormBuilder,
     private simulationService: SimulationService,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.simulateForm = this.formBuilder.group({
       amountPurchase: ['', Validators.required],
       amountLoan: ['', Validators.required],
-      category: ['A', Validators.required],
+      category: ['', Validators.required],
       durationLoan: ['', Validators.required],
       loanCost: ['']
     });
@@ -49,8 +48,13 @@ export class LoansimulateComponent implements OnInit {
     this.isBtnsVisible = !this.isBtnsVisible;
   }
 
-
   onSubmit(formData) {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.simulateForm.invalid) {
+      return;
+    }
     // console.warn('FORM ICI -> ', formData);
     this.simulationService
       .getLoanValue(
