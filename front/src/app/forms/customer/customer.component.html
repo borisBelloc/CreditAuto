@@ -4,6 +4,13 @@
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
     <div class="container">
       <div class="form-group row justify-content-center">
+
+        <div class="col-12 my-3 text-center">
+          <div *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
+            <i class="far fa-lightbulb mr-1"></i> il faut indiquer au minimum l'adresse email ou le numéro de téléphone du client
+          </div>
+        </div>
+
         <label for="customerLastname" class="col-2 col-form-label text-right"
           >Nom</label
         >
@@ -54,21 +61,13 @@
               <div *ngIf="f.customerEmail.errors['required']">L'adresse email est requise</div>
               <div *ngIf="f.customerEmail.errors['email']">Format de l'adresse email non valide</div>
 
-              <div *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
+              <div class=" text-center" *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
                 <br><br>
                 <i class="fas fa-exclamation mr-1"></i> L'adresse email ou le numéro de téléphone doit être indiqué
               </div>
 
 
           </div>
-        </div>
-
-        <div class="col-12 mt-3 text-center">
-          <div *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
-
-            <i class="far fa-lightbulb mr-1"></i> il faut indiquer au minimum l'adresse email ou le numéro de téléphone du client
-
-        </div>
         </div>
       </div>
 
