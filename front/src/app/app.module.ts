@@ -14,13 +14,14 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 // forms
 import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
-import { IdentificationComponent } from './identification/identification.component';
+import { IdentificationComponent } from './forms/identification/identification.component';
+import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, IdentificationComponent
+    AppComponent, HomeComponent, IdentificationComponent,
   ],
   imports: [
     BrowserModule,
