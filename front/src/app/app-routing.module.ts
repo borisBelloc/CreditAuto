@@ -7,6 +7,7 @@ import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
 import { TransitionscreenComponent } from './body/transitionscreen/transitionscreen.component';
 import { StatsComponent } from './body/stats/stats.component';
+import { CreateClientComponent } from './forms/create-client/create-client.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,9 @@ const routes: Routes = [
 
   { path: 'client', component: CustomerComponent },
   // TODO remove client2; used for test
-  { path: 'client2', component: CustomerComponent }
+  { path: 'client2', component: CustomerComponent },
+
+  { path: 'createClient', component: CreateClientComponent}
 ];
 
 @NgModule({
