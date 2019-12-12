@@ -7,74 +7,73 @@
     <div class="col-6">
       <form [formGroup]="simulateForm" (ngSubmit)="onSubmit(simulateForm.value)">
         <div class="form-group row">
-          <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat</label>
+          <label for="purchasePrice" class="col-5 col-form-label">Montant de l'achat (€)</label>
           <div class="col-6">
             <input id="purchasePrice" name="amountPurchase" class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.amountPurchase.errors }" formControlName="amountPurchase"
               type="number" />
             <div *ngIf="submitted && f.amountPurchase.errors" class="invalid-feedback">
-              <div *ngIf="f.amountPurchase.errors.required">amount purchase is required</div>
+              <div *ngIf="f.amountPurchase.errors.required">Entrer montant</div>
             </div>
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="loanAmount" class="col-5 col-form-label">Montant du crédit</label>
+          <label for="loanAmount" class="col-5 col-form-label">Montant du crédit (€)</label>
           <div class="col-6">
             <input id="loanAmount" name="amountLoan" class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.amountLoan.errors }" formControlName="amountLoan"
               type="number" />
             <div *ngIf="submitted && f.amountLoan.errors" class="invalid-feedback">
-              <div *ngIf="f.amountLoan.errors.required">amount is required</div>
+              <div *ngIf="f.amountLoan.errors.required">Entrer montant</div>
             </div>
           </div>
         </div>
 
         <!-- TODO: change color border select -->
         <div class="form-group row">
-          <label for="category" class="col-5 col-form-label">Catégorie</label>
+          <label for="category" class="col-5 col-form-label">Catégorie véhicule</label>
           <div class="col-6">
             <select id="category" name="category" class="form-control sharp glowOrange"
-              [ngClass]="{ 'is-invalid': submitted && f.category.errors }" 
-              formControlName="category">
+              [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
               <option>A</option>
               <option>B</option>
             </select>
             <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
-              <div *ngIf="f.category.errors.required">category is required</div>
+              <div *ngIf="f.category.errors.required">Entrer catégorie</div>
             </div>
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="durationLoan" class="col-5 col-form-label">Durée du crédit (en mois)</label>
+          <label for="durationLoan" class="col-5 col-form-label">Durée du crédit (mois)</label>
           <div class="col-6">
             <input id="durationLoan" name="durationLoan" class="form-control sharp glowOrange"
-            [ngClass]="{ 'is-invalid': submitted && f.durationLoan.errors }" 
-             formControlName="durationLoan" type="number" />
-             <div *ngIf="submitted && f.durationLoan.errors" class="invalid-feedback">
-              <div *ngIf="f.durationLoan.errors.required">durationLoan is required</div>
+              [ngClass]="{ 'is-invalid': submitted && f.durationLoan.errors }" formControlName="durationLoan"
+              type="number" />
+            <div *ngIf="submitted && f.durationLoan.errors" class="invalid-feedback">
+              <div *ngIf="f.durationLoan.errors.required">Entrer durée</div>
             </div>
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="loanPrice" class="col-5 col-form-label">Coût du crédit</label>
+          <label for="loanPrice" class="col-5 col-form-label">Coût du crédit (€)</label>
           <div class="col-6">
             <input id="loanPrice" disabled name="loanCost" class="form-control sharp" formControlName="loanCost"
               value="{{ response }}" />
           </div>
         </div>
 
-        
-        <div class="form-group row">
-          <label for="loanPrice" class="col-5 col-form-label">Montant de l'échéance</label>
-          <div class="col-6">
-            <input id="loanPrice" disabled name="loanCost" class="form-control sharp" formControlName="loanCost"
-              value="{{ 10000/f.durationLoan.value}}" />
+        <ng-container *ngIf="isEcheanceVisible">
+          <div class="form-group row">
+            <label for="loanPrice" class="col-5 col-form-label">Montant de l'échéance (€)</label>
+            <div class="col-6">
+              <input id="loanPrice" disabled name="loanCost" class="form-control sharp" formControlName="loanCost"
+                value="{{ 10000/f.durationLoan.value}}" />
+            </div>
           </div>
-        </div>
-
+        </ng-container>
 
         <div class="d-flex justify-content-around">
           <button *ngIf="isBtnsVisible" class="btn btn-dark sharp mt-4" type="submit">
@@ -82,7 +81,7 @@
           </button>
 
           <!-- TODO: ajout method pour afficher Echeancier (click) -->
-          <button *ngIf="!isBtnsVisible" class="btn btn-dark sharp mt-4" type="button">
+          <button *ngIf="!isBtnsVisible" class="btn btn-dark sharp mt-4" type="button" (click)="echeance()">
             Echéancier
           </button>
           <!-- TODO: ajout method pour creer le contrat (click) -->

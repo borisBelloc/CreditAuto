@@ -15,10 +15,11 @@ export class LoansimulateComponent implements OnInit {
   //dataSimulate: string;
   //lastUpdate = new Date();
   //simulation: Simulation;
-  submitted = false;
   simulateForm: FormGroup;
   response: any;
+  submitted = false;
   isBtnsVisible = true;
+  isEcheanceVisible = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,9 +30,8 @@ export class LoansimulateComponent implements OnInit {
     this.simulateForm = this.formBuilder.group({
       amountPurchase: ['', Validators.required],
       amountLoan: ['', Validators.required],
-      category: ['', Validators.required],
-      durationLoan: ['', Validators.required],
-      loanCost: ['']
+      category: [' ', Validators.required],
+      durationLoan: ['', Validators.required]
     });
   }
 
@@ -55,6 +55,9 @@ export class LoansimulateComponent implements OnInit {
     if (this.simulateForm.invalid) {
       return;
     }
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4));
+
     // console.warn('FORM ICI -> ', formData);
     this.simulationService
       .getLoanValue(
@@ -84,10 +87,15 @@ export class LoansimulateComponent implements OnInit {
     //  use this if loanCost is outside the form
     // this.simulateForm.enable();
     this.isBtnsVisible = true;
+    this.isEcheanceVisible = false;
     //  use this if loanCost is inside the form
     this.simulateForm.get('amountPurchase').enable();
     this.simulateForm.get('amountLoan').enable();
     this.simulateForm.get('category').enable();
     this.simulateForm.get('durationLoan').enable();
+  }
+
+  echeance() {
+    this.isEcheanceVisible = true;
   }
 }
