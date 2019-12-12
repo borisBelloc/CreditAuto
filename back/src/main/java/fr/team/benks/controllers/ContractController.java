@@ -17,16 +17,10 @@ import fr.team.benks.services.CalculService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/loans")
-public class LoanController {
+public class ContractController {
 
-	@Autowired
-	private CalculService calculService;
-	
-	@RequestMapping(method = RequestMethod.POST)
-	public BigDecimal calculCost(@RequestBody BigDecimal calcul) {
-	 
-	
-	}
+//	@Autowired
+
 	
 }
 

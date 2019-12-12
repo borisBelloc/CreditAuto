@@ -3,6 +3,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NavigationRoutingModule } from './navigation-routing.module';
 
 
 
@@ -13,7 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    NavigationRoutingModule
   ]
 })
 export class NavigationModule { }

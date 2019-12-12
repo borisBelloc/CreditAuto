@@ -1,18 +1,24 @@
 package fr.team.benks.services;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
+
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.team.benks.dao.RateDAO;
 import fr.team.benks.dao.UserDAO;
 import fr.team.benks.model.CategorieVehicle;
+import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 
 @Service
+@Transactional
 public class RateService {
 	
 	@Autowired
@@ -22,15 +28,21 @@ public class RateService {
 		
 	}
 	
-	public Optional<Rate> get(long id) {
+	public Rate find(long id) {
 		
-		return rateDAO.get(id);
+		return rateDAO.find(id);
 	
 	}
 	
-	public void save(Rate t) {
+	
+	public Rate save(Rate t) {
 		
-		rateDAO.save(t);
+		return rateDAO.save(t);
+		
+	}
+
+	public List<Rate> saveAll(List<Rate> resource) {
+		return rateDAO.saveAll(resource);
 		
 	}
 	
@@ -39,5 +51,11 @@ public class RateService {
 		return rateDAO.getRate(categorie, montant, duree);
 		
 	}
+	
+	public List<Rate> findAll() {
+		
+		return rateDAO.findAll();
+	}
+
 
 }

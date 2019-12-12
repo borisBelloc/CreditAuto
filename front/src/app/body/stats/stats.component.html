@@ -1,0 +1,67 @@
+<fieldset class="fieldsetBorder">
+  <legend class="fieldsetBorder mb-5">Rapport de production</legend>
+
+  <span>Nombre de nouveaux contrats de crédit automobile réalisés.</span>
+  <br />
+  <br />
+
+  <div class="container-fluid">
+    <div class="row text-center">
+      <div class="col-6">
+        <ngb-datepicker
+          #dp
+          [(ngModel)]="model"
+          (navigate)="date = $event.next"
+        ></ngb-datepicker>
+
+        <div class="mt-4">
+          <button
+            class="btn btn-sm btn-outline-dark mr-2"
+            (click)="selectToday()"
+          >
+            Selectionner la date du jour
+          </button>
+          <button
+            class="btn btn-sm btn-outline-dark mr-2"
+            (click)="dp.navigateTo()"
+          >
+            Revenir au mois actuel
+          </button>
+          <!-- <button
+          class="btn btn-sm btn-outline-dark mr-2"
+          (click)="dp.navigateTo({ year: 2013, month: 2 })"
+        >
+          Aller a fevrier 2013
+        </button> -->
+        </div>
+      </div>
+
+      <div class="col-6">
+        <h5>Nombre de nouveaux contrats dans la période sélectionnée :</h5>
+
+        <div class="text-center">
+          <!-- TODO: afficher résultat calcul de la DB -->
+          <h1 class="mt-5">XX</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<!-- TODO: afficher message aide ci-dessous -->
+
+<div>
+  <hr />
+  <fieldset class="fieldsetBorder p-3">
+    Aide : Entrer la date à partir de laquelle est calculé le nombre de nouveaux
+    contrats établis, puis cliquer sur « Valider »
+  </fieldset>
+</div>
+
+<!-- TODO: remove -->
+<div class="offset-3" style="font-size: 10px;">
+  Dev :
+  <br>
+  <pre>Month: {{ date.month }}.{{ date.year }}</pre>
+  <pre>Model: {{ model | json }}</pre>
+</div>
