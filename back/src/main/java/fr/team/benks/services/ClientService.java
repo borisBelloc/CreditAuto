@@ -22,6 +22,11 @@ public class ClientService {
 		// TODO Auto-generated method stub
 		return clientDAO.findByFirstnameAndLastname(firstName, lastName);
 	}
+	
+	public List<Client> findByFirstnameAndLastnameAndEmail(String firstName, String lastName, String email) {
+		// TODO Auto-generated method stub
+		return clientDAO.findByFirstnameAndLastnameAndEmail(firstName, lastName, email);
+	}
 
 	public List<Contract> findContracts(long id){
 		return clientDAO.findContracts(id);

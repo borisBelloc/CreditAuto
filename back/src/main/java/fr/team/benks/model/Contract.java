@@ -16,9 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
-
 @SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 1)
-
 public class Contract implements IdEntity {
 
 	/**

@@ -33,7 +33,6 @@ public class ClientController {
 		cs.save(resource);
 
 	}
-	
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Client findById(@PathVariable Long id) {
@@ -62,17 +61,27 @@ public class ClientController {
 		return cs.delete(id);
 	}
 
-	@RequestMapping(params = { "firstName", "lastName" }, method = RequestMethod.GET)
-	public List<Client> findByFirstnameAndLastname(@RequestParam("firstName") String firstName,
-			@RequestParam("lastName") String lastName) {
+//	@RequestMapping(params = { "firstName", "lastName" }, method = RequestMethod.GET)
+//	public List<Client> findByFirstnameAndLastname(@RequestParam("firstName") String firstName,
+//			@RequestParam("lastName") String lastName) {
+//
+//		List<Client> result = cs.findByFirstnameAndLastname(firstName, lastName);
+//
+//		return result;
+//
+//	}
 
-		List<Client> result = cs.findByFirstnameAndLastname(firstName, lastName);
+	@RequestMapping(params = { "firstName", "lastName", "email" }, method = RequestMethod.GET)
+	public List<Client> findByFirstnameAndLastnameAndEmail(@RequestParam("firstName") String firstName,
+			@RequestParam("lastName") String lastName, @RequestParam("email") String email) {
+
+		List<Client> result = cs.findByFirstnameAndLastnameAndEmail(firstName, lastName, email);
 
 		return result;
 
 	}
-	
-	@RequestMapping(value= "/{id}/contracts", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/{id}/contracts", method = RequestMethod.GET)
 	public List<Contract> findContracts(@PathVariable Long id) {
 
 		List<Contract> result = cs.findContracts(id);

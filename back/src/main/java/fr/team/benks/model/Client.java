@@ -7,9 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -19,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @Entity
+@SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 500)
 public class Client implements IdEntity {
 
 	/**
@@ -33,6 +36,7 @@ public class Client implements IdEntity {
 	@OneToOne
 	private Address address;
 
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	@Column
 	private int numClient;
 
@@ -49,11 +53,21 @@ public class Client implements IdEntity {
 	@Column
 	private LocalDate birthdate;
 
+	@Column
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
 	private List<Contract> contract;
 
-		
 	public Client() {
 		super();
 	}
