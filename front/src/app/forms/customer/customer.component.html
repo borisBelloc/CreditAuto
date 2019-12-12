@@ -1,75 +1,90 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche client</legend>
 
-  <form
-  [formGroup]="searchForm"
-  (ngSubmit)="onSubmit(searchForm.value)">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+    <div class="container">
+      <div class="form-group row justify-content-center">
+        <label for="customerLastname" class="col-2 col-form-label text-right"
+          >Nom</label
+        >
+
+        <div class="col-3">
+          <input
+            class="form-control sharp glowOrange"
+            [ngClass]="{'is-invalid': submitted && f.customerLastname.errors}"
+            formControlName="customerLastname"
+            type="text"
+          />
+          <div
+          *ngIf="submitted && f.customerLastname.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.customerLastname.errors['required']">
+            Entrer le nom du client
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center">
+        <label for="customerFirstname" class="col-2 col-form-label text-right"
+          >Prénom</label>
+
+        <div class="col-3">
+          <input
+            class="form-control sharp glowOrange"
+            formControlName="customerFirstname"
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row justify-content-center">
+        <label for="customerEmail" class="col-2 col-form-label text-right"
+          >e-mail</label
+        >
+        <div class="col-3">
+          <input
+            class="form-control sharp glowOrange"
+            [ngClass]="{ 'is-invalid': submitted && f.customerEmail.errors }"
+            formControlName="customerEmail"
+            type="email"
+          />
+          <div *ngIf="submitted && f.customerEmail.errors" class="invalid-feedback">
+              <div *ngIf="f.customerEmail.errors['required']">L'adresse email est requise</div>
+              <div *ngIf="f.customerEmail.errors['email']">Format de l'adresse email non valide</div>
+
+              <div *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
+                <br><br>
+                <i class="fas fa-exclamation mr-1"></i> L'adresse email ou le numéro de téléphone doit être indiqué
+              </div>
 
 
+          </div>
+        </div>
 
-  <div class="container">
-    <div class="form-group row justify-content-center">
-      <label for="purchasePrice" class="col-2 col-form-label text-right"
-        >Nom</label
-      >
+        <div class="col-12 mt-3 text-center">
+          <div *ngIf="f.customerEmail?.value?.length == 0 && f.customerLastname?.value?.length == 0" >
 
-      <div class="col-3">
-        <input
-          id="customerFirstname"
-          name="customerFirstname"
-          class="form-control sharp glowOrange"
-          formControlName="customerFirstname"
-          type="text"
-        />
+            <i class="far fa-lightbulb mr-1"></i> il faut indiquer au minimum l'adresse email ou le numéro de téléphone du client
+
+        </div>
+        </div>
+      </div>
+
+      <!-- </form> -->
+
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-dark sharp mt-4 mr-1" type="submit">
+          Rechercher
+        </button>
+
+        <button class="btn btn-dark sharp mt-4 ml-1" type="reset">
+          Annuler
+        </button>
       </div>
     </div>
-
-    <div class="form-group row justify-content-center">
-      <label for="loanAmount" class="col-2 col-form-label text-right"
-        >Prénom</label
-      >
-      <div class="col-3">
-        <input
-          id="customerLastname"
-          name="customerLastname"
-          class="form-control sharp glowOrange"
-          formControlName="customerLastname"
-          type="text"
-        />
-      </div>
-    </div>
-
-    <div class="form-group row justify-content-center">
-      <label for="customerEmail" class="col-2 col-form-label text-right"
-        >e-mail</label
-      >
-      <div class="col-3">
-        <input
-          id="customerEmail"
-          name="customerEmail"
-          class="form-control sharp glowOrange"
-          formControlName="customerEmail"
-          type="email"
-        />
-      </div>
-    </div>
-
-    <!-- </form> -->
-
-    <div class="d-flex justify-content-center">
-      <button class="btn btn-dark sharp mt-4 mr-1" type="submit">
-        Rechercher
-      </button>
-
-      <button class="btn btn-dark sharp mt-4 ml-1"
-      type="reset"
-      >
-        Annuler
-      </button>
-    </div>
-  </div>
-
-</form>
+  </form>
   <!--
   <form #searchUserForm="ngForm" (ngSubmit)="submit(monForm)">
 
