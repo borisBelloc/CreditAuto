@@ -26,6 +26,10 @@ public class Address implements IdEntity{
 	
 	@Column
 	private String city;
+	
+	public Address() {
+		
+	}
 
 	public Long getId() {
 		return id;
