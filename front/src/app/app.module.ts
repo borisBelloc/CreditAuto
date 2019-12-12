@@ -15,10 +15,14 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
+import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
+
+
 
 @NgModule({
-  // TODO: verif quoi mettre dans declarations : home/body ?
-  declarations: [AppComponent, HomeComponent, IdentificationComponent],
+  declarations: [
+    AppComponent, HomeComponent, IdentificationComponent, ConfigurationtauxComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

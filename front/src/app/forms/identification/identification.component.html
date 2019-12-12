@@ -1,44 +1,35 @@
 <fieldset class="fieldsetBorder">
-  <p>Accueil</p>
+<p>Accueil</p>
 
-  <fieldset class="fieldsetBorder">
-    <legend class="fieldsetBorder">Authentification LDAP</legend>
 
-    <div class="form-group row mt-3">
-      <label for="purchasePrice" class="col-5 col-form-label"
-        >Identifiant</label
-      >
-      <div class="col-4">
-        <input
-          id="purchasePrice"
-          name="amountPurchase"
-          class="form-control sharp glowOrange"
-          formControlName="amountPurchase"
-        />
-      </div>
+<fieldset class="fieldsetBorder">
+  <legend class="fieldsetBorder">Authentification LDAP</legend>
+
+  <div class="form-group row">
+    <label for="purchasePrice" class="col-5 col-form-label">Identifiant</label>
+    <div class="col-4">
+      <input id="purchasePrice" name="amountPurchase" class="form-control sharp glowOrange"
+        formControlName="amountPurchase"  />
     </div>
+  </div>
 
-    <div class="form-group row">
-      <label class="col-5 col-form-label">Mot de passe</label>
-      <div class="col-4">
-        <input
-          id="loanAmount"
-          name="amountLoan"
-          class="form-control sharp glowOrange"
-          formControlName="amountLoan"
-          type="password"
-        />
-      </div>
+  <div class="form-group row">
+    <label  class="col-5 col-form-label">Mot de passe</label>
+    <div class="col-4">
+      <input id="loanAmount" name="amountLoan" class="form-control sharp glowOrange" formControlName="amountLoan"
+        type="password" />
     </div>
-    <!-- TODO: Lien vers génération nouveau password -->
+  </div>
+  <div>
+
+    <button class="btn btn-dark sharp" routerLink="/transition">Se Connecter</button>
     <div class="text-right">
-      <i class="fas fa-unlock-alt"></i
-      ><span class="ml-2">Mot de passe oublié</span>
-    </div>
-    <div>
-      <button class="btn btn-dark sharp" routerLink="/transition">
-        Se Connecter
-      </button>
-    </div>
+        <i class="fas fa-unlock-alt"></i>
+    <span class="ml-2">Mot de passe oublié ?
+
+    </span>
+
+  </div>
+
+  </div>
   </fieldset>
-</fieldset>
