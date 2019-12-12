@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 public class Client implements IdEntity {
 
@@ -30,23 +33,48 @@ public class Client implements IdEntity {
 	private int numClient;
 
 	@Column
-	private char gender;
+	private Gender gender;
 
 	@Column
-	private String name;
+	private String lastName;
 
 	@Column
-	private String firstname;
+	private String firstName;
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column
 	private LocalDate birthdate;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
-	private List<Contract> loanContrat;
+	private List<Contract> contract;
+
+		
+	public Client() {
+		super();
+	}
+
+	public Client(int numClient, Gender gender, String lastName, String firstname, LocalDate birthdate) {
+		super();
+		this.numClient = numClient;
+		this.gender = gender;
+		this.lastName = lastName;
+		this.firstName = firstname;
+		this.birthdate = birthdate;
+	}
+
+	public Client(Address address, int numClient, Gender gender, String lastName, String firstname,
+			LocalDate birthdate) {
+		super();
+		this.address = address;
+		this.numClient = numClient;
+		this.gender = gender;
+		this.lastName = lastName;
+		this.firstName = firstname;
+		this.birthdate = birthdate;
+	}
 
 	@Override
 	public Long getId() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 
@@ -54,6 +82,66 @@ public class Client implements IdEntity {
 	public void setId(Long id) {
 		this.id = id;
 
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public int getNumClient() {
+		return numClient;
+	}
+
+	public void setNumClient(int numClient) {
+		this.numClient = numClient;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstname) {
+		this.firstName = firstname;
+	}
+
+	public LocalDate getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(LocalDate birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public List<Contract> getContract() {
+		return contract;
+	}
+
+	public void setContract(List<Contract> contract) {
+		this.contract = contract;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
