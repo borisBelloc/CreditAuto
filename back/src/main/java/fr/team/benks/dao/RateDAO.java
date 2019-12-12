@@ -41,14 +41,4 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 	}
 
 
-
-
-
-	/*
-	 * private void executeInsideTransaction(Consumer<EntityManager> action) {
-	 * EntityTransaction tx = entityManager.getTransaction(); try { tx.begin();
-	 * action.accept(entityManager); tx.commit(); } catch (RuntimeException e) {
-	 * tx.rollback(); throw e; } }
-	 */
-
 }

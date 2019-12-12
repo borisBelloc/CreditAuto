@@ -2,6 +2,8 @@ package fr.team.benks.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -18,7 +20,8 @@ public class Vehicle implements IdEntity{
 	private long id;
 	
 	@Column
-	private char category;
+	@Enumerated(EnumType.STRING)
+	private CategorieVehicle category;
 	
 	@Column
 	private String brand;
@@ -34,11 +37,11 @@ public class Vehicle implements IdEntity{
 		this.id = id;
 	}
 
-	public char getCategory() {
+	public CategorieVehicle getCategory() {
 		return category;
 	}
 
-	public void setCategory(char category) {
+	public void setCategory(CategorieVehicle category) {
 		this.category = category;
 	}
 

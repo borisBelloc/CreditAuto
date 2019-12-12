@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
+import fr.team.benks.model.User;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.RateService;
+import fr.team.benks.services.UserService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/rates")
 public class RateController {
@@ -40,11 +43,11 @@ public class RateController {
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Rate findById(@PathVariable Long id) {
 
-		return rs.get(id);
+		return rs.find(id);
 
 	}
 
-//	
+//	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
 //	@RequestMapping( method = RequestMethod.GET)
 //	public BigDecimal findByParams(@RequestParam("categorie") CategorieVehicle categorie, @RequestParam("montant") int montant, @RequestParam("duree") int duree) {
 //		
@@ -56,7 +59,6 @@ public class RateController {
 //	}
 //	
 
-	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
 	@RequestMapping(params = { "categorie", "montant", "duree" }, method = RequestMethod.GET)
 	public BigDecimal findByParams(@RequestParam("categorie") CategorieVehicle categorie,
 			@RequestParam("montant") int montant, @RequestParam("duree") int duree) {
@@ -72,7 +74,7 @@ public class RateController {
 	@ResponseBody
 	public List<Rate> getAll() {
 
-		return rs.getAll();
+		return rs.findAll();
 	}
 
 }

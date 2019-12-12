@@ -27,7 +27,7 @@ public class RateService {
 		
 	}
 	
-	public Rate get(long id) {
+	public Rate find(long id) {
 		
 		return rateDAO.find(id);
 	
@@ -46,7 +46,7 @@ public class RateService {
 		
 	}
 	
-	public List<Rate> getAll() {
+	public List<Rate> findAll() {
 		
 		return rateDAO.findAll();
 	}
