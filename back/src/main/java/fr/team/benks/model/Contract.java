@@ -7,11 +7,14 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
+@SequenceGenerator(name="seq", initialValue=1000, allocationSize=1)
 public class Contract implements IdEntity{
 	
 	/**
@@ -24,6 +27,7 @@ public class Contract implements IdEntity{
 	private long id;
 	
 	@Column
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	private int numContract;
 	
 	@ManyToOne
