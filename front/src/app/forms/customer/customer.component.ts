@@ -25,7 +25,8 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
       customerFirstname: ['', Validators.required],
-      customerLastname: ['', Validators.required]
+      customerLastname: ['', Validators.required],
+      customerEmail: ['', Validators.required]
     });
   }
 }
