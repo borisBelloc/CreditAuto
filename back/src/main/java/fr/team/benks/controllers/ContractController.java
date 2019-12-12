@@ -1,5 +1,6 @@
 package fr.team.benks.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,7 +37,7 @@ public class ContractController {
 	@RequestMapping(value = "/{number}", method = RequestMethod.GET)
 	@ResponseBody
 	public Contract findByNumber(@PathVariable int number) {
-		return cs.get(number);
+		return cs.findByNumber(number);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -44,7 +46,7 @@ public class ContractController {
 		return cs.getAll();
 	}
 	
-	@RequestMapping(value = "/{number}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public void delete(@PathVariable long id) {
 		
@@ -55,6 +57,32 @@ public class ContractController {
 	@RequestMapping(method = RequestMethod.PUT)
 	public void update(@RequestBody Contract resource) {
 		cs.update(resource);
+	}
+	
+	@RequestMapping(value = {"/{id}/{status}"}, method = RequestMethod.PUT)
+	public void changeState(@PathVariable Long id, @PathVariable boolean status) {
+		
+		if(status) {
+			
+			cs.activate(id);
+			
+		}
+		
+		else {
+			
+			cs.deactivate(id);
+			
+		}
+		
+	}
+	
+	@RequestMapping(params = { "start", "end" }, method = RequestMethod.GET)
+	@ResponseBody
+	public int numberOfContractBetween(@RequestParam("start") LocalDate start, @RequestParam("end") LocalDate end) {
+		
+		return cs.numberOfContractBetween(start, end);
+		
+		
 	}
 
 }

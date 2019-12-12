@@ -1,5 +1,6 @@
 package fr.team.benks.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ContractService {
 		
 	}
 
-	public Contract get(int number) {
+	public Contract findByNumber(int number) {
 		// TODO Auto-generated method stub
 		return cd.findByNumber(number);
 	}
@@ -36,9 +37,27 @@ public class ContractService {
 		
 	}
 
-	public void delete(long id) {
+	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		cd.delete(id);
+		
+	}
+	
+	public void activate(Long id) {
+		
+		cd.activate(id);
+		
+	}
+	
+	public void deactivate(Long id) {
+		
+		cd.deactivate(id);
+		
+	}
+	
+	public int numberOfContractBetween(LocalDate start, LocalDate end) {
+		
+		return cd.numberOfContractBetween(start, end);
 		
 	}
 

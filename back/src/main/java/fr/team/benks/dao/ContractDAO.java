@@ -1,7 +1,11 @@
 package fr.team.benks.dao;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -34,8 +38,41 @@ public class ContractDAO extends AbstractJpaRepository<Contract>{
 		
 		query.setParameter(1, number);
 		
-		return query.getSingleResult();
+		
+		return query.getResultList().isEmpty() ? null : query.getResultList().get(0);
 		
 	}
+	
+	public void activate(Long id) {
+		
+		Contract c = this.find(id);
+		c.setActive(true);
+		entityManager.merge(c);
+		
+		
+	}
+	
+	public void deactivate(Long id) {
+		
+		Contract c = this.find(id);
+		c.setActive(false);
+		entityManager.merge(c);
+		
+		
+	}
+	
+	public int numberOfContractBetween(LocalDate start, LocalDate end){
+		
+		Query query = entityManager.createQuery(
+				"SELECT COUNT(u) FROM Contract u WHERE u.dateStart BETWEEN ? AND ?");
+		
+		
+		query.setParameter(1, start);
+		query.setParameter(2, end);
+		
+		return query.getFirstResult();
+		
+	}
+	
 
 }

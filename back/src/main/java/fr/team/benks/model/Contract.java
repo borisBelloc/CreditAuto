@@ -40,7 +40,7 @@ public class Contract implements IdEntity {
 	private Vehicle vehicle;
 
 	@Column
-	private boolean isActive;
+	private boolean isActive = true;
 
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column
