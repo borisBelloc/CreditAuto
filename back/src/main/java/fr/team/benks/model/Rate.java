@@ -22,7 +22,7 @@ public class Rate implements IdEntity{
 	private long id;
 	
 	@Column
-	private BigDecimal value;
+	private BigDecimal rateValue;
 	
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -46,9 +46,9 @@ public class Rate implements IdEntity{
 		super();
 	}
 
-	public Rate(BigDecimal value, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
+	public Rate(BigDecimal rateValue, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
 		super();
-		this.value = value;
+		this.rateValue = rateValue;
 		this.categorie = categorie;
 		this.valMin = valMin;
 		this.valMax = valMax;
@@ -61,12 +61,12 @@ public class Rate implements IdEntity{
 		this.id = id;
 	}
 
-	public BigDecimal getValue() {
-		return value;
+	public BigDecimal getRateValue() {
+		return rateValue;
 	}
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
+	public void setRateValue(BigDecimal rateValue) {
+		this.rateValue = rateValue;
 	}
 
 	public CategorieVehicle getCategorie() {
@@ -112,7 +112,7 @@ public class Rate implements IdEntity{
 	
 	@Override
 	public String toString() {
-		return "Rate [id=" + id + ", value=" + value + ", categorie=" + categorie + ", valMin=" + valMin + ", valMax="
+		return "Rate [id=" + id + ", value=" + rateValue + ", categorie=" + categorie + ", valMin=" + valMin + ", valMax="
 				+ valMax + ", dureeMin=" + dureeMin + ", dureeMax=" + dureeMax + "]";
 	}
 

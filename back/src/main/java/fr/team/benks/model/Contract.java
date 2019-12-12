@@ -1,7 +1,6 @@
 package fr.team.benks.model;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -17,56 +16,62 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
-@SequenceGenerator(name="seq", initialValue=1000, allocationSize=1)
-public class Contract implements IdEntity{
-	
+
+@SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 1)
+
+public class Contract implements IdEntity {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1809283309135761715L;
-
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private int numContract;
-	
+
 	@ManyToOne
 	private Client client;
-	
+
 	@OneToOne
 	private Vehicle vehicle;
-	
+
 	@Column
 	private boolean isActive;
-	
+
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column
 	private LocalDate dateContract;
-	
+
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column
 	private LocalDate dateStart;
-	
-	//duree en mois
+
+	// duree en mois
 	@Column
 	private int duration;
-	
+
 	@Column
 	private BigDecimal amount;
-	
+
 	@Column
 	private BigDecimal rate;
-	
-	public Contract() {
-		
-	}
-	
 
+	@Override
 	public Long getId() {
+
 		return id;
+
+	}
+
+	@Override
+	public void setId(Long id) {
+
+		this.id = id;
+
 	}
 
 	public int getNumContract() {
@@ -144,14 +149,5 @@ public class Contract implements IdEntity{
 	public void setId(long id) {
 		this.id = id;
 	}
-
-
-	@Override
-	public void setId(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 
 }
