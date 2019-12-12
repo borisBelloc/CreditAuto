@@ -1,5 +1,7 @@
 package fr.team.benks.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,6 +36,12 @@ public class ContractController {
 	@ResponseBody
 	public Contract findByNumber(@PathVariable int number) {
 		return cs.get(number);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	@ResponseBody
+	public List<Contract> findAll() {
+		return cs.getAll();
 	}
 	
 	@RequestMapping(value = "{number}", method = RequestMethod.PUT)

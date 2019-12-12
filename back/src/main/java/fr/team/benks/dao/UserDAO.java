@@ -31,7 +31,5 @@ public class UserDAO extends AbstractJpaRepository<User> {
 		
 	}
 
-
-
 }
 

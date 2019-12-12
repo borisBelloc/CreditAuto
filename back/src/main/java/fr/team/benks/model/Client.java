@@ -47,6 +47,9 @@ public class Client implements IdEntity {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
 	private List<Contract> contract;
+	
+	@Column
+	private String email;
 
 		
 	public Client() {
