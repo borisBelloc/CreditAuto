@@ -23,20 +23,21 @@ export class LoansimulateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private simulationService: SimulationService,
-  ) { }
+    private simulationService: SimulationService
+  ) {}
 
   ngOnInit() {
     this.simulateForm = this.formBuilder.group({
       amountPurchase: ['', Validators.required],
       amountLoan: ['', Validators.required],
-      category: [' ', Validators.required],
+      category: ['', Validators.required],
       durationLoan: ['', Validators.required]
     });
   }
 
   // convenience getter for easy access to form fields (ex:f.amountPurchase)
   get f() {
+    console.log(this.simulateForm.controls.amountPurchase.errors);
     return this.simulateForm.controls;
   }
 
@@ -56,7 +57,9 @@ export class LoansimulateComponent implements OnInit {
       return;
     }
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4));
+    alert(
+      'SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4)
+    );
 
     // console.warn('FORM ICI -> ', formData);
     this.simulationService
