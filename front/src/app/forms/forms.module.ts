@@ -8,9 +8,10 @@ import { LoansimulateComponent } from "./loansimulate/loansimulate.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CustomerComponent } from "./customer/customer.component";
 import { HttpClientModule } from "@angular/common/http";
+import { ContractsearchComponent } from './contractsearch/contractsearch.component';
 
 @NgModule({
-  declarations: [LoansimulateComponent, CustomerComponent],
+  declarations: [LoansimulateComponent, CustomerComponent, ContractsearchComponent],
   exports: [LoansimulateComponent],
   imports: [
     CommonModule,

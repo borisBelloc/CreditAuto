@@ -8,26 +8,25 @@ import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
 import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 import { StatsComponent } from './body/stats/stats.component';
+import { ContractsearchComponent } from './forms/contractsearch/contractsearch.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'home' , pathMatch: 'full'},
   {path: 'home' , component: HomeComponent},
   {path: 'login', component: IdentificationComponent},
+
   {path: 'transition' , component: TransionscreenComponent},
-  {path: 'taux' , component: ConfigurationtauxComponent},
-  // {
-  //   path: '',
-  //   redirectTo: 'accueil',
-  //   pathMatch: 'full'
-  //   }
- // { path: '', redirectTo: 'simulation', pathMatch: 'full' },
+
   { path: 'simulation', component: LoansimulateComponent },
   { path: 'statistiques', component: StatsComponent },
 
   { path: 'client', component: CustomerComponent },
   // TODO remove client2; used for test
-  { path: 'client2', component: CustomerComponent }
+  { path: 'client2', component: CustomerComponent },
+
+  { path: 'contrat', component: ContractsearchComponent },
+  {path: 'taux' , component: ConfigurationtauxComponent},
 ];
 
 @NgModule({
