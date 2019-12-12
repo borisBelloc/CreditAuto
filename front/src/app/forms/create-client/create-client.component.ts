@@ -24,18 +24,18 @@ export class CreateClientComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clientCreateService: ClientCreateService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      lastname: [''],
+      lastName: [''],
       firstName: [''],
       gender: [''],
       address: [''],
       city: [''],
-      codePostal: [''],
+      zipCode: [''],
       email: [''],
-      birthday: ['']
+      birthdate: ['']
     });
   }
 
@@ -54,7 +54,7 @@ export class CreateClientComponent implements OnInit {
 
     alert(
       'SUCCESS!! :-)\n\n' +
-        JSON.stringify(this.createClientForm.value, null, 10)
+      JSON.stringify(this.createClientForm.value, null, 10)
     );
 
     this.newClient = new Client(
