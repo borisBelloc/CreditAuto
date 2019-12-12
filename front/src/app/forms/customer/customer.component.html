@@ -1,10 +1,11 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche client</legend>
 
-  <!-- [formGroup]="customerForm"
-  (ngSubmit)="onSubmit(simulateForm.value)" -->
+  <form
+  [formGroup]="searchForm"
+  (ngSubmit)="onSubmit(searchForm.value)">
 
-  <!-- <form> -->
+
 
   <div class="container">
     <div class="form-group row justify-content-center">
@@ -51,6 +52,7 @@
     </div>
   </div>
 
+</form>
   <!--
   <form #searchUserForm="ngForm" (ngSubmit)="submit(monForm)">
 

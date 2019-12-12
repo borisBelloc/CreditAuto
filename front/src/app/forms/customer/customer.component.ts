@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-
-
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customer',
@@ -10,23 +8,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent implements OnInit {
-
   query: string;
 
+  searchForm: FormGroup;
+
   // import Router allow to use '*ngIf router' inside template
-  constructor(public router: Router) { }
+  constructor(public router: Router, private formBuilder: FormBuilder) {}
 
-
-  submit(searchUserForm: NgForm) {
-    console.log('Le formulaire : ', searchUserForm);
+  onSubmit(formData) {
+    console.warn('Identifiant client -> ', formData);
   }
-
-
-
 
   ngOnInit() {
+    this.searchForm = this.formBuilder.group({
+      customerFirstname: ['', Validators.required],
+      customerLastname: ['', Validators.required]
+    });
   }
-
-
-
 }
