@@ -13,7 +13,10 @@ export class CustomerComponent implements OnInit {
   searchForm: FormGroup;
 
   // import Router allow to use '*ngIf router' inside template
-  constructor(public router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    public router: Router,
+    private formBuilder: FormBuilder
+    ) {}
 
   onSubmit(formData) {
     console.warn('Identifiant client -> ', formData);
