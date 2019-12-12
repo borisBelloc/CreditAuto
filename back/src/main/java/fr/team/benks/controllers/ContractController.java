@@ -78,7 +78,7 @@ public class ContractController {
 	
 	@RequestMapping(params = { "start", "end" }, method = RequestMethod.GET)
 	@ResponseBody
-	public int numberOfContractBetween(@RequestParam("start") LocalDate start, @RequestParam("end") LocalDate end) {
+	public int numberOfContractBetween(@RequestParam("start") String start, @RequestParam("end") String end) {
 		
 		return cs.numberOfContractBetween(start, end);
 		

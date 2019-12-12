@@ -1,6 +1,7 @@
 package fr.team.benks.services;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,9 +56,17 @@ public class ContractService {
 		
 	}
 	
-	public int numberOfContractBetween(LocalDate start, LocalDate end) {
+	public int numberOfContractBetween(String start, String end) {
 		
-		return cd.numberOfContractBetween(start, end);
+		return cd.numberOfContractBetween(stringToDate(start), stringToDate(end));
+		
+	}
+	
+	private LocalDate stringToDate(String d) {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		return LocalDate.parse(d,formatter);
 		
 	}
 
