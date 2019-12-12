@@ -17,7 +17,7 @@ public class Address implements IdEntity{
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column
 	private String address;
 	
@@ -27,6 +27,11 @@ public class Address implements IdEntity{
 	@Column
 	private String city;
 
+	
+	public Address() {
+		super();
+	}
+	
 	public Long getId() {
 		return id;
 	}

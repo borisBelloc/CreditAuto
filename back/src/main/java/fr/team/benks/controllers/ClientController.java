@@ -89,15 +89,6 @@ public class ClientController {
 		return result;
 
 	}
-//	
-//	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-//	public List<Contract> findByFirstnameAndLastname(@RequestParam("firstName") String firstName,
-//			@RequestParam("lastName") String lastName) {
-//
-//		List<Client> result = cs.findByFirstnameAndLastname(firstName, lastName);
-//
-//		return result;
-//
-//	}
+
 
 }
