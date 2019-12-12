@@ -12,12 +12,12 @@ export class CreateClientComponent implements OnInit {
   createClientForm: FormGroup;
   submitted = false;
 
-  lastname: string;
+  lastName: string;
   firstName: string;
   gender: string;
-  AdresseClient: object;
+  address: object;
   email: string;
-  birthday: string;
+  birthdate: string;
 
   newClient: Client;
 
@@ -58,12 +58,12 @@ export class CreateClientComponent implements OnInit {
     );
 
     this.newClient = new Client(
-      this.lastname,
+      this.lastName,
       this.firstName,
       this.gender,
-      this.AdresseClient,
+      this.address,
       this.email,
-      this.birthday
+      this.birthdate
     );
     this.clientCreateService.createNewClient(this.newClient);
   }

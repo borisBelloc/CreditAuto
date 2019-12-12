@@ -14,14 +14,14 @@
             <input
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
-              formControlName="lastname"
+              formControlName="lastName"
               type="text"
             />
             <div
-              *ngIf="submitted && f.lastname.errors"
+              *ngIf="submitted && f.lastName.errors"
               class="invalid-feedback"
             >
-              <div *ngIf="f.lastname.errors['required']">
+              <div *ngIf="f.lastName.errors['required']">
                 Inserer votre nom
               </div>
             </div>
@@ -105,15 +105,12 @@
           <div class="col-7 offset-1">
             <input
               class="form-control sharp glowOrange"
-              [ngClass]="{ 'is-invalid': submitted && f.codePostal.errors }"
-              formControlName="codePostal"
+              [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }"
+              formControlName="zipCode"
               type="text"
             />
-            <div
-              *ngIf="submitted && f.codePostal.errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="f.codePostal.errors['required']">
+            <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
+              <div *ngIf="f.zipCode.errors['required']">
                 Inserer un element
               </div>
             </div>
@@ -144,13 +141,13 @@
               type="date"
               class="form-control"
               placeholder="Expected Date"
-              formControlName="birthday"
+              formControlName="birthdate"
             />
             <div
-              *ngIf="submitted && f.birthday.errors"
+              *ngIf="submitted && f.birthdate.errors"
               class="invalid-feedback"
             >
-              <div *ngIf="f.birthday.errors['required']">
+              <div *ngIf="f.birthdate.errors['required']">
                 Inserer element
               </div>
             </div>

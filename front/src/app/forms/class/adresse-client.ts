@@ -1,11 +1,11 @@
 export class AdresseClient {
   address: string;
-  city: string;
-  postalCode: number;
+  zipCode: string;
+  city: number;
 
-  constructor(address: string, city: string, postalCode: number) {
+  constructor(address: string, zipCode: string, city: number) {
     this.address = address;
+    this.zipCode = zipCode;
     this.city = city;
-    this.postalCode = postalCode;
   }
 }

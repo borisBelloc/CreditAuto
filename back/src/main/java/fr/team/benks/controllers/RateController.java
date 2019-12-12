@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,15 +18,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.CategorieVehicle;
+import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.RateService;
 import fr.team.benks.services.UserService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/rates")
-
 public class RateController {
 
 	@Autowired
@@ -38,13 +40,20 @@ public class RateController {
 		rs.save(resource);
 
 	}
-
 	
+	@RequestMapping(value = "{addRates}", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public void createAll(@RequestBody List<Rate> resource) {
+
+		rs.saveAll(resource);
+
+	}
+
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Rate findById(@PathVariable Long id) {
-		
-		return rs.get(id).get();
-		
+
+		return rs.find(id);
+
 	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
@@ -65,7 +74,7 @@ public class RateController {
 
 		Optional<Rate> rate = rs.getRate(categorie, montant, duree);
 		System.out.println(rate);
-		BigDecimal cost = CalculService.calculTotalCost(rate.get().getValue(), duree, new BigDecimal(montant));
+		BigDecimal cost = CalculService.calculTotalCost(rate.get().getRateValue(), duree, new BigDecimal(montant));
 		return cost;
 
 	}
@@ -73,8 +82,8 @@ public class RateController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Rate> getAll() {
-		
-		return rs.getAll();
+
+		return rs.findAll();
 	}
 
 }

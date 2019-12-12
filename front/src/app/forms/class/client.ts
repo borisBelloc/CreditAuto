@@ -1,24 +1,24 @@
 export class Client {
-  lastname: string;
+  lastName: string;
   firstName: string;
   gender: string;
-  AdresseClient: object;
+  address: object;
   email: string;
-  birthday: string;
+  birthdate: string;
 
   constructor(
-    lastname: string,
+    lastName: string,
     firstName: string,
     gender: string,
-    AdresseClient: object,
+    address: object,
     email: string,
-    birthday: string
+    birthdate: string
   ) {
-    this.lastname = name;
+    this.lastName = name;
     this.firstName = firstName;
     this.gender = gender;
-    this.AdresseClient = AdresseClient;
+    this.address = address;
     this.email = email;
-    this.birthday = birthday;
+    this.birthdate = birthdate;
   }
 }

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.team.benks.dao.RateDAO;
 import fr.team.benks.dao.UserDAO;
 import fr.team.benks.model.CategorieVehicle;
+import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 
@@ -27,9 +28,9 @@ public class RateService {
 		
 	}
 	
-	public Optional<Rate> get(long id) {
+	public Rate find(long id) {
 		
-		return rateDAO.get(id);
+		return rateDAO.find(id);
 	
 	}
 	
@@ -40,15 +41,20 @@ public class RateService {
 		
 	}
 
+	public List<Rate> saveAll(List<Rate> resource) {
+		return rateDAO.saveAll(resource);
+		
+	}
+	
 	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 		
 		return rateDAO.getRate(categorie, montant, duree);
 		
 	}
 	
-	public List<Rate> getAll() {
+	public List<Rate> findAll() {
 		
-		return rateDAO.getAll();
+		return rateDAO.findAll();
 	}
 
 
