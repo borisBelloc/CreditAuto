@@ -37,7 +37,6 @@ export class LoansimulateComponent implements OnInit {
 
   // convenience getter for easy access to form fields (ex:f.amountPurchase)
   get f() {
-    console.log(this.simulateForm.controls.amountPurchase.errors);
     return this.simulateForm.controls;
   }
 
