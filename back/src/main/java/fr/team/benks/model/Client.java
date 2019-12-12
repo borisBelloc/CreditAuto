@@ -14,6 +14,10 @@ import javax.persistence.OneToOne;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+
 @Entity
 public class Client implements IdEntity {
 
@@ -45,6 +49,7 @@ public class Client implements IdEntity {
 	@Column
 	private LocalDate birthdate;
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
 	private List<Contract> contract;
 
@@ -53,25 +58,25 @@ public class Client implements IdEntity {
 		super();
 	}
 
-	public Client(int numClient, Gender gender, String lastName, String firstname, LocalDate birthdate) {
-		super();
-		this.numClient = numClient;
-		this.gender = gender;
-		this.lastName = lastName;
-		this.firstName = firstname;
-		this.birthdate = birthdate;
-	}
-
-	public Client(Address address, int numClient, Gender gender, String lastName, String firstname,
-			LocalDate birthdate) {
-		super();
-		this.address = address;
-		this.numClient = numClient;
-		this.gender = gender;
-		this.lastName = lastName;
-		this.firstName = firstname;
-		this.birthdate = birthdate;
-	}
+//	public Client(int numClient, Gender gender, String lastName, String firstname, LocalDate birthdate) {
+//		super();
+//		this.numClient = numClient;
+//		this.gender = gender;
+//		this.lastName = lastName;
+//		this.firstName = firstname;
+//		this.birthdate = birthdate;
+//	}
+//
+//	public Client(Address address, int numClient, Gender gender, String lastName, String firstname,
+//			LocalDate birthdate) {
+//		super();
+//		this.address = address;
+//		this.numClient = numClient;
+//		this.gender = gender;
+//		this.lastName = lastName;
+//		this.firstName = firstname;
+//		this.birthdate = birthdate;
+//	}
 
 	@Override
 	public Long getId() {
@@ -132,6 +137,7 @@ public class Client implements IdEntity {
 		this.birthdate = birthdate;
 	}
 
+	@JsonIgnore
 	public List<Contract> getContract() {
 		return contract;
 	}

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.team.benks.dao.ClientDAO;
 import fr.team.benks.model.Client;
+import fr.team.benks.model.Contract;
 import fr.team.benks.model.Rate;
 
 @Service
@@ -22,10 +23,16 @@ public class ClientService {
 		return clientDAO.findByFirstnameAndLastname(firstName, lastName);
 	}
 
+	public List<Contract> findContracts(long id){
+		return clientDAO.findContracts(id);
+	}
+	
 	public Client save(Client resource) {
 		return clientDAO.save(resource);
 		
 	}
+	
+
 
 	public Client find(long id) {
 		

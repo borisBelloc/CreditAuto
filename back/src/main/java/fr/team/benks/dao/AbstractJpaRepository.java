@@ -12,10 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.team.benks.model.IdEntity;
 
-
 @Transactional
 @Repository
-public abstract class AbstractJpaRepository <T extends IdEntity> {
+public abstract class AbstractJpaRepository<T extends IdEntity> {
 
 	@PersistenceContext
 	protected EntityManager entityManager;
@@ -25,7 +24,7 @@ public abstract class AbstractJpaRepository <T extends IdEntity> {
 	protected Session getSession() {
 		return entityManager.unwrap(Session.class);
 	}
-	
+
 	protected AbstractJpaRepository(Class<T> type) {
 		this.type = type;
 	}
@@ -33,6 +32,14 @@ public abstract class AbstractJpaRepository <T extends IdEntity> {
 	public T save(T entity) {
 		entityManager.persist(entity);
 		return entity;
+	}
+
+	public List<T> saveAll(List<T> entities) {
+
+		for (T t : entities) {
+			save(t);
+		}
+		return entities;
 	}
 
 	public T update(T entity) {
@@ -56,5 +63,5 @@ public abstract class AbstractJpaRepository <T extends IdEntity> {
 		}
 		return entity;
 	}
-	
+
 }

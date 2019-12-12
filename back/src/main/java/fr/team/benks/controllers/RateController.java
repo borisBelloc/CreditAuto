@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.CategorieVehicle;
+import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 import fr.team.benks.services.CalculService;
@@ -37,6 +38,14 @@ public class RateController {
 	public void create(@RequestBody Rate resource) {
 
 		rs.save(resource);
+
+	}
+	
+	@RequestMapping(value = "{addRates}", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public void createAll(@RequestBody List<Rate> resource) {
+
+		rs.saveAll(resource);
 
 	}
 
@@ -65,7 +74,7 @@ public class RateController {
 
 		Optional<Rate> rate = rs.getRate(categorie, montant, duree);
 		System.out.println(rate);
-		BigDecimal cost = CalculService.calculTotalCost(rate.get().getValue(), duree, new BigDecimal(montant));
+		BigDecimal cost = CalculService.calculTotalCost(rate.get().getRateValue(), duree, new BigDecimal(montant));
 		return cost;
 
 	}

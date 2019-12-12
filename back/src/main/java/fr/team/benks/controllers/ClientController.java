@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.Client;
+import fr.team.benks.model.Contract;
 import fr.team.benks.services.ClientService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -32,6 +33,7 @@ public class ClientController {
 		cs.save(resource);
 
 	}
+	
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public Client findById(@PathVariable Long id) {
@@ -70,6 +72,15 @@ public class ClientController {
 
 	}
 	
+	@RequestMapping(value= "/{id}/contracts", method = RequestMethod.GET)
+	public List<Contract> findContracts(@PathVariable Long id) {
+
+		List<Contract> result = cs.findContracts(id);
+
+		return result;
+
+	}
+//	
 //	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 //	public List<Contract> findByFirstnameAndLastname(@RequestParam("firstName") String firstName,
 //			@RequestParam("lastName") String lastName) {
