@@ -14,11 +14,14 @@
             <input
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
-              formControlName="name"
+              formControlName="lastname"
               type="text"
             />
-            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-              <div *ngIf="f.name.errors['required']">
+            <div
+              *ngIf="submitted && f.lastname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.lastname.errors['required']">
                 Inserer votre nom
               </div>
             </div>

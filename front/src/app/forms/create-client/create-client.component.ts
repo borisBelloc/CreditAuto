@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientCreateService } from '../service/client-create.service';
+import { Client } from '../class/client';
 
 @Component({
   selector: 'app-create-client',
@@ -11,6 +12,15 @@ export class CreateClientComponent implements OnInit {
   createClientForm: FormGroup;
   submitted = false;
 
+  lastname: string;
+  firstName: string;
+  gender: string;
+  AdresseClient: object;
+  email: string;
+  birthday: string;
+
+  newClient: Client;
+
   constructor(
     private formBuilder: FormBuilder,
     private clientCreateService: ClientCreateService
@@ -18,14 +28,14 @@ export class CreateClientComponent implements OnInit {
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      name: [''],
+      lastname: [''],
       firstName: [''],
-      genre: [''],
+      gender: [''],
       address: [''],
       city: [''],
       codePostal: [''],
       email: [''],
-      date: ['']
+      birthday: ['']
     });
   }
 
@@ -46,6 +56,16 @@ export class CreateClientComponent implements OnInit {
       'SUCCESS!! :-)\n\n' +
         JSON.stringify(this.createClientForm.value, null, 10)
     );
+
+    this.newClient = new Client(
+      this.lastname,
+      this.firstName,
+      this.gender,
+      this.AdresseClient,
+      this.email,
+      this.birthday
+    );
+    this.clientCreateService.createNewClient(this.newClient);
   }
 
   onReset() {
