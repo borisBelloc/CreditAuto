@@ -32,7 +32,7 @@ public class ContractController {
 		cs.save(resource);
 	}
 	
-	@RequestMapping(value = "{number}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{number}", method = RequestMethod.GET)
 	@ResponseBody
 	public Contract findByNumber(@PathVariable int number) {
 		return cs.get(number);
@@ -44,7 +44,7 @@ public class ContractController {
 		return cs.getAll();
 	}
 	
-	@RequestMapping(value = "{number}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{number}", method = RequestMethod.PUT)
 	@ResponseBody
 	public void delete(@PathVariable long id) {
 		

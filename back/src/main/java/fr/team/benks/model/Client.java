@@ -52,6 +52,9 @@ public class Client implements IdEntity {
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "client")
 	private List<Contract> contract;
+	
+	@Column
+	private String email;
 
 		
 	public Client() {
