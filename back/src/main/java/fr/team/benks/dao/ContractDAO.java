@@ -31,9 +31,10 @@ public class ContractDAO implements DAO<LoanContract>{
 	}
 
 	@Override
-	public void save(LoanContract t) {
+	public LoanContract save(LoanContract t) {
 		// TODO Auto-generated method stub
 		entityManager.persist(t);
+		return t;
 		
 	}
 

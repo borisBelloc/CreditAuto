@@ -16,21 +16,14 @@ export class LoansimulateComponent implements OnInit {
   lastUpdate = new Date();
   submitted = false;
   simulateForm: FormGroup;
-
+  response: any;
   simulation: Simulation;
-
   isBtnsVisible = true;
 
-  /**
-   * Used to swap btn 'Calculer crédit' & 'Créer contrat'
-   */
-  toggleDisplayBtn() {
-    this.isBtnsVisible = !this.isBtnsVisible;
-  }
 
   constructor(
     private formBuilder: FormBuilder,
-    private simulationService: SimulationService
+    private simulationService: SimulationService,
   ) {}
 
   ngOnInit() {
@@ -43,33 +36,54 @@ export class LoansimulateComponent implements OnInit {
     });
   }
 
+  // convenience getter for easy access to form fields (ex:f.amountPurchase)
+  get f() {
+    return this.simulateForm.controls;
+  }
+
+  /**
+   * DEPRECATED
+   * No more used, check later to see if needed
+   */
+  toggleDisplayBtn() {
+    this.isBtnsVisible = !this.isBtnsVisible;
+  }
+
+
   onSubmit(formData) {
-    console.warn('FORM ICI -> ', formData);
-
-    this.simulation = new Simulation(
-      formData.amountPurchase,
-      formData.amountLoan,
-      formData.category,
-      formData.durationLoan
-    );
-
-    this.simulationService.postSimulation(this.simulation);
-
-    console.log(this.simulation);
+    // console.warn('FORM ICI -> ', formData);
+    this.simulationService
+      .getLoanValue(
+        formData.category,
+        formData.amountLoan,
+        formData.durationLoan
+      )
+      .subscribe(
+        response => {
+          this.response = response;
+          console.log(this.response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
 
     // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
-    this.toggleDisplayBtn();
+    // this.toggleDisplayBtn();
+    this.isBtnsVisible = false;
     this.simulateForm.disable();
-    //this.simulateLoanContract.amountLoan = formData.amountLoan;
-    //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
+
+    // this.simulateLoanContract.amountLoan = formData.amountLoan;
+    // console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
-    this.simulateForm.enable();
-    this.toggleDisplayBtn();
+    //  use this if loanCost is outside the form
+    // this.simulateForm.enable();
+    this.isBtnsVisible = true;
     //  use this if loanCost is inside the form
-    // this.simulateForm.get('amountPurchase').enable();
-    // this.simulateForm.get('amountLoan').enable();
-    // this.simulateForm.get('category').enable();
-    // this.simulateForm.get('durationLoan').enable();
+    this.simulateForm.get('amountPurchase').enable();
+    this.simulateForm.get('amountLoan').enable();
+    this.simulateForm.get('category').enable();
+    this.simulateForm.get('durationLoan').enable();
   }
 }

@@ -7,6 +7,7 @@ import { CustomerComponent } from './forms/customer/customer.component';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
 import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
+import { StatsComponent } from './body/stats/stats.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,8 @@ const routes: Routes = [
   //   }
  // { path: '', redirectTo: 'simulation', pathMatch: 'full' },
   { path: 'simulation', component: LoansimulateComponent },
+  { path: 'statistiques', component: StatsComponent },
+
   { path: 'client', component: CustomerComponent },
   // TODO remove client2; used for test
   { path: 'client2', component: CustomerComponent }

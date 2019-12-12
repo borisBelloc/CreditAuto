@@ -21,7 +21,7 @@ import { ConfigurationtauxComponent } from './body/configurationtaux/configurati
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, IdentificationComponent,
+    AppComponent, HomeComponent, IdentificationComponent, ConfigurationtauxComponent
   ],
   imports: [
     BrowserModule,
@@ -29,19 +29,16 @@ import { ConfigurationtauxComponent } from './body/configurationtaux/configurati
     BodyModule,
     NgbModule,
     NavigationModule,
-    FormsModule,
-    // Routing
-    // Suprim AppRoutingModule + composant dans app.component.html (laisser que navbar car sur toutes les pages)
-    // + supprim app-routing.module
+    FormsModule
+    // Exemple Routing simplifié
     // RouterModule.forRoot([
     //   // { path: '', component: AppComponent },
     //   { path: '', redirectTo: 'simul', pathMatch: 'full' },
     //   { path: 'simul', component: LoansimulateComponent }
-  //   // { path: 'shipping', component: ShippingComponent }
+    //   // { path: 'shipping', component: ShippingComponent }
     // ])
   ],
   providers: [],
-  bootstrap: [AppComponent, HomeComponent]
+  bootstrap: [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {}
