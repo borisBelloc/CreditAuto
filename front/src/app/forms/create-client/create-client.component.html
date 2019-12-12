@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group row">
-          <label for="firstName" class="col-4 col-form-label">Prenom : </label>
+          <label class="col-4 col-form-label">Prenom : </label>
           <div class="col-7 offset-1">
             <input
               class="form-control sharp glowOrange"
@@ -49,19 +49,19 @@
         </div>
 
         <div class="form-group row">
-          <label for="genre" class="col-4 col-form-label">Civilité : </label>
+          <label class="col-4 col-form-label">Civilité : </label>
           <div class="col-7 offset-1">
             <select
               class="form-control sharp glowOrange"
-              [ngClass]="{ 'is-invalid': submitted && f.genre.errors }"
-              formControlName="genre"
+              [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+              formControlName="gender"
             >
               <option></option>
               <option>Mr</option>
               <option>Mrs</option>
             </select>
-            <div *ngIf="submitted && f.genre.errors" class="invalid-feedback">
-              <div *ngIf="f.genre.errors['required']">
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+              <div *ngIf="f.gender.errors['required']">
                 Entrer votre civilité
               </div>
             </div>
@@ -144,10 +144,13 @@
               type="date"
               class="form-control"
               placeholder="Expected Date"
-              formControlName="date"
+              formControlName="birthday"
             />
-            <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
-              <div *ngIf="f.date.errors['required']">
+            <div
+              *ngIf="submitted && f.birthday.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.birthday.errors['required']">
                 Inserer element
               </div>
             </div>
