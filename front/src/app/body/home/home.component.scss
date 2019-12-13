@@ -8,17 +8,19 @@ fieldset.scheduler-border {
 }
 
 
-
-.sharp {
-  border-radius: 0;
-}
-.bigbtn{
-  height : 60px;
-  font-size: larger;
-}
-
 .biggerBtn {
   height: 60px;
   font-size: larger;
 }
 
+@media screen and (max-width: 674px) {
+  .biggerBtn {
+    font-size: large;
+    height: 6em;
+  }
+  fieldset.scheduler-border {
+    padding: 1em ;
+    padding-top: 4em;
+  }
+
+}
