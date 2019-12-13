@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientCreateService } from '../service/client-create.service';
 import { Client } from '../class/client';
+import { Observable } from 'rxjs';
+import { AdresseClient } from '../class/adresse-client';
 
 @Component({
   selector: 'app-create-client',
@@ -15,11 +17,14 @@ export class CreateClientComponent implements OnInit {
   lastName: string;
   firstName: string;
   gender: string;
-  address: object;
+  address: string;
   email: string;
   birthdate: string;
+  zipCode: number;
+  city: string;
 
   newClient: Client;
+  newAddress: AdresseClient;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,19 +66,23 @@ export class CreateClientComponent implements OnInit {
     this.firstName = this.f.firstName.value;
     this.gender = this.f.gender.value;
     this.address = this.f.address.value;
+    this.city = this.f.city.value;
+    this.zipCode = this.f.city.value;
     this.email = this.f.email.value;
     this.birthdate = this.f.birthdate.value;
+
+    this.newAddress = new AdresseClient(this.address, this.zipCode, this.city);
 
     this.newClient = new Client(
       this.lastName,
       this.firstName,
       this.gender,
-      this.address,
+      this.newAddress,
       this.email,
       this.birthdate
     );
 
-    console.log(this.newClient);
+    console.log(JSON.stringify(this.newClient));
 
     this.clientCreateService.createNewClient(this.newClient).subscribe(
       data => console.log(data),
