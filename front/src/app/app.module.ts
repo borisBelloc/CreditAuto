@@ -14,12 +14,14 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 // forms
 import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
+import { IdentificationComponent } from './forms/identification/identification.component';
+import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent
+    AppComponent, HomeComponent, IdentificationComponent, ConfigurationtauxComponent
   ],
   imports: [
     BrowserModule,
@@ -27,10 +29,8 @@ import { HomeComponent } from './body/home/home.component';
     BodyModule,
     NgbModule,
     NavigationModule,
-    FormsModule,
-    // Routing
-    // Suprim AppRoutingModule + composant dans app.component.html (laisser que navbar car sur toutes les pages)
-    // + supprim app-routing.module
+    FormsModule
+    // Exemple Routing simplifié
     // RouterModule.forRoot([
     //   // { path: '', component: AppComponent },
     //   { path: '', redirectTo: 'simul', pathMatch: 'full' },
@@ -39,6 +39,6 @@ import { HomeComponent } from './body/home/home.component';
     // ])
   ],
   providers: [],
-  bootstrap: [AppComponent, HomeComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
