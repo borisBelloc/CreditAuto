@@ -33,9 +33,9 @@ export class CreateClientComponent implements OnInit {
       gender: [''],
       address: [''],
       city: [''],
-      codePostal: [''],
+      zipCode: [''],
       email: [''],
-      birthday: ['']
+      birthdate: ['']
     });
   }
 

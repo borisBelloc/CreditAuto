@@ -14,7 +14,7 @@ export class Client {
     email: string,
     birthdate: string
   ) {
-    this.lastName = name;
+    this.lastName = lastName;
     this.firstName = firstName;
     this.gender = gender;
     this.address = address;
