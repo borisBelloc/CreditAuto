@@ -12,3 +12,5 @@ public class AddressDAO extends AbstractJpaRepository<Address> {
 	}
 
 }
+
+

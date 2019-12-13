@@ -37,4 +37,10 @@ public class UserService {
 		return userDAO.findAll();
 	}
 	
+	public boolean checkPassword(String login, String password) {
+		
+		return userDAO.findByLogin(login).getPassword().equals(password);
+		
+	}
+	
 }
