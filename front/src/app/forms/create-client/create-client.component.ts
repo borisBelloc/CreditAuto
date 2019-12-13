@@ -11,6 +11,7 @@ import { Client } from '../class/client';
 export class CreateClientComponent implements OnInit {
   createClientForm: FormGroup;
   submitted = false;
+  loading = false;
 
   lastName: string;
   firstName: string;
@@ -28,14 +29,14 @@ export class CreateClientComponent implements OnInit {
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      lastname: [''],
-      firstName: [''],
-      gender: [''],
-      address: [''],
-      city: [''],
-      zipCode: [''],
-      email: [''],
-      birthdate: ['']
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      gender: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      birthdate: ['', Validators.required]
     });
   }
 

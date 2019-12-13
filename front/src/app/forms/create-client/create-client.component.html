@@ -1,9 +1,10 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Creation d'un client</legend>
-  <div class="d-flex justify-content-center">
-    <!-- TODO: responsive mobile col-12 -->
-    <!-- TODO: tous les champs de formulaire 'number only' -->
-    <div class="row">
+  <!-- TODO: responsive mobile col-12 -->
+  <!-- TODO: tous les champs de formulaire 'number only' -->
+
+  <div class="row">
+    <div class="col-6">
       <form
         [formGroup]="createClientForm"
         (ngSubmit)="onSubmit(createClientForm.value)"
@@ -16,13 +17,14 @@
               [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
               formControlName="lastName"
               type="text"
+              placeholder="Nom"
             />
             <div
               *ngIf="submitted && f.lastName.errors"
               class="invalid-feedback"
             >
               <div *ngIf="f.lastName.errors['required']">
-                Inserer votre nom
+                Champ non valide
               </div>
             </div>
           </div>
@@ -36,13 +38,14 @@
               [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
               formControlName="firstName"
               type="text"
+              placeholder="Prenom"
             />
             <div
               *ngIf="submitted && f.firstName.errors"
               class="invalid-feedback"
             >
               <div *ngIf="f.firstName.errors['required']">
-                Inserer votre prénom
+                Champ non valide
               </div>
             </div>
           </div>
@@ -56,13 +59,13 @@
               [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
               formControlName="gender"
             >
-              <option></option>
-              <option>Mr</option>
-              <option>Mrs</option>
+              <option value="">Veuillez selectionner</option>
+              <option value="M">Mr</option>
+              <option value="F">Mrs</option>
             </select>
             <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
               <div *ngIf="f.gender.errors['required']">
-                Entrer votre civilité
+                Champ non valide
               </div>
             </div>
           </div>
@@ -76,10 +79,11 @@
               [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
               formControlName="address"
               type="text"
+              placeholder="Ex : 182 rue diginamic"
             />
             <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
               <div *ngIf="f.address.errors['required']">
-                Inserer une adresse
+                Champ non valide
               </div>
             </div>
           </div>
@@ -93,9 +97,10 @@
               [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
               formControlName="city"
               type="text"
+              placeholder="Ex : Montpellier"
             />
             <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-              <div *ngIf="f.city.errors['required']">Inserer la ville</div>
+              <div *ngIf="f.city.errors['required']">Champ non valide</div>
             </div>
           </div>
         </div>
@@ -108,10 +113,11 @@
               [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }"
               formControlName="zipCode"
               type="text"
+              placeholder="Ex : 34170"
             />
             <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
               <div *ngIf="f.zipCode.errors['required']">
-                Inserer un element
+                Champ non valide
               </div>
             </div>
           </div>
@@ -125,11 +131,13 @@
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
               formControlName="email"
               type="text"
+              placeholder="fidinamic@gmail.com"
             />
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors['required']">
-                Inserer un element
+                Champ non valide
               </div>
+              <div *ngIf="f.email.errors['email']">Email non valide</div>
             </div>
           </div>
         </div>
@@ -139,31 +147,36 @@
           <div class="col-7 offset-1">
             <input
               type="date"
-              class="form-control"
+              class="form-control sharp glowOrange"
               placeholder="Expected Date"
               formControlName="birthdate"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
             />
             <div
               *ngIf="submitted && f.birthdate.errors"
               class="invalid-feedback"
             >
               <div *ngIf="f.birthdate.errors['required']">
-                Inserer element
+                Champ non valide
               </div>
             </div>
           </div>
         </div>
 
         <div class="d-flex justify-content-around">
-          <button class="btn btn-success btn-lg mt-4" type="submit">
+          <button
+            [disabled]="loading"
+            class="btn btn-success btn-lg mt-4"
+            type="submit"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-1"
+            ></span>
             Creer client
           </button>
 
-          <button
-            class="btn btn-dark btn-lg mt-4"
-            type="reset"
-            (click)="onReset()"
-          >
+          <button routerLink="/" class="btn btn-dark btn-lg mt-4">
             Annuler
           </button>
         </div>
