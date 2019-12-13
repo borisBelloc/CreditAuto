@@ -29,14 +29,14 @@ export class CreateClientComponent implements OnInit {
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      lastName: ['', Validators.required],
-      firstName: ['', Validators.required],
-      gender: ['', Validators.required],
-      address: ['', Validators.required],
-      city: ['', Validators.required],
-      zipCode: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      birthdate: ['', Validators.required]
+      lastName: [''],
+      firstName: [''],
+      gender: [''],
+      address: [''],
+      city: [''],
+      zipCode: [''],
+      email: [''],
+      birthdate: ['']
     });
   }
 
@@ -58,6 +58,9 @@ export class CreateClientComponent implements OnInit {
         JSON.stringify(this.createClientForm.value, null, 10)
     );
 
+    this.lastName = this.f.lastName.value;
+    this.firstName = this.f.firstName.value;
+    this.gender = this.f.gender.value;
     this.newClient = new Client(
       this.lastName,
       this.firstName,
