@@ -64,6 +64,11 @@ public class Address implements IdEntity{
 		this.city = city;
 	}
 
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", address=" + address + ", zipCode=" + zipCode + ", city=" + city + "]";
+	}
+
 	
 
 }
