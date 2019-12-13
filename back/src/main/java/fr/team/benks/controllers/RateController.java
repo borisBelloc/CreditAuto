@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
+import fr.team.benks.model.SimulationResult;
 import fr.team.benks.model.User;
 import fr.team.benks.services.CalculService;
 import fr.team.benks.services.RateService;
@@ -69,13 +70,13 @@ public class RateController {
 //	
 
 	@RequestMapping(params = { "categorie", "montant", "duree" }, method = RequestMethod.GET)
-	public BigDecimal findByParams(@RequestParam("categorie") CategorieVehicle categorie,
+	public SimulationResult findByParams(@RequestParam("categorie") CategorieVehicle categorie,
 			@RequestParam("montant") int montant, @RequestParam("duree") int duree) {
 
 		Optional<Rate> rate = rs.getRate(categorie, montant, duree);
 		System.out.println(rate);
-		BigDecimal cost = CalculService.calculTotalCost(rate.get().getRateValue(), duree, new BigDecimal(montant));
-		return cost;
+		SimulationResult rs = new SimulationResult(rate.get().getRateValue(), duree, new BigDecimal(montant));
+		return rs;
 
 	}
 

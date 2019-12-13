@@ -32,7 +32,12 @@ public class ClientService {
 		return clientDAO.findContracts(id);
 	}
 	
+//	public Client addContract(long id, Contract contract) {
+//		return clientDAO.addContract(id, contract);
+//	}
+	
 	public Client save(Client resource) {
+		resource.setNumClient();
 		return clientDAO.save(resource);
 		
 	}

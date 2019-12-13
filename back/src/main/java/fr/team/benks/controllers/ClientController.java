@@ -89,6 +89,15 @@ public class ClientController {
 		return result;
 
 	}
+	
+//	@RequestMapping(value = "/{id}/{contract}", method = RequestMethod.PUT)
+//	public Client addContract(@PathVariable Long id, @PathVariable Contract contract) {
+//
+//		Client result = cs.addContract(id, contract);
+//
+//		return result;
+//
+//	}
 
 
 }
