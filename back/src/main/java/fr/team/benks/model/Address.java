@@ -1,73 +1,3 @@
-<<<<<<< HEAD
-package fr.team.benks.model;
-
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-public class Address implements IdEntity{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8424697508890000493L;
-
-	@Id
-	@GeneratedValue
-	private long id;
-	
-	@Column
-	private String address;
-	
-	@Column
-	private int zipCode;
-	
-	@Column
-	private String city;
-	
-	public Address() {
-		
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String adress) {
-		this.address = adress;
-	}
-
-	public int getZipCode() {
-		return zipCode;
-	}
-
-	public void setZipCode(int zipCode) {
-		this.zipCode = zipCode;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	
-
-}
-=======
 package fr.team.benks.model;
 
 
@@ -137,4 +67,3 @@ public class Address implements IdEntity{
 	
 
 }
->>>>>>> 47d1911d1a48a0e0d4ed4bafe67995ee22a421cc
