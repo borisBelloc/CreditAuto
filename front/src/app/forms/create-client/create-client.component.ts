@@ -11,7 +11,6 @@ import { Client } from '../class/client';
 export class CreateClientComponent implements OnInit {
   createClientForm: FormGroup;
   submitted = false;
-  loading = false;
 
   lastName: string;
   firstName: string;
@@ -61,6 +60,10 @@ export class CreateClientComponent implements OnInit {
     this.lastName = this.f.lastName.value;
     this.firstName = this.f.firstName.value;
     this.gender = this.f.gender.value;
+    this.address = this.f.address.value;
+    this.email = this.f.email.value;
+    this.birthdate = this.f.birthdate.value;
+
     this.newClient = new Client(
       this.lastName,
       this.firstName,
@@ -69,7 +72,13 @@ export class CreateClientComponent implements OnInit {
       this.email,
       this.birthdate
     );
-    this.clientCreateService.createNewClient(this.newClient);
+
+    console.log(this.newClient);
+
+    this.clientCreateService.createNewClient(this.newClient).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    );
   }
 
   onReset() {
