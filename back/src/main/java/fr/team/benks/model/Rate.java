@@ -1,24 +1,31 @@
 package fr.team.benks.model;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Rate {
+public class Rate implements IdEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6625790952359549394L;
 
 	@Id
 	@GeneratedValue
 	private long id;
 	
 	@Column
-	private BigDecimal value;
+	private BigDecimal rateValue;
 	
 	@Column
+	@Enumerated(EnumType.STRING)
 	private CategorieVehicle categorie;
 	
 	@Column
@@ -33,36 +40,42 @@ public class Rate {
 	@Column
 	private int dureeMax;
 	
-	
+	@Column
+	private String rateName;
 	
 	public Rate() {
 		super();
 	}
 
-	public Rate(BigDecimal value, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
-		super();
-		this.value = value;
-		this.categorie = categorie;
-		this.valMin = valMin;
-		this.valMax = valMax;
-		this.dureeMin = dureeMin;
-		this.dureeMax = dureeMax;
-	}
+//	public Rate(BigDecimal rateValue, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
+//		super();
+//		this.rateValue = rateValue;
+//		this.categorie = categorie;
+//		this.valMin = valMin;
+//		this.valMax = valMax;
+//		this.dureeMin = dureeMin;
+//		this.dureeMax = dureeMax;
+//	}
 
-	public long getId() {
-		return id;
-	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-	public BigDecimal getValue() {
-		return value;
+	public String getRateName() {
+		return rateName;
 	}
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
+	public void setRateName(String rateName) {
+		this.rateName = rateName;
+	}
+
+	public BigDecimal getRateValue() {
+		return rateValue;
+	}
+
+	public void setRateValue(BigDecimal rateValue) {
+		this.rateValue = rateValue;
 	}
 
 	public CategorieVehicle getCategorie() {
@@ -108,7 +121,17 @@ public class Rate {
 	
 	@Override
 	public String toString() {
-		return "Rate [id=" + id + ", value=" + value + ", categorie=" + categorie + ", valMin=" + valMin + ", valMax="
+		return "Rate [id=" + id + ", value=" + rateValue + ", categorie=" + categorie + ", valMin=" + valMin + ", valMax="
 				+ valMax + ", dureeMin=" + dureeMin + ", dureeMax=" + dureeMax + "]";
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

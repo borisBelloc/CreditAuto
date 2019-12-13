@@ -1,6 +1,7 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche client</legend>
 
+<<<<<<< HEAD
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
     <div class="container">
       <div class="form-group row justify-content-center">
@@ -84,6 +85,20 @@
       </div>
     </div>
   </form>
+=======
+  <div class="col-12"></div>
+
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-dark sharp mt-4 mr-1" type="submit">
+      Rechercher
+    </button>
+
+    <button class="btn btn-dark sharp mt-4 ml-1" type="button">
+      Annuler
+    </button>
+  </div>
+
+>>>>>>> fronClient
   <!--
   <form #searchUserForm="ngForm" (ngSubmit)="submit(monForm)">
 
@@ -93,8 +108,6 @@
         class="form-control"
         name="queryControl"
       />
-
-
     </form> -->
 </fieldset>
 
@@ -102,7 +115,11 @@
   <legend class="fieldsetBorder">Création client</legend>
 
   <div class="d-flex justify-content-center">
-    <button class="btn btn-dark sharp mt-4 mr-1" type="submit">
+    <button
+      class="btn btn-dark sharp mt-4 mr-1"
+      type="submit"
+      routerLink="/createClient"
+    >
       Créer client
     </button>
 
