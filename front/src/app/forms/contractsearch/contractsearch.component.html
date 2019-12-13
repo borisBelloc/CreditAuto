@@ -32,14 +32,21 @@
         <label
           for="customerFirstname"
           class="col-2 col-lg-1 col-form-label text-right"
+
           >Prénom</label
-        >
-        <div class="col-4 col-lg-2">
-          <input
+          >
+          <div class="col-4 col-lg-2">
+            <input
             class="form-control sharp glowOrange"
+            [ngClass]="{'is-invalid': submitted && f.customerFirstname.errors}"
             formControlName="customerFirstname"
             type="text"
           />
+          <div
+          *ngIf="submitted && f.customerFirstname.errors"
+          class="invalid-feedback">
+        Entrer le prénom du client
+        </div>
         </div>
 
 

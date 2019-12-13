@@ -32,12 +32,10 @@ export class ContractsearchComponent implements OnInit {
     this.searchContractForm = this.formBuilder.group(
       {
         customerLastname: ['', [nameOrContractNumber]],
-        customerFirstname: [''],
+        customerFirstname: ['', [nameOrContractNumber]],
         customerContractNumber: ['']
       },
-      // {
-      //   validator: [nameOrContractNumberValidator]
-      // }
+
     );
   }
 
