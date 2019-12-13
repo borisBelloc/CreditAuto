@@ -35,6 +35,11 @@ export class ContractsearchComponent implements OnInit {
         customerFirstname: ['', [nameOrContractNumber]],
         customerContractNumber: ['']
       },
+      {
+        validator: [
+          // RequiredEitherInput.requiredEither('customerEmail', 'customerLastname')
+        ]
+      }
 
     );
   }
