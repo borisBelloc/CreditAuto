@@ -84,6 +84,7 @@ public class RateController {
 	public List<Rate> getAll() {
 
 		return rs.findAll();
+		
 	}
 
 }
