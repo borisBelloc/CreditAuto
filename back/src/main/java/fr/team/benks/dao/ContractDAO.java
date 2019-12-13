@@ -67,13 +67,13 @@ public class ContractDAO extends AbstractJpaRepository<Contract>{
 		System.out.println(start);
 		System.out.println(end);
 		Query query = entityManager.createQuery(
-				"SELECT COUNT(u) FROM Contract u WHERE u.dateStart BETWEEN cast(? as date) AND cast(? as date)");
+				"SELECT u FROM Contract u WHERE u.dateStart BETWEEN cast(? as date) AND cast(? as date)");
 		
 		
 		query.setParameter(1, start);
 		query.setParameter(2, end);
 		
-		return query.getFirstResult();
+		return query.getResultList().size();
 		
 	}
 	
