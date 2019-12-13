@@ -12,21 +12,14 @@ import { SimulationService } from '../service/simulation.service';
   styleUrls: ['./loansimulate.component.scss']
 })
 export class LoansimulateComponent implements OnInit {
-  dataSimulate: string;
-  lastUpdate = new Date();
-  submitted = false;
+  //dataSimulate: string;
+  //lastUpdate = new Date();
+  //simulation: Simulation;
   simulateForm: FormGroup;
-
-  simulation: Simulation;
-
+  response: any;
+  submitted = false;
   isBtnsVisible = true;
-
-  /**
-   * Used to swap btn 'Calculer crédit' & 'Créer contrat'
-   */
-  toggleDisplayBtn() {
-    this.isBtnsVisible = !this.isBtnsVisible;
-  }
+  isEcheanceVisible = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,39 +30,74 @@ export class LoansimulateComponent implements OnInit {
     this.simulateForm = this.formBuilder.group({
       amountPurchase: ['', Validators.required],
       amountLoan: ['', Validators.required],
-      category: ['A', Validators.required],
-      durationLoan: ['', Validators.required],
-      loanCost: ['']
+      category: ['', Validators.required],
+      durationLoan: ['', Validators.required]
     });
   }
 
-  onSubmit(formData) {
-    console.warn('FORM ICI -> ', formData);
+  // convenience getter for easy access to form fields (ex:f.amountPurchase)
+  get f() {
+    return this.simulateForm.controls;
+  }
 
-    this.simulation = new Simulation(
-      formData.amountPurchase,
-      formData.amountLoan,
-      formData.category,
-      formData.durationLoan
+  /**
+   * DEPRECATED
+   * No more used, check later to see if needed
+   */
+  toggleDisplayBtn() {
+    this.isBtnsVisible = !this.isBtnsVisible;
+  }
+
+  onSubmit(formData) {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.simulateForm.invalid) {
+      return;
+    }
+
+    alert(
+      'SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4)
     );
 
-    this.simulationService.postSimulation(this.simulation);
-
-    console.log(this.simulation);
+    // console.warn('FORM ICI -> ', formData);
+    this.simulationService
+      .getLoanValue(
+        formData.category,
+        formData.amountLoan,
+        formData.durationLoan
+      )
+      .subscribe(
+        response => {
+          this.response = response;
+          console.log(this.response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
 
     // if toggleDisplayBtn() used on html, it block the btn onSubmit (form)
-    this.toggleDisplayBtn();
+    // this.toggleDisplayBtn();
+    this.isBtnsVisible = false;
     this.simulateForm.disable();
-    //this.simulateLoanContract.amountLoan = formData.amountLoan;
-    //console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
+
+    // this.simulateLoanContract.amountLoan = formData.amountLoan;
+    // console.warn("TON OBJET ICI -> ", this.simulateLoanContract);
   }
   reset() {
-    this.simulateForm.enable();
-    this.toggleDisplayBtn();
+    //  use this if loanCost is outside the form
+    // this.simulateForm.enable();
+    this.isBtnsVisible = true;
+    this.isEcheanceVisible = false;
     //  use this if loanCost is inside the form
-    // this.simulateForm.get('amountPurchase').enable();
-    // this.simulateForm.get('amountLoan').enable();
-    // this.simulateForm.get('category').enable();
-    // this.simulateForm.get('durationLoan').enable();
+    this.simulateForm.get('amountPurchase').enable();
+    this.simulateForm.get('amountLoan').enable();
+    this.simulateForm.get('category').enable();
+    this.simulateForm.get('durationLoan').enable();
+  }
+
+  echeance() {
+    this.isEcheanceVisible = true;
   }
 }
