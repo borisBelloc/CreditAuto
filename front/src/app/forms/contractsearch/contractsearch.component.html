@@ -13,6 +13,37 @@
         >
       </div>
 
+
+
+<br>
+<br>
+<!-- ! -->
+<div>
+  <input type="radio" formControlName="userCategory" name="a" id="userCategory2" value="employee"/> Employee
+  <input type="radio" formControlName="userCategory" name="a" id="userCategory1" value="student"/> Student
+</div>
+<!-- ! -->
+<!-- https://bootsnipp.com/snippets/NDgPQ -->
+<br>
+<br>
+<div class="form-group">
+  <label for="searchMethod" class="col-sm-4 col-md-4 control-label text-right">Selectionnez la méthode de recherche</label>
+  <div class="col-sm-7 col-md-7">
+    <div class="input-group">
+      <div id="radioBtn" class="btn-group">
+        <a class="btn btn-dark btn-sm active" data-toggle="searchMethod" data-title="Y">Nom/Prénom</a>
+        <a class="btn btn-dark btn-sm notActive" data-toggle="searchMethod" data-title="N">Numéro de contrat</a>
+      </div>
+      <input type="hidden" name="happy" id="happy">
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<!-- ! -->
+
+
       <div class="form-group row justify-content-center">
         <label
           for="customerLastname"
@@ -27,6 +58,11 @@
             formControlName="customerLastname"
             type="text"
           />
+          <div
+          *ngIf="submitted && f.customerLastname.errors"
+          class="invalid-feedback">
+          Entrer le nom du client
+        </div>
         </div>
 
         <label
@@ -45,8 +81,7 @@
           />
           <div
             *ngIf="submitted && f.customerFirstname.errors"
-            class="invalid-feedback"
-          >
+            class="invalid-feedback">
             Entrer le prénom du client
           </div>
         </div>
