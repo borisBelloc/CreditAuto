@@ -1,6 +1,5 @@
 package fr.team.benks.controllers;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.Contract;
-import fr.team.benks.model.Rate;
 import fr.team.benks.services.ContractService;
 
 

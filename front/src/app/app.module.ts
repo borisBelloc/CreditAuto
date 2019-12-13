@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -43,6 +46,7 @@ import { ConfigurationtauxComponent } from './body/configurationtaux/configurati
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+<<<<<<< HEAD
 =======
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -89,3 +93,5 @@ import { HomeComponent } from './body/home/home.component';
 })
 export class AppModule { }
 >>>>>>> 56f3dac0e4e659d829df9e61b7e309c4df6cb249
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c

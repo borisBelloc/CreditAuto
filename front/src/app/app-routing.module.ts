@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c
 import { TransionscreenComponent } from './body/transionscreen/transionscreen.component';
 import { NgModule } from '@angular/core';
 
@@ -39,6 +42,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+<<<<<<< HEAD
 =======
 import { NgModule } from '@angular/core';
 
@@ -66,3 +70,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 >>>>>>> 56f3dac0e4e659d829df9e61b7e309c4df6cb249
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c

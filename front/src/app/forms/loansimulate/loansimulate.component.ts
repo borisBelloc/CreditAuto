@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c
 import { Component, OnInit } from '@angular/core';
 
 // Angular's FormBuilder service provides convenient methods for generating controls (FORMS)
@@ -102,6 +105,7 @@ export class LoansimulateComponent implements OnInit {
     this.isEcheanceVisible = true;
   }
 }
+<<<<<<< HEAD
 =======
 import { Component, OnInit } from '@angular/core';
 
@@ -179,3 +183,5 @@ export class LoansimulateComponent implements OnInit {
   }
 }
 >>>>>>> 56f3dac0e4e659d829df9e61b7e309c4df6cb249
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c

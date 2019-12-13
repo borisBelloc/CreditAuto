@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Impossible to change select:hover color with CSS
 // source : https://stackoverflow.com/questions/19388011/how-to-change-colour-of-blue-highlight-on-select-box-dropdown/19388345
 
@@ -45,3 +46,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 >>>>>>> 56f3dac0e4e659d829df9e61b7e309c4df6cb249
+=======
+// Impossible to change select:hover color with CSS
+// source : https://stackoverflow.com/questions/19388011/how-to-change-colour-of-blue-highlight-on-select-box-dropdown/19388345
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Simulation } from '../class/simulation';
@@ -39,6 +42,7 @@ export class SimulationService {
       );
   }
 }
+<<<<<<< HEAD
 =======
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -71,3 +75,5 @@ export class SimulationService {
   }
 }
 >>>>>>> 56f3dac0e4e659d829df9e61b7e309c4df6cb249
+=======
+>>>>>>> 9bd8cf7612fac4e588ed3c5b7ff7dfcc63d8d23c
