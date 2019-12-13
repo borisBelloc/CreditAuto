@@ -1,10 +1,16 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche de contrat</legend>
 
-  <form [formGroup]="searchContractForm" (ngSubmit)="onSubmit(searchContractForm.value)">
+  <form
+    [formGroup]="searchContractForm"
+    (ngSubmit)="onSubmit(searchContractForm.value)"
+  >
     <div class="container">
       <div class="row">
-        <span class="my-3"><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou numéro de contrat</span>
+        <span class="my-3"
+          ><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou
+          numéro de contrat</span
+        >
       </div>
 
       <div class="form-group row justify-content-center">
@@ -14,41 +20,36 @@
           >Nom</label
         >
 
-
         <div class="col-4 col-lg-2">
           <input
-          class="form-control sharp glowOrange"
-          [ngClass]="{'is-invalid': submitted && f.customerLastname.errors}"
-          formControlName="customerLastname"
-          type="text"
+            class="form-control sharp glowOrange"
+            [ngClass]="{ 'is-invalid': submitted && f.customerLastname.errors }"
+            formControlName="customerLastname"
+            type="text"
           />
-          <div
-          *ngIf="submitted && f.customerLastname.errors"
-          class="invalid-feedback">
-        Entrer le nom du client
-        </div>
         </div>
 
         <label
           for="customerFirstname"
           class="col-2 col-lg-1 col-form-label text-right"
-
           >Prénom</label
-          >
-          <div class="col-4 col-lg-2">
-            <input
+        >
+        <div class="col-4 col-lg-2">
+          <input
             class="form-control sharp glowOrange"
-            [ngClass]="{'is-invalid': submitted && f.customerFirstname.errors}"
+            [ngClass]="{
+              'is-invalid': submitted && f.customerFirstname.errors
+            }"
             formControlName="customerFirstname"
             type="text"
           />
           <div
-          *ngIf="submitted && f.customerFirstname.errors"
-          class="invalid-feedback">
-        Entrer le prénom du client
+            *ngIf="submitted && f.customerFirstname.errors"
+            class="invalid-feedback"
+          >
+            Entrer le prénom du client
+          </div>
         </div>
-        </div>
-
 
         <hr />
 
@@ -70,7 +71,6 @@
         <button class="btn btn-dark sharp mt-4 mr-1" type="submit">
           Rechercher
         </button>
-
       </div>
     </div>
   </form>

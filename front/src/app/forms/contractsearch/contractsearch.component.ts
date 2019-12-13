@@ -35,14 +35,15 @@ export class ContractsearchComponent implements OnInit {
         customerFirstname: ['', [nameOrContractNumber]],
         customerContractNumber: ['']
       },
-      {
-        validator: [
-          // RequiredEitherInput.requiredEither('customerEmail', 'customerLastname')
-        ]
-      }
 
     );
   }
+
+
+  // TODO: ajout bouton radio ? [methode de recherche :: Nom/prenom || Contrat number
+  // https://www.codementor.io/@jimohhadi/angular-validators-with-conditional-validation-in-reactive-forms-pj5z7gsq5
+  // si nom§prenom -> disable contrat number ELSE inverse
+
 
   // Custom validator EXEMPLE A LIRE :
   // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
@@ -52,5 +53,7 @@ export class ContractsearchComponent implements OnInit {
   // https://juristr.com/blog/2016/11/ng2-template-driven-form-validators/
 
   // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
+
+  // https://jasonwatmore.com/fr/post/2019/06/14/angular-8-exemple-de-validation-de-formulaires-reactifs-reactive-forms
 
 }
