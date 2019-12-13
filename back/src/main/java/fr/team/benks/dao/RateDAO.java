@@ -1,5 +1,6 @@
 package fr.team.benks.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -39,6 +40,14 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 		return Optional.ofNullable((Rate) query.getSingleResult());
 
 	}
-
+	
+	public List<Rate> getRates(){
+		
+		TypedQuery<Rate> query = entityManager.createQuery(
+				"SELECT DISTINCT e.ratename, e.ratevalue FROM Rate e order by ratename", Rate.class);
+		
+		return query.getResultList();
+		
+	}
 
 }

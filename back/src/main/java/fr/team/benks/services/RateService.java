@@ -54,7 +54,7 @@ public class RateService {
 	
 	public List<Rate> findAll() {
 		
-		return rateDAO.findAll();
+		return rateDAO.getRates();
 	}
 
 

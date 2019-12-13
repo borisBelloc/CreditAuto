@@ -62,7 +62,8 @@ public class ContractDAO extends AbstractJpaRepository<Contract>{
 	}
 	
 	//à modifier
-	public int numberOfContractBetween(LocalDate start, LocalDate end){
+//	SELECT COUNT(*) FROM Contract u WHERE u.dateStart BETWEEN cast('1990-01-01' as date) AND cast('2019-12-31' as date)
+	public int numberOfContractBetween(String start, String end){
 		System.out.println(start);
 		System.out.println(end);
 		Query query = entityManager.createQuery(

@@ -58,7 +58,9 @@ public class ContractService {
 	
 	public int numberOfContractBetween(String start, String end) {
 		
-		return cd.numberOfContractBetween(stringToDate(start), stringToDate(end));
+//		return cd.numberOfContractBetween(stringToDate(start), stringToDate(end));
+		return cd.numberOfContractBetween(start, end);
+
 		
 	}
 	
