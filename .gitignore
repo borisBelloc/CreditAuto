@@ -8,8 +8,10 @@
 *.code-workspace
 
 # -- ECLIPSE 
-
 .project
+/back/target
+back/.classpath
+.classpath
 /target
 .metadata
 bin/
@@ -67,3 +69,5 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
+back/.classpath
+.application.properties
