@@ -40,25 +40,34 @@ public class Rate implements IdEntity{
 	@Column
 	private int dureeMax;
 	
-	
+	@Column
+	private String rateName;
 	
 	public Rate() {
 		super();
 	}
 
-	public Rate(BigDecimal rateValue, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
-		super();
-		this.rateValue = rateValue;
-		this.categorie = categorie;
-		this.valMin = valMin;
-		this.valMax = valMax;
-		this.dureeMin = dureeMin;
-		this.dureeMax = dureeMax;
-	}
+//	public Rate(BigDecimal rateValue, CategorieVehicle categorie, int valMin, int valMax, int dureeMin, int dureeMax) {
+//		super();
+//		this.rateValue = rateValue;
+//		this.categorie = categorie;
+//		this.valMin = valMin;
+//		this.valMax = valMax;
+//		this.dureeMin = dureeMin;
+//		this.dureeMax = dureeMax;
+//	}
 
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getRateName() {
+		return rateName;
+	}
+
+	public void setRateName(String rateName) {
+		this.rateName = rateName;
 	}
 
 	public BigDecimal getRateValue() {
