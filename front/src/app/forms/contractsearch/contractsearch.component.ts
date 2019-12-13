@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { nameOrContractNumber } from '../validator/nameOrContractNumber';
 
 @Component({
   selector: 'app-contractsearch',
@@ -9,10 +10,16 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ContractsearchComponent implements OnInit {
 
   searchContractForm: FormGroup;
+  submitted = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
   onSubmit(formData) {
+    this.submitted = true;
+    if (this.searchContractForm.invalid) {
+      return;
+    }
+    // stop here if form is invalid
     console.warn('Identifiant client -> ', formData);
   }
 
@@ -22,10 +29,25 @@ export class ContractsearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchContractForm = this.formBuilder.group({
-      customerLastname: [''],
-      customerFirstname: [''],
-      customerContractNumber: [''],
-    });
+    this.searchContractForm = this.formBuilder.group(
+      {
+        customerLastname: ['', [nameOrContractNumber]],
+        customerFirstname: [''],
+        customerContractNumber: ['']
+      },
+      // {
+      //   validator: [nameOrContractNumberValidator]
+      // }
+    );
   }
+
+  // Custom validator EXEMPLE A LIRE :
+  // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
+
+  // https://angular.io/guide/form-validation
+
+  // https://juristr.com/blog/2016/11/ng2-template-driven-form-validators/
+
+  // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
+
 }
