@@ -4,22 +4,31 @@
   <form [formGroup]="searchContractForm" (ngSubmit)="onSubmit(searchContractForm.value)">
     <div class="container">
       <div class="row">
-        <span class="my-3"><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou
+        <div class="col-12 my-3">
+        <span ><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou
           numéro de contrat</span>
       </div>
-
-      <h3>Selectionnez la méthode de recherche</h3>
-      <div class="col-3">
-        <div class="inputGroup">
-          <input type="radio" formControlName="filterMethod" id="byName" value="nameCustomer" />
-          <label for="byName">Nom/Prénom</label>
-        </div>
-        <div class="inputGroup">
-          <input type="radio" formControlName="filterMethod" id="byNumber" checked value="numberContract"  />
-          <label for="byNumber">Numéro de contrat</label>
-        </div>
       </div>
 
+      <div class="row">
+        <div class="col-12">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="col-4">
+              <hr class="mt-2">
+              <span><i><pre class="mb-0">Selectionnez la méthode de recherche :</pre></i></span>
+            <div class="inputGroup mt-0">
+              <input type="radio" formControlName="filterMethod" id="byName" value="nameCustomer" />
+              <label for="byName">Nom/Prénom</label>
+            </div>
+            <div class="inputGroup">
+              <input type="radio" formControlName="filterMethod" id="byNumber" checked value="numberContract" />
+              <label for="byNumber">Numéro de contrat</label>
+              <hr class="mb-5">
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
 
 
       <div class="form-group row justify-content-center">
@@ -27,8 +36,7 @@
 
         <div class="col-4 col-lg-2">
           <input class="form-control sharp glowOrange"
-          [ngClass]="{ 'is-invalid': submitted && f.customerLastname.errors }"
-            formControlName="customerLastname"
+            [ngClass]="{ 'is-invalid': submitted && f.customerLastname.errors }" formControlName="customerLastname"
             type="text" />
           <div *ngIf="submitted && f.customerLastname.errors" class="invalid-feedback">
             Entrer le nom du client
@@ -38,8 +46,8 @@
         <label for="customerFirstname" class="col-2 col-lg-1 col-form-label text-right">Prénom</label>
         <div class="col-4 col-lg-2">
           <input class="form-control sharp glowOrange"
-          [ngClass]="{'is-invalid': submitted && f.customerFirstname.errors }"
-          formControlName="customerFirstname" type="text" />
+            [ngClass]="{'is-invalid': submitted && f.customerFirstname.errors }" formControlName="customerFirstname"
+            type="text" />
           <div *ngIf="submitted && f.customerFirstname.errors" class="invalid-feedback">
             Entrer le prénom du client
           </div>
@@ -51,8 +59,8 @@
           contrat</label>
         <div class="secondRow col-4 col-lg-2">
           <input disabled class="form-control sharp glowOrange"
-          [ngClass]="{'is-invalid': submitted && f.customerContractNumber.errors }"
-          formControlName="customerContractNumber" type="number" />
+            [ngClass]="{'is-invalid': submitted && f.customerContractNumber.errors }"
+            formControlName="customerContractNumber" type="number" />
           <div *ngIf="submitted && f.customerContractNumber.errors" class="invalid-feedback">
             Entrer le numéro de contrat du client
           </div>
