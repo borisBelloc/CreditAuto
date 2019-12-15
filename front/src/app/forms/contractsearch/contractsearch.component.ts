@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { nameOrContractNumber } from '../validator/nameOrContractNumber';
 
 @Component({
@@ -31,12 +31,15 @@ export class ContractsearchComponent implements OnInit {
   ngOnInit() {
     this.searchContractForm = this.formBuilder.group(
       {
-        customerLastname: ['', [nameOrContractNumber]],
-        customerFirstname: ['', [nameOrContractNumber]],
-        customerContractNumber: ['']
+        customerLastname: ['', [Validators.required]],
+        customerFirstname: ['', [Validators.required]],
+        customerContractNumber: [''],
+        filterMethod: ['nameCustomer'],
       },
 
     );
+    this.setUserCategoryValidators();
+
   }
 
 
@@ -55,5 +58,33 @@ export class ContractsearchComponent implements OnInit {
   // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
 
   // https://jasonwatmore.com/fr/post/2019/06/14/angular-8-exemple-de-validation-de-formulaires-reactifs-reactive-forms
+
+
+  setUserCategoryValidators() {
+    const customerLastname = this.searchContractForm.get('customerLastname');
+    const customerFirstname = this.searchContractForm.get('customerFirstname');
+    const customerContractNumber = this.searchContractForm.get('customerContractNumber');
+
+    this.searchContractForm.get('filterMethod').valueChanges
+      .subscribe(filterMethod => {
+
+        if (filterMethod === 'numberContract') {
+          customerContractNumber.setValidators([Validators.required]);
+          customerLastname.setValidators(null);
+          customerFirstname.setValidators(null);
+        }
+
+        if (filterMethod === 'nameCustomer') {
+          customerContractNumber.setValidators(null);
+          customerLastname.setValidators([Validators.required]);
+          customerFirstname.setValidators([Validators.required]);
+        }
+
+        customerContractNumber.updateValueAndValidity();
+        customerLastname.updateValueAndValidity();
+        customerFirstname.updateValueAndValidity();
+      });
+  }
+
 
 }

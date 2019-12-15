@@ -1,104 +1,79 @@
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche de contrat</legend>
 
-  <form
-    [formGroup]="searchContractForm"
-    (ngSubmit)="onSubmit(searchContractForm.value)"
-  >
+  <form [formGroup]="searchContractForm" (ngSubmit)="onSubmit(searchContractForm.value)">
     <div class="container">
       <div class="row">
-        <span class="my-3"
-          ><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou
-          numéro de contrat</span
-        >
+        <span class="my-3"><i class="far fa-file-alt mr-2"></i>Recherche par Nom, prénom ou
+          numéro de contrat</span>
       </div>
 
 
 
-<br>
-<br>
-<!-- ! -->
-<div>
-  <input type="radio" formControlName="userCategory" name="a" id="userCategory2" value="employee"/> Employee
-  <input type="radio" formControlName="userCategory" name="a" id="userCategory1" value="student"/> Student
-</div>
-<!-- ! -->
-<!-- https://bootsnipp.com/snippets/NDgPQ -->
-<br>
-<br>
-<div class="form-group">
-  <label for="searchMethod" class="col-sm-4 col-md-4 control-label text-right">Selectionnez la méthode de recherche</label>
-  <div class="col-sm-7 col-md-7">
-    <div class="input-group">
-      <div id="radioBtn" class="btn-group">
-        <a class="btn btn-dark btn-sm active" data-toggle="searchMethod" data-title="Y">Nom/Prénom</a>
-        <a class="btn btn-dark btn-sm notActive" data-toggle="searchMethod" data-title="N">Numéro de contrat</a>
-      </div>
-      <input type="hidden" name="happy" id="happy">
-    </div>
-  </div>
-</div>
+      <!-- ! -->
+      <!-- <div class="radio-toolbar">
+  <input type="radio" formControlName="userCategory" name="a" id="userCategory2" value="employee"/> <span> Employee</span>
+  <input type="radio" formControlName="userCategory" checked  name="a" id="userCategory1" value="student"/> <span >Student</span>
+</div> -->
+      <!-- ! -->
 
-<br>
-<br>
-<!-- ! -->
+      <!-- <div>
+        <input type="radio" formControlName="filterMethod" id="filterMethod1" value="employee" /> Employee
+        <input type="radio" formControlName="filterMethod" id="filterMethod2" value="student" /> Student
+      </div> -->
+
+      <h3>Selectionnez la méthode de recherche</h3>
+      <div class="col-3">
+        <div class="inputGroup">
+          <input type="radio" formControlName="filterMethod" id="byName" value="nameCustomer" />
+          <label for="byName">Nom/Prénom</label>
+        </div>
+        <div class="inputGroup">
+          <input type="radio" formControlName="filterMethod" id="byNumber" checked value="numberContract"  />
+          <label for="byNumber">Numéro de contrat</label>
+        </div>
+      </div>
+
+
+      <br>
+      <br>
+      <!-- ! -->
 
 
       <div class="form-group row justify-content-center">
-        <label
-          for="customerLastname"
-          class="col-2 col-lg-1 col-form-label text-right"
-          >Nom</label
-        >
+        <label for="customerLastname" class="col-2 col-lg-1 col-form-label text-right">Nom</label>
 
         <div class="col-4 col-lg-2">
-          <input
-            class="form-control sharp glowOrange"
-            [ngClass]="{ 'is-invalid': submitted && f.customerLastname.errors }"
+          <input class="form-control sharp glowOrange"
+          [ngClass]="{ 'is-invalid': submitted && f.customerLastname.errors }"
             formControlName="customerLastname"
-            type="text"
-          />
-          <div
-          *ngIf="submitted && f.customerLastname.errors"
-          class="invalid-feedback">
-          Entrer le nom du client
-        </div>
+            type="text" />
+          <div *ngIf="submitted && f.customerLastname.errors" class="invalid-feedback">
+            Entrer le nom du client
+          </div>
         </div>
 
-        <label
-          for="customerFirstname"
-          class="col-2 col-lg-1 col-form-label text-right"
-          >Prénom</label
-        >
+        <label for="customerFirstname" class="col-2 col-lg-1 col-form-label text-right">Prénom</label>
         <div class="col-4 col-lg-2">
-          <input
-            class="form-control sharp glowOrange"
-            [ngClass]="{
-              'is-invalid': submitted && f.customerFirstname.errors
-            }"
-            formControlName="customerFirstname"
-            type="text"
-          />
-          <div
-            *ngIf="submitted && f.customerFirstname.errors"
-            class="invalid-feedback">
+          <input class="form-control sharp glowOrange"
+          [ngClass]="{'is-invalid': submitted && f.customerFirstname.errors }"
+          formControlName="customerFirstname" type="text" />
+          <div *ngIf="submitted && f.customerFirstname.errors" class="invalid-feedback">
             Entrer le prénom du client
           </div>
         </div>
 
         <hr />
 
-        <label
-          for="customerContractNumber"
-          class="secondRow col-5 col-lg-3 col-form-label text-right"
-          >Numéro de contrat</label
-        >
+        <label for="customerContractNumber" class="secondRow col-5 col-lg-3 col-form-label text-right">Numéro de
+          contrat</label>
         <div class="secondRow col-4 col-lg-2">
-          <input
-            class="form-control sharp glowOrange"
-            formControlName="customerContractNumber"
-            type="number"
-          />
+          <input class="form-control sharp glowOrange"
+          [ngClass]="{'is-invalid': submitted && f.customerContractNumber.errors }"
+          formControlName="customerContractNumber" type="number" />
+          <div *ngIf="submitted && f.customerContractNumber.errors" class="invalid-feedback">
+            Entrer le numéro de contrat du client
+          </div>
         </div>
       </div>
 
