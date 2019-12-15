@@ -68,16 +68,25 @@ export class ContractsearchComponent implements OnInit {
     this.searchContractForm.get('filterMethod').valueChanges
       .subscribe(filterMethod => {
 
+        // We dont need to change the validator required if we disable the input
+        // It's only here as an exemple of what can be done
         if (filterMethod === 'numberContract') {
           customerContractNumber.setValidators([Validators.required]);
           customerLastname.setValidators(null);
           customerFirstname.setValidators(null);
+          customerLastname.disable();
+          customerFirstname.disable();
+          customerContractNumber.enable();
+
         }
 
         if (filterMethod === 'nameCustomer') {
           customerContractNumber.setValidators(null);
           customerLastname.setValidators([Validators.required]);
           customerFirstname.setValidators([Validators.required]);
+          customerLastname.enable();
+          customerFirstname.enable();
+          customerContractNumber.disable();
         }
 
         customerContractNumber.updateValueAndValidity();

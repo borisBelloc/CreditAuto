@@ -8,20 +8,6 @@
           numéro de contrat</span>
       </div>
 
-
-
-      <!-- ! -->
-      <!-- <div class="radio-toolbar">
-  <input type="radio" formControlName="userCategory" name="a" id="userCategory2" value="employee"/> <span> Employee</span>
-  <input type="radio" formControlName="userCategory" checked  name="a" id="userCategory1" value="student"/> <span >Student</span>
-</div> -->
-      <!-- ! -->
-
-      <!-- <div>
-        <input type="radio" formControlName="filterMethod" id="filterMethod1" value="employee" /> Employee
-        <input type="radio" formControlName="filterMethod" id="filterMethod2" value="student" /> Student
-      </div> -->
-
       <h3>Selectionnez la méthode de recherche</h3>
       <div class="col-3">
         <div class="inputGroup">
@@ -34,10 +20,6 @@
         </div>
       </div>
 
-
-      <br>
-      <br>
-      <!-- ! -->
 
 
       <div class="form-group row justify-content-center">
@@ -68,7 +50,7 @@
         <label for="customerContractNumber" class="secondRow col-5 col-lg-3 col-form-label text-right">Numéro de
           contrat</label>
         <div class="secondRow col-4 col-lg-2">
-          <input class="form-control sharp glowOrange"
+          <input disabled class="form-control sharp glowOrange"
           [ngClass]="{'is-invalid': submitted && f.customerContractNumber.errors }"
           formControlName="customerContractNumber" type="number" />
           <div *ngIf="submitted && f.customerContractNumber.errors" class="invalid-feedback">
