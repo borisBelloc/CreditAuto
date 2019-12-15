@@ -42,24 +42,6 @@ export class ContractsearchComponent implements OnInit {
 
   }
 
-
-  // TODO: ajout bouton radio ? [methode de recherche :: Nom/prenom || Contrat number
-  // https://www.codementor.io/@jimohhadi/angular-validators-with-conditional-validation-in-reactive-forms-pj5z7gsq5
-  // si nom§prenom -> disable contrat number ELSE inverse
-
-
-  // Custom validator EXEMPLE A LIRE :
-  // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
-
-  // https://angular.io/guide/form-validation
-
-  // https://juristr.com/blog/2016/11/ng2-template-driven-form-validators/
-
-  // https://codecraft.tv/courses/angular/advanced-topics/basic-custom-validators/
-
-  // https://jasonwatmore.com/fr/post/2019/06/14/angular-8-exemple-de-validation-de-formulaires-reactifs-reactive-forms
-
-
   nameOrContractNumberValidators() {
     const customerLastname = this.searchContractForm.get('customerLastname');
     const customerFirstname = this.searchContractForm.get('customerFirstname');
@@ -79,7 +61,7 @@ export class ContractsearchComponent implements OnInit {
           customerFirstname.reset();
           customerFirstname.disable();
           customerContractNumber.enable();
-        }
+          }
 
         if (filterMethod === 'nameCustomer') {
           customerContractNumber.setValidators(null);
