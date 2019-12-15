@@ -38,7 +38,7 @@ export class ContractsearchComponent implements OnInit {
       },
 
     );
-    this.setUserCategoryValidators();
+    this.nameOrContractNumberValidators();
 
   }
 
@@ -60,7 +60,7 @@ export class ContractsearchComponent implements OnInit {
   // https://jasonwatmore.com/fr/post/2019/06/14/angular-8-exemple-de-validation-de-formulaires-reactifs-reactive-forms
 
 
-  setUserCategoryValidators() {
+  nameOrContractNumberValidators() {
     const customerLastname = this.searchContractForm.get('customerLastname');
     const customerFirstname = this.searchContractForm.get('customerFirstname');
     const customerContractNumber = this.searchContractForm.get('customerContractNumber');
@@ -74,10 +74,11 @@ export class ContractsearchComponent implements OnInit {
           customerContractNumber.setValidators([Validators.required]);
           customerLastname.setValidators(null);
           customerFirstname.setValidators(null);
+          customerLastname.reset();
           customerLastname.disable();
+          customerFirstname.reset();
           customerFirstname.disable();
           customerContractNumber.enable();
-
         }
 
         if (filterMethod === 'nameCustomer') {
@@ -87,6 +88,7 @@ export class ContractsearchComponent implements OnInit {
           customerLastname.enable();
           customerFirstname.enable();
           customerContractNumber.disable();
+          customerContractNumber.reset();
         }
 
         customerContractNumber.updateValueAndValidity();
