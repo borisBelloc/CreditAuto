@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.Client;
 import fr.team.benks.model.Contract;
+import fr.team.benks.services.AddressService;
 import fr.team.benks.services.ClientService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,11 +26,15 @@ public class ClientController {
 
 	@Autowired
 	private ClientService cs;
+	
+	@Autowired
+	private AddressService as;
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody Client resource) {
-
+		System.out.println(resource.getAddress().toString());
+		as.save(resource.getAddress());
 		cs.save(resource);
 
 	}
