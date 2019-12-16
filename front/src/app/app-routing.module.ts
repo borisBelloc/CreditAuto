@@ -1,3 +1,4 @@
+import { TransionscreenComponent } from './body/transionscreen/transionscreen.component';
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -5,18 +6,18 @@ import { LoansimulateComponent } from './forms/loansimulate/loansimulate.compone
 import { CustomerComponent } from './forms/customer/customer.component';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
-import { TransitionscreenComponent } from './body/transitionscreen/transitionscreen.component';
+import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 import { StatsComponent } from './body/stats/stats.component';
 import { CreateClientComponent } from './forms/create-client/create-client.component';
+import { ContractsearchComponent } from './forms/contractsearch/contractsearch.component';
 
 
 const routes: Routes = [
+  {path: '', redirectTo: 'home' , pathMatch: 'full'},
+  {path: 'home' , component: HomeComponent},
+  {path: 'login', component: IdentificationComponent},
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-
-  { path: 'login', component: IdentificationComponent },
-  { path: 'transition', component: TransitionscreenComponent },
+  {path: 'transition' , component: TransionscreenComponent},
 
   { path: 'simulation', component: LoansimulateComponent },
   { path: 'statistiques', component: StatsComponent },
@@ -25,7 +26,9 @@ const routes: Routes = [
   // TODO remove client2; used for test
   { path: 'client2', component: CustomerComponent },
 
-  { path: 'createClient', component: CreateClientComponent}
+  { path: 'createClient', component: CreateClientComponent},
+  { path: 'contrat', component: ContractsearchComponent },
+  {path: 'taux' , component: ConfigurationtauxComponent},
 ];
 
 @NgModule({

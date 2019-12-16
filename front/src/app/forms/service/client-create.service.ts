@@ -19,6 +19,10 @@ export class ClientCreateService {
   }
 
   createNewClient(client: Client): Observable<Client> {
-    return this.httpClient.post<Client>(`${this.baseUrl}`, this.httpOptions);
+    return this.httpClient.post<Client>(
+      `${this.baseUrl}`,
+      client,
+      this.httpOptions
+    );
   }
 }

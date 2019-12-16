@@ -1,5 +1,9 @@
 package fr.team.benks.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +23,53 @@ public class ContractService {
 		
 	}
 
-	public void save(Rate resource) {
+	public Contract findByNumber(int number) {
 		// TODO Auto-generated method stub
+		return cd.findByNumber(number);
+	}
+	
+	public void update(Contract c) {
+		cd.update(c);
+	}
+	
+	public List<Contract> getAll(){
+		
+		return cd.findAll();
 		
 	}
 
-	public Contract get(int number) {
+	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		cd.delete(id);
+		
+	}
+	
+	public void activate(Long id) {
+		
+		cd.activate(id);
+		
+	}
+	
+	public void deactivate(Long id) {
+		
+		cd.deactivate(id);
+		
+	}
+	
+	public int numberOfContractBetween(String start, String end) {
+		
+//		return cd.numberOfContractBetween(stringToDate(start), stringToDate(end));
+		return cd.numberOfContractBetween(start, end);
+
+		
+	}
+	
+	private LocalDate stringToDate(String d) {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		return LocalDate.parse(d,formatter);
+		
 	}
 
 }

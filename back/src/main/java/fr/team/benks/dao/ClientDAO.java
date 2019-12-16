@@ -153,5 +153,12 @@ public class ClientDAO extends AbstractJpaRepository<Client> {
 		Optional<List<Contract>> result = Optional.ofNullable((List<Contract>) query.getResultList());
 		return result.isPresent() ? result.get() : null;
 	}
+	
+//	public Client addContract(long id, Contract contract) {
+//		Client client = find(id);
+//		client.addContract(contract);
+//		return entityManager.merge(client);
+//		
+//	}
 
 }

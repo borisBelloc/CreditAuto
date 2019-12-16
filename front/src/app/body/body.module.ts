@@ -6,12 +6,14 @@ import {FormsModule} from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { BodyRoutingModule } from './body-routing.module';
+import { TransionscreenComponent } from './transionscreen/transionscreen.component';
+import { ConfigurationtauxComponent } from './configurationtaux/configurationtaux.component';
 
 import { TransitionscreenComponent } from './transitionscreen/transitionscreen.component';
 import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
-  declarations: [TransitionscreenComponent, StatsComponent],
+  declarations: [TransionscreenComponent, StatsComponent],
   imports: [
     CommonModule,
     BodyRoutingModule,
