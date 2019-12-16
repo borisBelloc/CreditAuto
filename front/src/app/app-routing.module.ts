@@ -9,20 +9,16 @@ import { IdentificationComponent } from './forms/identification/identification.c
 import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 import { StatsComponent } from './body/stats/stats.component';
 import { CreateClientComponent } from './forms/create-client/create-client.component';
+import { ContractsearchComponent } from './forms/contractsearch/contractsearch.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'home' , pathMatch: 'full'},
   {path: 'home' , component: HomeComponent},
   {path: 'login', component: IdentificationComponent},
+
   {path: 'transition' , component: TransionscreenComponent},
-  {path: 'taux' , component: ConfigurationtauxComponent},
-  // {
-  //   path: '',
-  //   redirectTo: 'accueil',
-  //   pathMatch: 'full'
-  //   }
- // { path: '', redirectTo: 'simulation', pathMatch: 'full' },
+
   { path: 'simulation', component: LoansimulateComponent },
   { path: 'statistiques', component: StatsComponent },
 
@@ -30,7 +26,9 @@ const routes: Routes = [
   // TODO remove client2; used for test
   { path: 'client2', component: CustomerComponent },
 
-  { path: 'createClient', component: CreateClientComponent}
+  { path: 'createClient', component: CreateClientComponent},
+  { path: 'contrat', component: ContractsearchComponent },
+  {path: 'taux' , component: ConfigurationtauxComponent},
 ];
 
 @NgModule({

@@ -9,9 +9,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CustomerComponent } from "./customer/customer.component";
 import { HttpClientModule } from "@angular/common/http";
 import { CreateClientComponent } from './create-client/create-client.component';
+import { ContractsearchComponent } from './contractsearch/contractsearch.component';
 
 @NgModule({
-  declarations: [LoansimulateComponent, CustomerComponent, CreateClientComponent],
+  declarations: [LoansimulateComponent, CustomerComponent, ContractsearchComponent, CreateClientComponent],
   exports: [LoansimulateComponent],
   imports: [
     CommonModule,
