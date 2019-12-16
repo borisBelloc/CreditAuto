@@ -58,7 +58,7 @@
         <label for="customerContractNumber" class="secondRow col-5 col-lg-3 col-form-label text-right">Numéro de
           contrat</label>
         <div class="secondRow col-4 col-lg-2">
-          <input disabled class="form-control sharp glowOrange"
+          <input class="form-control sharp glowOrange"
             [ngClass]="{'is-invalid': submitted && f.customerContractNumber.errors }"
             formControlName="customerContractNumber" type="number" />
           <div *ngIf="submitted && f.customerContractNumber.errors" class="invalid-feedback">

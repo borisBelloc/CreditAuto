@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { nameOrContractNumber } from '../validator/nameOrContractNumber';
 
 @Component({
@@ -16,10 +16,10 @@ export class ContractsearchComponent implements OnInit {
 
   onSubmit(formData) {
     this.submitted = true;
+    // stop here if form is invalid
     if (this.searchContractForm.invalid) {
       return;
     }
-    // stop here if form is invalid
     console.warn('Identifiant client -> ', formData);
   }
 
@@ -35,7 +35,7 @@ export class ContractsearchComponent implements OnInit {
         // customerLastname: ['', [ nameOrContractNumber]],
         customerLastname: ['', [Validators.required]],
         customerFirstname: ['', [Validators.required]],
-        customerContractNumber: [''],
+        customerContractNumber: new FormControl({ value: '', disabled: true}),
         filterMethod: ['nameCustomer'],
       },
 
@@ -53,7 +53,7 @@ export class ContractsearchComponent implements OnInit {
     this.searchContractForm.get('filterMethod').valueChanges
       .subscribe(filterMethod => {
 
-        // We dont need to change the validator required if we disable the input
+        // We dont need to change the validator 'required' if we disable the input
         // It's only here as an exemple of what can be done
         if (filterMethod === 'numberContract') {
           customerContractNumber.setValidators([Validators.required]);
