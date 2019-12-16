@@ -120,12 +120,11 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <div *ngIf="serviceResponse">
-            data:
-            {{ serviceResponse.numClient}}
-            {{ serviceResponse.email}}
-          </div> -->
+          <!-- <form [formGroup]="selectUserForm"> -->
+
+          <!--  (ngSubmit)="onSubmit(selectUserForm.value) -->
           <tr *ngFor="let data of serviceResponse" (click)="selectRadio(data.id)">
+
             <td class="text-center">
               <input type="radio" id="{{ data.id }}" name="customer" value="{{ data.id }}">
             </td>
@@ -137,14 +136,15 @@
 
           <tr>
             <td colspan="5">
-              <button
+              <button (click)="linkUserToContract()"
                 class="btn btn-dark"
-                type="submit">
+                type="button">
                 Valider
               </button>
             </td>
           </tr>
 
+          <!-- </form> -->
         </tbody>
       </table>
 

@@ -16,6 +16,7 @@ export class CustomerComponent implements OnInit {
   submitted = false;
 
   selectUserForm: FormGroup;
+  radioValue: number;
 
   serviceResponse: any;
 
@@ -62,24 +63,27 @@ export class CustomerComponent implements OnInit {
       .subscribe(response => {
         this.serviceResponse = response;
         console.log('reponse from request : ' , this.serviceResponse);
+        console.log('1' , this.serviceResponse[1]);
       },
       error => {
         console.log(error);
       }
     );
-
-    this.selectUserForm = this.formBuilder.group({
-      customer: ['']
-    });
-    console.log('selectUserForm : ', this.selectUserForm);
-
   }
 
-  selectRadio(dd) {
-    console.log('Id clicked -> ' + dd);
+  selectRadio(radioId) {
+    this.radioValue = (radioId - 1);
+    console.log('Id clicked -> ' + this.radioValue);
     // TODO: how to make the whole row select the radio btn ?
     // gender: ['male', [Validators.required]]
     // customer: ['1'];
+
+  }
+
+  linkUserToContract() {
+    // TODO:  faire REQUETTE POST ->
+    console.log('--Linked--');
+    console.log('CLIENT WANTED :: ', this.serviceResponse[this.radioValue]);
   }
 
 }
