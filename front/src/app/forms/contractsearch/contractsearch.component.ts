@@ -31,6 +31,8 @@ export class ContractsearchComponent implements OnInit {
   ngOnInit() {
     this.searchContractForm = this.formBuilder.group(
       {
+        // That's how you would call the custom form validator
+        // customerLastname: ['', [ nameOrContractNumber]],
         customerLastname: ['', [Validators.required]],
         customerFirstname: ['', [Validators.required]],
         customerContractNumber: [''],
@@ -42,6 +44,7 @@ export class ContractsearchComponent implements OnInit {
 
   }
 
+  // Form Validator
   nameOrContractNumberValidators() {
     const customerLastname = this.searchContractForm.get('customerLastname');
     const customerFirstname = this.searchContractForm.get('customerFirstname');

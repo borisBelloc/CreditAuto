@@ -1,7 +1,10 @@
 import { AbstractControl } from '@angular/forms';
 
+/**
+ * Exemple of custom validator
+ * @param this.(form's input)
+ */
 export function nameOrContractNumber(control: AbstractControl): { [key: string]: boolean } | null  {
-  // if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
   if (control.value === '') {
       console.log('null');
       return { formErrorNoN: true};
