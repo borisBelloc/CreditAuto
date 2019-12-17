@@ -29,6 +29,9 @@
               <div *ngIf="f.amountPurchase.errors['required']">
                 Entrer montant
               </div>
+              <div *ngIf="f.amountPurchase.errors['maxLength']">
+                Valeur doit ètre inférieur à 6 caractère
+              </div>
             </div>
           </div>
         </div>
@@ -104,17 +107,14 @@
         </div>
 
         <div class="form-group row">
-          <label for="loanPrice" class="col-5 col-form-label"
-            >Coût du crédit (€)</label
-          >
+          <label class="col-5 col-form-label">Coût du crédit (€)</label>
           <div class="col-6">
             <input
-              id="loanPrice"
               disabled
               name="loanCost"
               class="form-control sharp"
-              value="{{ response }}"
-              />
+              value="{{ simulationResult.totalCost }}"
+            />
           </div>
         </div>
 
@@ -125,12 +125,10 @@
             >
             <div class="col-6">
               <input
-                id="loanPrice"
                 disabled
-                name="loanCost"
+                name="monthlyCost"
                 class="form-control sharp"
-                formControlName="loanCost"
-                value="{{ 10000 / f.durationLoan.value }}"
+                value="{{ simulationResult.monthlyCost }}"
               />
             </div>
           </div>
@@ -156,6 +154,7 @@
           </button>
           <!-- TODO: ajout method pour creer le contrat (click) -->
           <button
+            routerLink="/client"
             *ngIf="!isBtnsVisible"
             class="btn btn-dark sharp mt-4"
             type="button"
@@ -174,7 +173,7 @@
       </form>
     </div>
 
-    <!-- TODO: Tableau echeance
+    <!-- TODO: Tableau echeance -->
     <div class="col-6">
       <table class="table" table-striped>
         <thead>
@@ -199,6 +198,6 @@
           </li>
         </ul>
       </div>
-    </div> -->
+    </div>
   </div>
 </fieldset>

@@ -12,10 +12,9 @@ import { SimulationService } from '../service/simulation.service';
   styleUrls: ['./loansimulate.component.scss']
 })
 export class LoansimulateComponent implements OnInit {
-  //dataSimulate: string;
-  //lastUpdate = new Date();
-  //simulation: Simulation;
   simulateForm: FormGroup;
+  simulationResult: Simulation;
+
   response: any;
   submitted = false;
   isBtnsVisible = true;
@@ -27,11 +26,12 @@ export class LoansimulateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.simulationResult = new Simulation(0, 0, 0, 0);
     this.simulateForm = this.formBuilder.group({
-      amountPurchase: ['', Validators.required],
-      amountLoan: ['', Validators.required],
+      amountPurchase: ['', [Validators.required, Validators.maxLength(6)]],
+      amountLoan: ['', [Validators.required, Validators.maxLength(6)]],
       category: ['', Validators.required],
-      durationLoan: ['', Validators.required]
+      durationLoan: ['', [Validators.required, Validators.max(3000)]]
     });
   }
 
@@ -69,8 +69,8 @@ export class LoansimulateComponent implements OnInit {
       )
       .subscribe(
         response => {
-          this.response = response;
-          console.log(this.response);
+          this.simulationResult = response as Simulation;
+          console.log(this.simulationResult);
         },
         error => {
           console.log(error);
