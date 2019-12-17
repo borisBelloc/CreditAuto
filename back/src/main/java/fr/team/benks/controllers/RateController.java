@@ -73,10 +73,23 @@ public class RateController {
 	public SimulationResult findByParams(@RequestParam("categorie") CategorieVehicle categorie,
 			@RequestParam("montant") int montant, @RequestParam("duree") int duree) {
 
-		Optional<Rate> rate = rs.getRate(categorie, montant, duree);
-		System.out.println(rate);
-		SimulationResult rs = new SimulationResult(rate.get().getRateValue(), duree, new BigDecimal(montant));
-		return rs;
+		SimulationResult sr = null;
+		Optional<Rate> rate = null;
+		
+		try {
+		
+			rate = rs.getRate(categorie, montant, duree);
+		
+		}
+		catch(Exception e) {
+			
+			return null;
+			
+		}
+		//System.out.println(rate);
+		sr = new SimulationResult(rate.get().getRateValue(), duree, new BigDecimal(montant));
+		
+		return sr;
 
 	}
 
