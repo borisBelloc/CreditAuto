@@ -5,6 +5,7 @@ export class Simulation {
   durationLoan: number;
   totalCost: number;
   monthlyCost: number;
+  repaymentSchedule: object;
 
   constructor(amountPurchase, amountLoan, category, durationLoan) {
     this.amountPurchase = amountPurchase;

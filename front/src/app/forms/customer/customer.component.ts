@@ -62,6 +62,7 @@ export class CustomerComponent implements OnInit {
         formData.customerFirstname,
         formData.customerEmail
       )
+<<<<<<< HEAD
       .subscribe(
         response => {
           this.serviceResponse = response;
@@ -72,15 +73,33 @@ export class CustomerComponent implements OnInit {
           console.log(error);
         }
       );
+=======
+      .subscribe(response => {
+        this.serviceResponse = response;
+        console.log('reponse from request : ' , this.serviceResponse);
+        // console.log('Client 1 ->' , this.serviceResponse[1]);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+>>>>>>> 78008012a73dc3c4b452da97b2847d67135a2af9
   }
 
   selectRadio(radioId) {
     this.customerId = radioId;
-    // console.log('radio selected -> ', this.customerId);
+    console.log('radio selected -> ', this.customerId);
   }
 
   linkUserToContract() {
     // TODO:  faire REQUETTE POST -> add client to contract
+<<<<<<< HEAD
     console.log('CLIENT WANTED :: ', this.serviceResponse[this.customerId - 1]);
+=======
+
+    let wantedCustomer;
+    wantedCustomer = this.serviceResponse.find(customer => customer.id === this.customerId);
+    console.log('CLIENT WANTED :: -> ', wantedCustomer);
+>>>>>>> 78008012a73dc3c4b452da97b2847d67135a2af9
   }
 }

@@ -33,14 +33,14 @@ export class CreateClientComponent implements OnInit {
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      lastName: [''],
-      firstName: [''],
-      gender: [''],
-      address: [''],
-      city: [''],
-      zipCode: [''],
-      email: [''],
-      birthdate: ['']
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      gender: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      birthdate: ['', Validators.required]
     });
   }
 
