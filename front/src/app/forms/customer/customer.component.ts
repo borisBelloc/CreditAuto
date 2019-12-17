@@ -72,10 +72,8 @@ export class CustomerComponent implements OnInit {
   }
 
   selectRadio(radioId) {
-    console.log('Id clicked -> ' + radioId);
-    // TODO: how to make the whole row select the radio btn ?
-    this.customerId = this.serviceResponse[radioId - 1].id;
-
+    this.customerId = radioId;
+    console.log(this.customerId);
   }
 
   linkUserToContract() {
