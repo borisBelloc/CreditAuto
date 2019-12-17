@@ -42,7 +42,8 @@ public class CalculService {
 	 */
 	public static BigDecimal calculMonthlyCost(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
 
-		BigDecimal txPer = txAnnuel.divide(new BigDecimal(12), finalResultRounding).divide(new BigDecimal(100),finalResultRounding);
+		BigDecimal txPer = txAnnuel.divide(new BigDecimal(12), finalResultRounding).divide(new BigDecimal(100),
+				finalResultRounding);
 		System.out.println("txPer : " + txPer);
 
 		BigDecimal divided = mtEmp.multiply(txPer, preciseRounding)
@@ -55,7 +56,6 @@ public class CalculService {
 
 	}
 
-	
 	/**
 	 * 
 	 * @param txAnnuel
@@ -64,17 +64,23 @@ public class CalculService {
 	 * @param souscription LocalDate
 	 * 
 	 */
-	public static void afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp, LocalDate souscription) {
-		
+	public static Object[][] afficherEcheancier(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
+
 		BigDecimal mtEch = calculMonthlyCost(txAnnuel, nbEch, mtEmp);
-		
+		LocalDate souscription = LocalDate.now();
+		Object[][] repaymentSchedule = new Object[nbEch][3];
+		int k = 0;
 		System.out.println("Date           Montant     Montant cumulé");
-		for (int i = 0; i< nbEch; i++) {
-			System.out.println(souscription.plusMonths(i)+"     "+mtEch+"     "
-		+(mtEch.add(mtEch.multiply(new BigDecimal(i)))));
-			
+		for (Object[] i : repaymentSchedule) {
+			i[0] = souscription.plusMonths(k);
+			i[1] = mtEch;
+			i[2] = mtEch.add(mtEch.multiply(new BigDecimal(k)));
+			System.out.println(i[0] + "     " + i[1] + "     " + i[2]);
+			k++;
+
 		}
-		
+		return repaymentSchedule;
+
 	}
-	
+
 }

@@ -67,7 +67,7 @@ export class CreateClientComponent implements OnInit {
     this.gender = this.f.gender.value;
     this.address = this.f.address.value;
     this.city = this.f.city.value;
-    this.zipCode = this.f.city.value;
+    this.zipCode = this.f.zipCode.value;
     this.email = this.f.email.value;
     this.birthdate = this.f.birthdate.value;
 

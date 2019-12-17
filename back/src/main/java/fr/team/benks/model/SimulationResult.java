@@ -8,6 +8,8 @@ public class SimulationResult {
 
 	private BigDecimal totalCost ;
 	private BigDecimal monthlyCost ;
+	private Object[][] repaymentSchedule;
+	
 	private CalculService cs;
 	
 	public SimulationResult() {
@@ -17,6 +19,7 @@ public class SimulationResult {
 	public SimulationResult(BigDecimal txAnnuel, int nbEch, BigDecimal mtEmp) {
 		monthlyCost = cs.calculMonthlyCost(txAnnuel, nbEch, mtEmp);
 		totalCost = cs.calculTotalCost(txAnnuel, nbEch, mtEmp);
+		repaymentSchedule = cs.afficherEcheancier(txAnnuel, nbEch, mtEmp);
 	}
 
 	public BigDecimal getTotalCost() {
@@ -34,6 +37,15 @@ public class SimulationResult {
 	public void setMonthlyCost(BigDecimal monthlyCost) {
 		this.monthlyCost = monthlyCost;
 	}
+
+	public Object[][] getRepaymentSchedule() {
+		return repaymentSchedule;
+	}
+
+	public void setRepaymentSchedule(Object[][] repaymentSchedule) {
+		this.repaymentSchedule = repaymentSchedule;
+	}
+	
 	
 	
 }

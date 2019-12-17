@@ -16,11 +16,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-//		CalculService cs = new CalculService();
+		CalculService cs = new CalculService();
 //		BigDecimal cost = cs.calculTotalCost(new BigDecimal(0.05), 24, new BigDecimal(10000));
 //
-//		LocalDate date = LocalDate.parse("2018-11-13");
-//		cs.afficherEcheancier(new BigDecimal(0.05), 24, new BigDecimal(10000), date);
+		LocalDate date = LocalDate.parse("2018-11-13");
+		cs.afficherEcheancier(new BigDecimal(0.034), 24, new BigDecimal(10000));
 
 	}
 
