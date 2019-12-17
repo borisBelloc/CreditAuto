@@ -1,8 +1,19 @@
 // Impossible to change select:hover color with CSS
 // source : https://stackoverflow.com/questions/19388011/how-to-change-colour-of-blue-highlight-on-select-box-dropdown/19388345
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+
+// TODO: Header table fixed
+// TODO : fix dessus du header
+// thead th {
+//   position: sticky;
+//   top: 0;
+//   background-color: #343A40;
+//   color: #ffffff;
+//   // border: 1px red solid;
+//   // box-shadow: 1px 1px 5px  #000;
+// }
