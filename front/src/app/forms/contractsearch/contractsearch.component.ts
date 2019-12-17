@@ -41,7 +41,6 @@ export class ContractsearchComponent implements OnInit {
 
     );
     this.nameOrContractNumberValidators();
-
   }
 
   // Form Validator

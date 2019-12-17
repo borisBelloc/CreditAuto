@@ -10,13 +10,9 @@
         (ngSubmit)="onSubmit(simulateForm.value)"
       >
         <div class="form-group row">
-          <label for="purchasePrice" class="col-5 col-form-label"
-            >Montant de l'achat (€)</label
-          >
+          <label class="col-5 col-form-label">Montant de l'achat (€)</label>
           <div class="col-6">
             <input
-              id="purchasePrice"
-              name="amountPurchase"
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.amountPurchase.errors }"
               formControlName="amountPurchase"
@@ -37,13 +33,9 @@
         </div>
 
         <div class="form-group row">
-          <label for="loanAmount" class="col-5 col-form-label"
-            >Montant du crédit (€)</label
-          >
+          <label class="col-5 col-form-label">Montant du crédit (€)</label>
           <div class="col-6">
             <input
-              id="loanAmount"
-              name="amountLoan"
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.amountLoan.errors }"
               formControlName="amountLoan"
@@ -60,13 +52,9 @@
 
         <!-- TODO: change color border select -->
         <div class="form-group row">
-          <label for="category" class="col-5 col-form-label"
-            >Catégorie véhicule</label
-          >
+          <label class="col-5 col-form-label">Catégorie véhicule</label>
           <div class="col-6">
             <select
-              id="category"
-              name="category"
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.category.errors }"
               formControlName="category"
@@ -85,13 +73,9 @@
         </div>
 
         <div class="form-group row">
-          <label for="durationLoan" class="col-5 col-form-label"
-            >Durée du crédit (mois)</label
-          >
+          <label class="col-5 col-form-label">Durée du crédit (mois)</label>
           <div class="col-6">
             <input
-              id="durationLoan"
-              name="durationLoan"
               class="form-control sharp glowOrange"
               [ngClass]="{ 'is-invalid': submitted && f.durationLoan.errors }"
               formControlName="durationLoan"
@@ -120,13 +104,12 @@
 
         <ng-container *ngIf="isEcheanceVisible">
           <div class="form-group row">
-            <label for="loanPrice" class="col-5 col-form-label"
+            <label class="col-5 col-form-label"
               >Montant de l'échéance (€)</label
             >
             <div class="col-6">
               <input
                 disabled
-                name="monthlyCost"
                 class="form-control sharp"
                 value="{{ simulationResult.monthlyCost }}"
               />
@@ -174,30 +157,25 @@
     </div>
 
     <!-- TODO: Tableau echeance -->
-    <div class="col-6">
-      <table class="table" table-striped>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Montant</th>
-            <th>Montant cumulé</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of list">
-            <td>{{ item.lastUpdate | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ item }}</td>
-            <td>{{ item }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="container spacer">
-        <ul class="nav nav-pills">
-          <li ng-repeat="p in pages track by $index">
-            <a ng-click="goToPage">{{ $index }}</a>
-          </li>
-        </ul>
-      </div>
+    <div id="tab_scroll" class="col-5">
+      <ng-container *ngIf="isTableVisible">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Montant</th>
+              <th>Montant cumulé</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of simulationResult.repaymentSchedule">
+              <td>{{ item[0] | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ item[1] }}</td>
+              <td>{{ item[2] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
     </div>
   </div>
 </fieldset>
