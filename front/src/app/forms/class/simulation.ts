@@ -3,7 +3,8 @@ export class Simulation {
   amountLoan: number;
   category: number;
   durationLoan: number;
-  loanCost: number;
+  totalCost: number;
+  monthlyCost: number;
 
   constructor(amountPurchase, amountLoan, category, durationLoan) {
     this.amountPurchase = amountPurchase;
