@@ -23,7 +23,7 @@ export class CustomerComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private customerResearchService: CustomerResearchService
-    ) {}
+  ) {}
 
   // convenience getter for easy access to form fields (ex:f.amountPurchase)
   get f() {
@@ -31,16 +31,20 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchForm = this.formBuilder.group({
-      customerFirstname: [''],
-      customerLastname: [''],
-      customerEmail: ['', Validators.email],
-    },
-    {
-      validator: [
-        RequiredEitherInput.requiredEither('customerEmail', 'customerLastname')
-      ]
-    }
+    this.searchForm = this.formBuilder.group(
+      {
+        customerFirstname: [''],
+        customerLastname: [''],
+        customerEmail: ['', Validators.email]
+      },
+      {
+        validator: [
+          RequiredEitherInput.requiredEither(
+            'customerEmail',
+            'customerLastname'
+          )
+        ]
+      }
     );
   }
 
@@ -56,17 +60,18 @@ export class CustomerComponent implements OnInit {
       .getCustomers(
         formData.customerLastname,
         formData.customerFirstname,
-        formData.customerEmail,
+        formData.customerEmail
       )
-      .subscribe(response => {
-        this.serviceResponse = response;
-        console.log('reponse from request : ' , this.serviceResponse);
-        console.log('Client 1 ->' , this.serviceResponse[1]);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      .subscribe(
+        response => {
+          this.serviceResponse = response;
+          console.log('reponse from request : ', this.serviceResponse);
+          console.log('Client 1 ->', this.serviceResponse[1]);
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   selectRadio(radioId) {
@@ -76,7 +81,6 @@ export class CustomerComponent implements OnInit {
 
   linkUserToContract() {
     // TODO:  faire REQUETTE POST -> add client to contract
-    console.log('CLIENT WANTED :: ', this.serviceResponse[this.customerId]);
+    console.log('CLIENT WANTED :: ', this.serviceResponse[this.customerId - 1]);
   }
-
 }

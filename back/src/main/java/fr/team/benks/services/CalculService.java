@@ -75,7 +75,7 @@ public class CalculService {
 			i[0] = souscription.plusMonths(k);
 			i[1] = mtEch;
 			i[2] = mtEch.add(mtEch.multiply(new BigDecimal(k)));
-			System.out.println(i[0] + "     " + i[1] + "     " + i[2]);
+//			System.out.println(i[0] + "     " + i[1] + "     " + i[2]);
 			k++;
 
 		}
