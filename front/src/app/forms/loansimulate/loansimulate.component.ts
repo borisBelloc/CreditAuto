@@ -56,9 +56,8 @@ export class LoansimulateComponent implements OnInit {
       return;
     }
 
-    alert(
-      'SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4)
-    );
+    alert();
+    // 'SUCCESS!! :-)\n\n' + JSON.stringify(this.simulateForm.value, null, 4)
 
     // console.warn('FORM ICI -> ', formData);
     this.simulationService

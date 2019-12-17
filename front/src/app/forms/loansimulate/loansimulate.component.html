@@ -184,10 +184,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of list">
-            <td>{{ item.lastUpdate | date: 'MM/dd/yyyy' }}</td>
-            <td>{{ item }}</td>
-            <td>{{ item }}</td>
+          <tr *ngFor="let item of simulationResult.repaymentSchedule">
+            <td>{{ item[0] | date: "MM/dd/yyyy" }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
           </tr>
         </tbody>
       </table>
