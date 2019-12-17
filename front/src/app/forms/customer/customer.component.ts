@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequiredEitherInput } from '../validator/requiredEitherInput';
 import { CustomerResearchService } from '../service/customer-research.service';
+import { Simulation } from '../class/simulation';
 
 @Component({
   selector: 'app-customer',
@@ -15,7 +16,7 @@ export class CustomerComponent implements OnInit {
   searchForm: FormGroup;
   submitted = false;
   customerId: number;
-
+  newSimulation: Simulation;
   serviceResponse: any;
 
   // import Router allow to use '*ngIf router' inside template
@@ -31,6 +32,9 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newSimulation = window.history.state.data;
+    console.log(this.newSimulation);
+
     this.searchForm = this.formBuilder.group(
       {
         customerFirstname: [''],
@@ -66,7 +70,7 @@ export class CustomerComponent implements OnInit {
         response => {
           this.serviceResponse = response;
           console.log('reponse from request : ', this.serviceResponse);
-          console.log('Client 1 ->', this.serviceResponse[1]);
+          // console.log('Client 1 ->' , this.serviceResponse[1]);
         },
         error => {
           console.log(error);

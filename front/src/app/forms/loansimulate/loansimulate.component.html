@@ -138,6 +138,7 @@
           <!-- TODO: ajout method pour creer le contrat (click) -->
           <button
             routerLink="/client"
+            [state]="{ data: this.simulationResult }"
             *ngIf="!isBtnsVisible"
             class="btn btn-dark sharp mt-4"
             type="button"
