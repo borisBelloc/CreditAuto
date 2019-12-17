@@ -2,6 +2,8 @@ package fr.team.benks.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +18,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
-@SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 1)
 public class Contract implements IdEntity {
 
 	/**
@@ -27,9 +28,8 @@ public class Contract implements IdEntity {
 	@GeneratedValue
 	private long id;
 
-	@Column
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
-	private int numContract;
+	@Column(unique = true)
+	private long numContract;
 
 	@ManyToOne
 	private Client client;
@@ -72,11 +72,11 @@ public class Contract implements IdEntity {
 
 	}
 
-	public int getNumContract() {
+	public long getNumContract() {
 		return numContract;
 	}
 
-	public void setNumContract(int numContract) {
+	public void setNumContract(long numContract) {
 		this.numContract = numContract;
 	}
 
@@ -146,6 +146,16 @@ public class Contract implements IdEntity {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public void setNumContract() {
+		
+		StringBuilder numContractSb = new StringBuilder();
+		
+		numContractSb.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddHHmmss")));
+				
+		this.numContract = Long.parseLong((numContractSb.toString()));
+		
 	}
 
 }

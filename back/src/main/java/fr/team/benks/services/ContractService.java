@@ -19,6 +19,7 @@ public class ContractService {
 	
 	public void save(Contract t) {
 		
+		t.setNumContract();
 		cd.save(t);
 		
 	}

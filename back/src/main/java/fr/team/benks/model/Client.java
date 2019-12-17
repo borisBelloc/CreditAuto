@@ -40,7 +40,6 @@ public class Client implements IdEntity {
 	@OneToOne
 	private Address address;
 
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	@Column (unique = true)
 	private long numClient;
 
