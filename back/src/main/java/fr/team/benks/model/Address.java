@@ -7,14 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Adress {
+public class Address implements IdEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8424697508890000493L;
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@Column
-	private String adress;
+	private String address;
 	
 	@Column
 	private int zipCode;
@@ -22,20 +27,25 @@ public class Adress {
 	@Column
 	private String city;
 
-	public long getId() {
+	
+	public Address() {
+		super();
+	}
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String adress) {
+		this.address = adress;
 	}
 
 	public int getZipCode() {
@@ -53,7 +63,12 @@ public class Adress {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", address=" + address + ", zipCode=" + zipCode + ", city=" + city + "]";
+	}
+
 	
 
 }

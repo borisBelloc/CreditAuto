@@ -1,64 +1,35 @@
+
 package fr.team.benks.dao;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Consumer;
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
+import fr.team.benks.model.Rate;
 import fr.team.benks.model.User;
 
-public class UserDAO implements DAO<User> {
+@Repository
+public class UserDAO extends AbstractJpaRepository<User> {
+
+	protected UserDAO() {
+		super(User.class);
+	}
 	
+	@PersistenceContext
 	private EntityManager entityManager;
-
-	@Override
-	public Optional<User> get(long id) {
-		
-		return Optional.ofNullable(entityManager.find(User.class, id));
 	
-	}
-
-	@Override
-	public List<User> getAll() {
+	public User findByLogin(String login) {
 		
-		Query query = entityManager.createQuery("SELECT e FROM User e");
-        return query.getResultList();
-	}
-
-	@Override
-	public void save(User t) {
+		TypedQuery<User> query = entityManager.createQuery(
+				"SELECT u FROM User u WHERE u.userName = ?", User.class);
 		
-		executeInsideTransaction(entityManager -> entityManager.persist(t));
+		query.setParameter(1, login);
+		
+		return query.getSingleResult();
 		
 	}
-
-	@Override
-	public void update(User t, String[] params) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(User t) {
-		
-		executeInsideTransaction(entityManager -> entityManager.remove(t));
-		
-	}
-	
-    private void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit(); 
-        }
-        catch (RuntimeException e) {
-            tx.rollback();
-            throw e;
-        }
-    }
 
 }
+

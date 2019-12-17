@@ -2,62 +2,53 @@ package fr.team.benks.dao;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
+import fr.team.benks.model.CategorieVehicle;
 import fr.team.benks.model.Rate;
 
-public class RateDAO implements DAO<Rate> {
+@Repository
+public class RateDAO extends AbstractJpaRepository<Rate> {
 	
+
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Override
-	public Optional<Rate> get(long id) {
-		
-		return Optional.ofNullable(entityManager.find(Rate.class, id));
-	
+	protected RateDAO() {
+		super(Rate.class);
 	}
 
-	@Override
-	public List<Rate> getAll() {
+
+
+	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
+
+
+		TypedQuery<Rate> query = entityManager.createQuery(
+				"SELECT e FROM Rate e WHERE e.categorie =:categorie and e.valMin <=:montant"
+				+ " and e.valMax >:montant and e.dureeMin <:duree and "
+				+ "e.dureeMax >=:duree", Rate.class);
+
+		query.setParameter("categorie", categorie);
+		query.setParameter("montant", montant);
+		query.setParameter("duree", duree);
+
+		return Optional.ofNullable(query.getSingleResult());
+
+	}
+	
+	public List<Rate> getRates(){
 		
-		Query query = entityManager.createQuery("SELECT e FROM Rate e");
+		Query query = entityManager.createQuery(
+				"SELECT DISTINCT e.rateName, e.rateValue FROM Rate e order by e.rateName");
+		
 		return query.getResultList();
-	}
-
-	@Override
-	public void save(Rate t) {
-		
-		executeInsideTransaction(entityManager -> entityManager.persist(t));
 		
 	}
-
-	@Override
-	public void update(Rate t, String[] params) {
-		
-	}
-
-	@Override
-	public void delete(Rate t) {
-		
-		executeInsideTransaction(entityManager -> entityManager.remove(t));
-		
-	}
-	
-    private void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit(); 
-        }
-        catch (RuntimeException e) {
-            tx.rollback();
-            throw e;
-        }
-    }
 
 }
