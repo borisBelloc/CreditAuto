@@ -1,3 +1,13 @@
 td[colspan]:not([colspan="1"]) {
   text-align: center;
 }
+
+.btn-lightDark {
+  background-color: rgb(108, 109, 110);
+  color: #ffffff;
+}
+
+.btn-lightDark:hover {
+  background-color: rgb(97, 103, 107);
+}
+

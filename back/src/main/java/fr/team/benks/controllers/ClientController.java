@@ -26,10 +26,17 @@ public class ClientController {
 
 	@Autowired
 	private ClientService cs;
-	
+
 	@Autowired
 	private AddressService as;
 
+	/**
+	 * { "gender": "M", "lastName": "Test", "firstName": "Test", "birthdate":
+	 * "1976-01-05", "email": "t@g.com", "address": { "address": "24 rue", "city":
+	 * "MPL", "zipCode": 34000 } }
+	 * 
+	 * @param resource
+	 */
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void create(@RequestBody Client resource) {
@@ -94,7 +101,7 @@ public class ClientController {
 		return result;
 
 	}
-	
+
 //	@RequestMapping(value = "/{id}/{contract}", method = RequestMethod.PUT)
 //	public Client addContract(@PathVariable Long id, @PathVariable Contract contract) {
 //
@@ -103,6 +110,5 @@ public class ClientController {
 //		return result;
 //
 //	}
-
 
 }

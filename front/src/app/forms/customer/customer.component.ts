@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequiredEitherInput } from '../validator/requiredEitherInput';
 import { CustomerResearchService } from '../service/customer-research.service';
+import { Simulation } from '../class/simulation';
 
 @Component({
   selector: 'app-customer',
@@ -14,9 +15,8 @@ export class CustomerComponent implements OnInit {
 
   searchForm: FormGroup;
   submitted = false;
-
-  selectUserForm: FormGroup;
-
+  customerId: number;
+  newSimulation: Simulation;
   serviceResponse: any;
 
   // import Router allow to use '*ngIf router' inside template
@@ -24,7 +24,7 @@ export class CustomerComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private customerResearchService: CustomerResearchService
-    ) {}
+  ) {}
 
   // convenience getter for easy access to form fields (ex:f.amountPurchase)
   get f() {
@@ -32,16 +32,23 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchForm = this.formBuilder.group({
-      customerFirstname: [''],
-      customerLastname: [''],
-      customerEmail: ['', Validators.email],
-    },
-    {
-      validator: [
-        RequiredEitherInput.requiredEither('customerEmail', 'customerLastname')
-      ]
-    }
+    this.newSimulation = window.history.state.data;
+    console.log(this.newSimulation);
+
+    this.searchForm = this.formBuilder.group(
+      {
+        customerFirstname: [''],
+        customerLastname: [''],
+        customerEmail: ['', Validators.email]
+      },
+      {
+        validator: [
+          RequiredEitherInput.requiredEither(
+            'customerEmail',
+            'customerLastname'
+          )
+        ]
+      }
     );
   }
 
@@ -57,29 +64,32 @@ export class CustomerComponent implements OnInit {
       .getCustomers(
         formData.customerLastname,
         formData.customerFirstname,
-        formData.customerEmail,
+        formData.customerEmail
       )
-      .subscribe(response => {
-        this.serviceResponse = response;
-        console.log('reponse from request : ' , this.serviceResponse);
-      },
-      error => {
-        console.log(error);
-      }
+      .subscribe(
+        response => {
+          this.serviceResponse = response;
+          console.log('reponse from request : ', this.serviceResponse);
+          // console.log('Client 1 ->' , this.serviceResponse[1]);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  selectRadio(radioId) {
+    this.customerId = radioId;
+    console.log('radio selected -> ', this.customerId);
+  }
+
+  linkUserToContract() {
+    // TODO:  faire REQUETTE POST -> add client to contract
+
+    let wantedCustomer;
+    wantedCustomer = this.serviceResponse.find(
+      customer => customer.id === this.customerId
     );
-
-    this.selectUserForm = this.formBuilder.group({
-      customer: ['']
-    });
-    console.log('selectUserForm : ', this.selectUserForm);
-
+    console.log('CLIENT WANTED :: -> ', wantedCustomer);
   }
-
-  selectRadio(dd) {
-    console.log('Id clicked -> ' + dd);
-    // TODO: how to make the whole row select the radio btn ?
-    // gender: ['male', [Validators.required]]
-    // customer: ['1'];
-  }
-
 }

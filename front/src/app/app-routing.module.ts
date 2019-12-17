@@ -10,14 +10,14 @@ import { ConfigurationtauxComponent } from './body/configurationtaux/configurati
 import { StatsComponent } from './body/stats/stats.component';
 import { CreateClientComponent } from './forms/create-client/create-client.component';
 import { ContractsearchComponent } from './forms/contractsearch/contractsearch.component';
-
+import { CreateContratComponent } from './forms/create-contrat/create-contrat.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home' , pathMatch: 'full'},
-  {path: 'home' , component: HomeComponent},
-  {path: 'login', component: IdentificationComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: IdentificationComponent },
 
-  {path: 'transition' , component: TransionscreenComponent},
+  { path: 'transition', component: TransionscreenComponent },
 
   { path: 'simulation', component: LoansimulateComponent },
   { path: 'statistiques', component: StatsComponent },
@@ -26,13 +26,15 @@ const routes: Routes = [
   // TODO remove client2; used for test
   { path: 'client2', component: CustomerComponent },
 
-  { path: 'createClient', component: CreateClientComponent},
+  { path: 'contrat', component: CreateContratComponent },
+
+  { path: 'createClient', component: CreateClientComponent },
   { path: 'contrat', component: ContractsearchComponent },
-  {path: 'taux' , component: ConfigurationtauxComponent},
+  { path: 'taux', component: ConfigurationtauxComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
