@@ -6,16 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationModule } from './navigation/navigation.module';
 import { BodyModule } from './body/body.module';
-// Router
-import { RouterModule } from '@angular/router';
-import { NavbarComponent } from './navigation/navbar/navbar.component';
-import { LoansimulateComponent } from './forms/loansimulate/loansimulate.component';
 
 // forms
-import { FormsModule } from './forms/forms.module';
 import { HomeComponent } from './body/home/home.component';
 import { IdentificationComponent } from './forms/identification/identification.component';
 import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule as CustomFormsModule } from './forms/forms.module';
 
 
 
@@ -29,7 +26,9 @@ import { ConfigurationtauxComponent } from './body/configurationtaux/configurati
     BodyModule,
     NgbModule,
     NavigationModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    CustomFormsModule
     // Exemple Routing simplifié
     // RouterModule.forRoot([
     //   // { path: '', component: AppComponent },
