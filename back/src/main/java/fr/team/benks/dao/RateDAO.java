@@ -1,9 +1,11 @@
 package fr.team.benks.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -36,9 +38,17 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 		query.setParameter("montant", montant);
 		query.setParameter("duree", duree);
 
-		return Optional.ofNullable((Rate) query.getSingleResult());
+		return Optional.ofNullable(query.getSingleResult());
 
 	}
-
+	
+	public List<Rate> getRates(){
+		
+		Query query = entityManager.createQuery(
+				"SELECT DISTINCT e.rateName, e.rateValue FROM Rate e order by e.rateName");
+		
+		return query.getResultList();
+		
+	}
 
 }

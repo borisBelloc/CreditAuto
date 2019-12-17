@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.team.benks.dao.ClientDAO;
+import fr.team.benks.model.Address;
 import fr.team.benks.model.Client;
 import fr.team.benks.model.Contract;
 import fr.team.benks.model.Rate;
@@ -38,6 +39,9 @@ public class ClientService {
 	
 	public Client save(Client resource) {
 		resource.setNumClient();
+//		Address address = new Address();
+//		address = resource.getAddress();
+//		resource.setAddress(address);
 		return clientDAO.save(resource);
 		
 	}

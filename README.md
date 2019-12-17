@@ -16,13 +16,23 @@
 ### Run the project
 
 ##### Development 
-- Front/Angular : use `npm install` to instal the required node modules (you first need to install nodeJs and AngularCLI)
+
+###### Front :
+- Instal [NodeJS](https://nodejs.org/en/download/)
+- Install [AngularCLI](https://cli.angular.io/) : `npm install -g @angular/cli`
+- Inside the *Front* folder : `npm install` to install the required node modules
+- Launch with `ng serve -o`
 
 
-
+###### Back :
+- Install a database management system (example : [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads))
+- Create a database (easly done with [pgAdmin](https://www.pgadmin.org/))
+    - See the parameters to config your database in the file `application.properties`
+- Install [Tomcat](https://tomcat.apache.org/whichversion.html)
+- Add a tomcat server (easly done with [Eclipse](https://www.eclipse.org/downloads/packages/))
+- Launch server (tables should be created by Tomcat)
+- Add data (_coming soon_)
 
 ### Changelog
 
 * 2019/12/04 : Initialisation
-
-
