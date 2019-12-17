@@ -61,7 +61,7 @@ export class CustomerComponent implements OnInit {
       .subscribe(response => {
         this.serviceResponse = response;
         console.log('reponse from request : ' , this.serviceResponse);
-        console.log('Client 1 ->' , this.serviceResponse[1]);
+        // console.log('Client 1 ->' , this.serviceResponse[1]);
       },
       error => {
         console.log(error);
@@ -71,12 +71,14 @@ export class CustomerComponent implements OnInit {
 
   selectRadio(radioId) {
     this.customerId = radioId;
-    // console.log('radio selected -> ', this.customerId);
+    console.log('radio selected -> ', this.customerId);
   }
 
   linkUserToContract() {
     // TODO:  faire REQUETTE POST -> add client to contract
-    console.log('CLIENT WANTED :: ', this.serviceResponse[this.customerId]);
-  }
 
+    let wantedCustomer;
+    wantedCustomer = this.serviceResponse.find(customer => customer.id === this.customerId);
+    console.log('CLIENT WANTED :: -> ', wantedCustomer);
+  }
 }
