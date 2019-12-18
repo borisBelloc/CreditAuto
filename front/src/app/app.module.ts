@@ -13,12 +13,13 @@ import { IdentificationComponent } from './forms/identification/identification.c
 import { ConfigurationtauxComponent } from './body/configurationtaux/configurationtaux.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsModule as CustomFormsModule } from './forms/forms.module';
+import { StatsComponent } from './body/stats/stats.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, IdentificationComponent, ConfigurationtauxComponent
+    AppComponent, HomeComponent, IdentificationComponent, ConfigurationtauxComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,4 +41,4 @@ import { FormsModule as CustomFormsModule } from './forms/forms.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
