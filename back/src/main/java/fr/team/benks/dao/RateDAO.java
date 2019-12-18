@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -41,12 +40,22 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 	}
 
 	public List<Rate> getRates() {
-
-		Query query = entityManager
-				.createQuery("SELECT DISTINCT e.rateName, e.rateValue FROM Rate e order by e.rateName");
-
-		return query.getResultList();
-
+		List<Rate> result = new ArrayList<Rate>();
+		
+		TypedQuery<Rate> query = entityManager
+				.createQuery("SELECT e FROM Rate e order by e.rateName", Rate.class);
+		List<Rate> rates = query.getResultList();
+		
+		for (Rate r : rates) {
+			if (!result.stream().anyMatch(rate -> rate.getRateName().equals(r.getRateName()))) {
+				Rate rate = new Rate();
+				rate.setRateName(r.getRateName());
+				rate.setRateValue(r.getRateValue());
+				result.add(rate);
+			}
+		}
+		
+		return result;
 	}
 	
 	public List<Rate> findByRateName(String rateName) {
