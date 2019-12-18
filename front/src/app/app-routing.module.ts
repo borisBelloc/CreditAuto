@@ -20,16 +20,16 @@ const routes: Routes = [
   { path: 'transition' , component: TransionscreenComponent},
 
   { path: 'simulation', component: LoansimulateComponent },
+  { path: 'contrat', component: ContractsearchComponent },
+  { path: 'recapcontrat', component: CreateContratComponent },
   { path: 'statistiques', component: StatsComponent },
 
   { path: 'client', component: CustomerComponent },
   // TODO remove client2; used for test
   { path: 'client2', component: CustomerComponent },
 
-  { path: 'contrat', component: CreateContratComponent },
 
   { path: 'createClient', component: CreateClientComponent },
-  { path: 'contrat', component: ContractsearchComponent },
   { path: 'taux' , component: ConfigurationtauxComponent},
 ];
 
