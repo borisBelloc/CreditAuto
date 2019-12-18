@@ -35,104 +35,104 @@
     - Install [Postman](https://www.getpostman.com/)
     - Write **Post** request (go to data : Row > JSON) to `http://localhost:8080/benks/api/rates/addRates` in the body, insert the JSON from below :
 
-<details>
-  <summary>JSON loan rate</summary>
+		<details>
+		  <summary>JSON loan rate</summary>
 
-```JSON
-[
-    {
-        "rateValue": 0.65,
-        "categorie": "A",
-        "valMin": -1,
-        "valMax": 10000,
-        "dureeMin": -1,
-        "dureeMax": 30,
-	"rateName": "T1"
-    },
-    {
-        "rateValue": 0.34,
-        "categorie": "A",
-        "valMin": 10000,
-        "valMax": 999999999,
-        "dureeMin": -1,
-        "dureeMax": 24,
-	"rateName": "T2"
-    },
-    {
-        "rateValue": 0.34,
-        "categorie": "A",
-        "valMin": 10000,
-        "valMax": 999999999,
-        "dureeMin": -1,
-        "dureeMax": 24,
-	"rateName": "T2"
-    },
-    {
-        "rateValue": 0.45,
-        "categorie": "A",
-        "valMin": 10000,
-        "valMax": 999999999,
-        "dureeMin": 24,
-        "dureeMax": 3000,
-	"rateName": "T3"
-    },
-    {
-        "rateValue": 0.45,
-        "categorie": "B",
-        "valMin": -1,
-        "valMax": 15000,
-        "dureeMin": -1,
-        "dureeMax": 18,
-	"rateName": "T3"
-    },
-    {
-        "rateValue": 0.21,
-        "categorie": "B",
-        "valMin": -1,
-        "valMax": 15000,
-        "dureeMin": 18,
-        "dureeMax": 36,
-	"rateName": "T4"
-    },
-    {
-        "rateValue": 0.44,
-        "categorie": "B",
-        "valMin": -1,
-        "valMax": 15000,
-        "dureeMin": 36,
-        "dureeMax": 3000,
-	"rateName": "T5"
-    },
-    {
-        "rateValue": 0.44,
-        "categorie": "B",
-        "valMin": 15000,
-        "valMax": 25000,
-        "dureeMin": -1,
-        "dureeMax": 24,
-	"rateName": "T5"
-    },
-    {
-        "rateValue": 0.74,
-        "categorie": "B",
-        "valMin": 15000,
-        "valMax": 25000,
-        "dureeMin": 24,
-        "dureeMax": 3000,
-	"rateName": "T6"
-    },
-    {
-        "rateValue": 0.74,
-        "categorie": "B",
-        "valMin": 25000,
-        "valMax": 9999999,
-        "dureeMin": -1,
-        "dureeMax": 3000,
-	"rateName": "T6"
-    }
-]  
-```
-</details>
+		```JSON
+		[
+		    {
+			"rateValue": 0.65,
+			"categorie": "A",
+			"valMin": -1,
+			"valMax": 10000,
+			"dureeMin": -1,
+			"dureeMax": 30,
+			"rateName": "T1"
+		    },
+		    {
+			"rateValue": 0.34,
+			"categorie": "A",
+			"valMin": 10000,
+			"valMax": 999999999,
+			"dureeMin": -1,
+			"dureeMax": 24,
+			"rateName": "T2"
+		    },
+		    {
+			"rateValue": 0.34,
+			"categorie": "A",
+			"valMin": 10000,
+			"valMax": 999999999,
+			"dureeMin": -1,
+			"dureeMax": 24,
+			"rateName": "T2"
+		    },
+		    {
+			"rateValue": 0.45,
+			"categorie": "A",
+			"valMin": 10000,
+			"valMax": 999999999,
+			"dureeMin": 24,
+			"dureeMax": 3000,
+			"rateName": "T3"
+		    },
+		    {
+			"rateValue": 0.45,
+			"categorie": "B",
+			"valMin": -1,
+			"valMax": 15000,
+			"dureeMin": -1,
+			"dureeMax": 18,
+			"rateName": "T3"
+		    },
+		    {
+			"rateValue": 0.21,
+			"categorie": "B",
+			"valMin": -1,
+			"valMax": 15000,
+			"dureeMin": 18,
+			"dureeMax": 36,
+			"rateName": "T4"
+		    },
+		    {
+			"rateValue": 0.44,
+			"categorie": "B",
+			"valMin": -1,
+			"valMax": 15000,
+			"dureeMin": 36,
+			"dureeMax": 3000,
+			"rateName": "T5"
+		    },
+		    {
+			"rateValue": 0.44,
+			"categorie": "B",
+			"valMin": 15000,
+			"valMax": 25000,
+			"dureeMin": -1,
+			"dureeMax": 24,
+			"rateName": "T5"
+		    },
+		    {
+			"rateValue": 0.74,
+			"categorie": "B",
+			"valMin": 15000,
+			"valMax": 25000,
+			"dureeMin": 24,
+			"dureeMax": 3000,
+			"rateName": "T6"
+		    },
+		    {
+			"rateValue": 0.74,
+			"categorie": "B",
+			"valMin": 25000,
+			"valMax": 9999999,
+			"dureeMin": -1,
+			"dureeMax": 3000,
+			"rateName": "T6"
+		    }
+		]  
+		```
+		</details>
     
 
 ### Changelog
