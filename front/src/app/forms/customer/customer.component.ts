@@ -33,7 +33,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     this.newSimulation = window.history.state.data;
-    console.log(this.newSimulation);
+    // console.log(this.newSimulation);
 
     this.searchForm = this.formBuilder.group(
       {
