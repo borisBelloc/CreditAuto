@@ -33,10 +33,10 @@
 - Launch server (tables should be created by Tomcat)
 - Add data to the database :
     - Install [Postman](https://www.getpostman.com/)
-    - Write a request **Post** (data : Row > JSON) to `http://localhost:8080/benks/api/rates/addRates` with the JSON :
+    - Write **Post** request (go to data : Row > JSON) to `http://localhost:8080/benks/api/rates/addRates` in the body, insert the JSON from below :
 
 <details>
-  <summary>Json with the loan rate</summary>
+  <summary>JSON loan rate</summary>
 
 ```JSON
 [
@@ -131,7 +131,6 @@
 	"rateName": "T6"
     }
 ]  
-
 ```
 </details>
     
