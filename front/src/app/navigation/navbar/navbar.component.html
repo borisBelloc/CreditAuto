@@ -1,24 +1,13 @@
 <div id="headerNavbar">
-  <div class="container">
-  <div class="row">
-    <div class="offset-1 col-11 col-md-5 offset-md-2">
-      <!-- TODO: Url -> home sur logo -->
-      <a class="navbar-brand" href="#">
-        <img id="logo" class="img-fluid" src="{{ logo }}" />
-      </a>
-    </div>
-    <div class="col-5 col-md-3 d-flex align-items-end pb-2">
-      <i class="far fa-user pb-1 pr-2"></i>
-      <!-- TODO: {{ user.connected.name }} -->
-      <span>Justin Trudeau</span>
-    </div>
-
-    <div class="offset-3 offset-md-0 col-4 col-md-2 d-flex align-items-end pb-2 pl-0">
-      <!-- Todo: *ngIf {{ user.connected }} or deconnected affichage string en conséquence-->
-      <span class="pr-1">Déconnexion</span>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-start">
+        <a class="navbar-brand" routerLink="/home">
+          <img id="logo" class="img-fluid" src="{{ logo }}" />
+        </a>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -41,20 +30,25 @@
     id="navbarNavDropdown"
   >
     <ul class="navbar-nav">
+
       <li class="nav-item active">
         <!-- TODO: Link depending of user privilege/connected status -->
         <a class="nav-link" routerLink="/home">
-          Accueil <span class="sr-only">(current)</span></a>
+          Accueil <span class="sr-only">(current)</span></a
+        >
       </li>
-      <!-- btn ex : btn-outline-primary -->
 
       <div ngbDropdown class="d-inline-block">
         <button class="btn darkDropdown" id="dropdownBasic1" ngbDropdownToggle>
           Crédit
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem routerLink="/simulation">Créer contrat de Crédit Auto</button>
-          <button ngbDropdownItem routerLink="/contrat">Rechercher un contrat</button>
+          <button ngbDropdownItem routerLink="/simulation">
+            Créer contrat de Crédit Auto
+          </button>
+          <button ngbDropdownItem routerLink="/contrat">
+            Rechercher un contrat
+          </button>
         </div>
       </div>
 
@@ -63,7 +57,9 @@
           Location
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem routerLink="/client">Vérifier contrat en cours client</button>
+          <button ngbDropdownItem routerLink="/client">
+            Vérifier contrat en cours client
+          </button>
           <button ngbDropdownItem>Emettre conditions de location</button>
         </div>
       </div>
@@ -73,7 +69,9 @@
           Statistiques
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem routerLink="/statistiques">Rapport de production</button>
+          <button ngbDropdownItem routerLink="/statistiques">
+            Rapport de production
+          </button>
         </div>
       </div>
 
@@ -88,7 +86,15 @@
         </div>
       </div>
     </ul>
-    <!-- <a routerLink="/client">aaaa</a>
-    <a [routerLink]="'/client'">aaa</a> -->
+
+    <!-- <div class="col-5 col-md-3 d-flex align-items-end pb-2">
+      <i class="far fa-user pb-1 pr-2"></i>
+      <span>Justin Trudeau</span>
+    </div>
+
+    <div class="offset-3 offset-md-0 col-4 col-md-2 d-flex align-items-end pb-2 pl-0">
+      <span class="pr-1">Déconnexion</span>
+    </div> -->
+
   </div>
 </nav>
