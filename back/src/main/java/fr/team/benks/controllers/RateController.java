@@ -56,6 +56,12 @@ public class RateController {
 		return rs.find(id);
 
 	}
+	
+	@RequestMapping( method = RequestMethod.PUT)
+	@ResponseBody
+	public List<Rate> updateAll(@RequestBody Object[][] ratesArray) {
+		return rs.updateAll(ratesArray);
+	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
 //	@RequestMapping( method = RequestMethod.GET)

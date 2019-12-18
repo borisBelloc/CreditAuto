@@ -1,5 +1,6 @@
 package fr.team.benks.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +16,6 @@ import fr.team.benks.model.Rate;
 
 @Repository
 public class RateDAO extends AbstractJpaRepository<Rate> {
-	
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -24,15 +24,13 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 		super(Rate.class);
 	}
 
-
-
 	public Optional<Rate> getRate(CategorieVehicle categorie, int montant, int duree) {
 
-
-		TypedQuery<Rate> query = entityManager.createQuery(
-				"SELECT e FROM Rate e WHERE e.categorie =:categorie and e.valMin <=:montant"
-				+ " and e.valMax >:montant and e.dureeMin <:duree and "
-				+ "e.dureeMax >=:duree", Rate.class);
+		TypedQuery<Rate> query = entityManager
+				.createQuery(
+						"SELECT e FROM Rate e WHERE e.categorie =:categorie and e.valMin <=:montant"
+								+ " and e.valMax >:montant and e.dureeMin <:duree and " + "e.dureeMax >=:duree",
+						Rate.class);
 
 		query.setParameter("categorie", categorie);
 		query.setParameter("montant", montant);
@@ -41,14 +39,26 @@ public class RateDAO extends AbstractJpaRepository<Rate> {
 		return Optional.ofNullable(query.getSingleResult());
 
 	}
-	
-	public List<Rate> getRates(){
-		
-		Query query = entityManager.createQuery(
-				"SELECT DISTINCT e.rateName, e.rateValue FROM Rate e order by e.rateName");
-		
+
+	public List<Rate> getRates() {
+
+		Query query = entityManager
+				.createQuery("SELECT DISTINCT e.rateName, e.rateValue FROM Rate e order by e.rateName");
+
 		return query.getResultList();
-		
+
 	}
+	
+	public List<Rate> findByRateName(String rateName) {
+		TypedQuery<Rate> query = entityManager.createQuery(
+				"SELECT e FROM Rate e WHERE e.rateName =:rateName",
+				Rate.class);
+
+		query.setParameter("rateName", rateName);
+
+		return Optional.ofNullable(query.getResultList()).get();
+	}
+
+	
 
 }
