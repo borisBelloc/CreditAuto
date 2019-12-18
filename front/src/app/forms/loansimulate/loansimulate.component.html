@@ -10,9 +10,7 @@
         (ngSubmit)="onSubmit(simulateForm.value)"
       >
         <div class="form-group row">
-          <label class="col-5 col-form-label"
-            >Montant de l'achat (€)</label
-          >
+          <label class="col-5 col-form-label">Montant de l'achat (€)</label>
           <div class="col-6">
             <input
               class="form-control sharp glowOrange"
@@ -35,9 +33,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-5 col-form-label"
-            >Montant du crédit (€)</label
-          >
+          <label class="col-5 col-form-label">Montant du crédit (€)</label>
           <div class="col-6">
             <input
               class="form-control sharp glowOrange"
@@ -56,9 +52,7 @@
 
         <!-- TODO: change color border select -->
         <div class="form-group row">
-          <label class="col-5 col-form-label"
-            >Catégorie véhicule</label
-          >
+          <label class="col-5 col-form-label">Catégorie véhicule</label>
           <div class="col-6">
             <select
               class="form-control sharp glowOrange"
@@ -79,9 +73,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-5 col-form-label"
-            >Durée du crédit (mois)</label
-          >
+          <label class="col-5 col-form-label">Durée du crédit (mois)</label>
           <div class="col-6">
             <input
               class="form-control sharp glowOrange"
@@ -146,6 +138,7 @@
           <!-- TODO: ajout method pour creer le contrat (click) -->
           <button
             routerLink="/client"
+            [state]="{ data: this.simulationResult }"
             *ngIf="!isBtnsVisible"
             class="btn btn-dark sharp mt-4"
             type="button"
@@ -164,7 +157,6 @@
       </form>
     </div>
 
-    <!-- TODO: Tableau echeance -->
     <div id ="tab_scroll" class="col-5">
       <ng-container *ngIf="isTableVisible">
         <table class="table table-striped">
@@ -177,7 +169,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of simulationResult.repaymentSchedule">
-              <td>{{ item[0] | date: 'MM/dd/yyyy' }}</td>
+              <td>{{ item[0] | date: 'dd/MM/yyyy' }}</td>
               <td>{{ item[1] }}</td>
               <td>{{ item[2] }}</td>
             </tr>

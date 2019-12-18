@@ -1,3 +1,6 @@
+<ng-container *ngFor="let item of newSimulation">
+  item
+</ng-container>
 <fieldset class="fieldsetBorder">
   <legend class="fieldsetBorder">Recherche client</legend>
 
@@ -82,8 +85,8 @@
               "
             >
               <br /><br />
-              <i class="fas fa-exclamation mr-1"></i> L'adresse email ou le
-              nom du client doit être indiqué
+              <i class="fas fa-exclamation mr-1"></i> L'adresse email ou le nom
+              du client doit être indiqué
             </div>
           </div>
         </div>
@@ -107,7 +110,13 @@
 <div *ngIf="serviceResponse" class="container">
   <div class="row">
     <div class="col-12">
-      <span><i><pre class="mb-0">Veuillez selectionner un client ou en créer un :</pre></i></span>
+      <span
+        ><i
+          ><pre class="mb-0">
+Veuillez selectionner un client ou en créer un :</pre
+          ></i
+        ></span
+      >
       <table class="table  table-hover table-dark table-striped">
         <thead>
           <tr>
@@ -122,10 +131,18 @@
           <!-- <form [formGroup]="selectUserForm"> -->
 
           <!--  (ngSubmit)="onSubmit(selectUserForm.value) -->
-          <tr *ngFor="let data of serviceResponse" (click)="selectRadio(data.id)">
-
+          <tr
+            *ngFor="let data of serviceResponse"
+            (click)="selectRadio(data.id)"
+          >
             <td class="text-center">
-              <input type="radio" [(ngModel)]="customerId" id="{{ data.id }}" name="customer" [value]="data.id">
+              <input
+                type="radio"
+                [(ngModel)]="customerId"
+                id="{{ data.id }}"
+                name="customer"
+                [value]="data.id"
+              />
             </td>
             <td>{{ data.lastName }}</td>
             <td>{{ data.firstName }}</td>
@@ -135,9 +152,13 @@
 
           <tr>
             <td colspan="5">
-              <button (click)="linkUserToContract()"
+              <button
+                [state]="{ simu: newSimulation, data: serviceResponse }"
+                (click)="linkUserToContract()"
+                routerLink="/recapcontrat"
                 class="btn btn-lightDark"
-                type="button">
+                type="button"
+              >
                 Valider
               </button>
             </td>

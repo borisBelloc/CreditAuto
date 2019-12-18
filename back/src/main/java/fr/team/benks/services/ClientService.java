@@ -39,9 +39,6 @@ public class ClientService {
 	
 	public Client save(Client resource) {
 		resource.setNumClient();
-//		Address address = new Address();
-//		address = resource.getAddress();
-//		resource.setAddress(address);
 		return clientDAO.save(resource);
 		
 	}

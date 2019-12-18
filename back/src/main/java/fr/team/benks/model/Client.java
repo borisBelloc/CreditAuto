@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @Entity
-@SequenceGenerator(name = "seq", initialValue = 1000, allocationSize = 500)
 public class Client implements IdEntity {
 
 	/**
@@ -40,7 +39,7 @@ public class Client implements IdEntity {
 	@OneToOne
 	private Address address;
 
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+	@GeneratedValue
 	@Column (unique = true)
 	private long numClient;
 

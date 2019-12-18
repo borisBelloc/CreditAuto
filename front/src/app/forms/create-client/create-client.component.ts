@@ -4,6 +4,7 @@ import { ClientCreateService } from '../service/client-create.service';
 import { Client } from '../class/client';
 import { Observable } from 'rxjs';
 import { AdresseClient } from '../class/adresse-client';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-client',
@@ -28,19 +29,20 @@ export class CreateClientComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private clientCreateService: ClientCreateService
   ) {}
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
-      lastName: [''],
-      firstName: [''],
-      gender: [''],
-      address: [''],
-      city: [''],
-      zipCode: [''],
-      email: [''],
-      birthdate: ['']
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      gender: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      birthdate: ['', Validators.required]
     });
   }
 
@@ -85,7 +87,11 @@ export class CreateClientComponent implements OnInit {
     console.log(JSON.stringify(this.newClient));
 
     this.clientCreateService.createNewClient(this.newClient).subscribe(
-      data => console.log(data),
+      data => {
+        console.log(data);
+        this.router.navigate(['/client']);
+      },
+
       error => console.log(error)
     );
   }
