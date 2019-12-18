@@ -13,11 +13,11 @@ import { ContractsearchComponent } from './forms/contractsearch/contractsearch.c
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home' , pathMatch: 'full'},
-  {path: 'home' , component: HomeComponent},
-  {path: 'login', component: IdentificationComponent},
+  { path: '', redirectTo: 'home' , pathMatch: 'full'},
+  { path: 'home' , component: HomeComponent},
+  { path: 'login', component: IdentificationComponent},
 
-  {path: 'transition' , component: TransionscreenComponent},
+  { path: 'transition' , component: TransionscreenComponent},
 
   { path: 'simulation', component: LoansimulateComponent },
   { path: 'statistiques', component: StatsComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
 
   { path: 'createClient', component: CreateClientComponent},
   { path: 'contrat', component: ContractsearchComponent },
-  {path: 'taux' , component: ConfigurationtauxComponent},
+  { path: 'taux' , component: ConfigurationtauxComponent},
 ];
 
 @NgModule({
