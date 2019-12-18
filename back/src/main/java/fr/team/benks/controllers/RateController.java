@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,13 +17,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.team.benks.model.CategorieVehicle;
-import fr.team.benks.model.Client;
 import fr.team.benks.model.Rate;
 import fr.team.benks.model.SimulationResult;
-import fr.team.benks.model.User;
-import fr.team.benks.services.CalculService;
 import fr.team.benks.services.RateService;
-import fr.team.benks.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -59,8 +54,8 @@ public class RateController {
 	
 	@RequestMapping( method = RequestMethod.PUT)
 	@ResponseBody
-	public List<Rate> updateAll(@RequestBody Object[][] ratesArray) {
-		return rs.updateAll(ratesArray);
+	public List<Rate> updateAll(@RequestBody List<Rate> rates) {
+		return rs.updateAll(rates);
 	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40
