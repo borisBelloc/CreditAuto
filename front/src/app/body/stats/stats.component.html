@@ -8,40 +8,48 @@
   <div class="container-fluid">
     <div class="row text-center">
       <div class="col-6">
-        <ngb-datepicker
-          #dp
-          [(ngModel)]="model"
-          (navigate)="date = $event.next"
-        ></ngb-datepicker>
 
-        <div class="mt-4">
-          <button
-            class="btn btn-sm btn-outline-dark mr-2"
-            (click)="selectToday()"
-          >
-            Selectionner la date du jour
-          </button>
-          <button
-            class="btn btn-sm btn-outline-dark mr-2"
-            (click)="dp.navigateTo()"
-          >
-            Revenir au mois actuel
-          </button>
-          <!-- <button
-          class="btn btn-sm btn-outline-dark mr-2"
-          (click)="dp.navigateTo({ year: 2013, month: 2 })"
-        >
-          Aller a fevrier 2013
-        </button> -->
-        </div>
+        <form [formGroup]="createDateForm" (ngSubmit)="onSubmit(createDateForm.value)">
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Date de debut : </label>
+            <div class="col-7 offset-1">
+              <input type="date" class="form-control sharp glowOrange" placeholder="Expected Date"
+                [ngClass]="{ 'is-invalid': submitted && f.start.errors }" formControlName="start" />
+
+              <div *ngIf="submitted && f.start.errors" class="invalid-feedback">
+                <div *ngIf="f.start.errors['required']">
+                  Champ non valide
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-4 col-form-label">Date de fin : </label>
+            <div class="col-7 offset-1">
+              <input type="date" class="form-control sharp glowOrange" placeholder="Expected Date"
+                [ngClass]="{ 'is-invalid': submitted && f.end.errors }" formControlName="end" />
+              <div *ngIf="submitted && f.end.errors" class="invalid-feedback">
+                <div *ngIf="f.end.errors['required']">
+                  Champ non valide
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button class="btn btn-sm btn-outline-dark mr-2" type="submit">
+              Valider </button>
+          </div>
+        </form>
+
       </div>
 
       <div class="col-6">
         <h5>Nombre de nouveaux contrats dans la période sélectionnée :</h5>
-
         <div class="text-center">
           <!-- TODO: afficher résultat calcul de la DB -->
-          <h1 class="mt-5">XX</h1>
+          <h1 class="mt-5">{{data}}</h1>
         </div>
       </div>
     </div>
@@ -59,9 +67,9 @@
 </div>
 
 <!-- TODO: remove -->
-<div class="offset-3" style="font-size: 10px;">
+<!--<div class="offset-3" style="font-size: 10px;">
   Dev :
   <br>
-  <pre>Month: {{ date.month }}.{{ date.year }}</pre>
+  <pre>date start : {{ date.year }}-{{ date.month }}</pre>
   <pre>Model: {{ model | json }}</pre>
-</div>
+</div> -->

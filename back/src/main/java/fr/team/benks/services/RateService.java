@@ -52,13 +52,13 @@ public class RateService {
 	}
 
 	public List<Rate> updateAll(List<Rate> modifiedRates) {
-		List<Rate> listRates = new ArrayList<Rate>();
 		for (Rate newRate : modifiedRates) {
 			List<Rate> rates = rateDAO.findByRateName(newRate.getRateName());
 			rates.forEach(r -> {
-				r.setRateValue(newRate.getRateValue());
-				rateDAO.update(r);
-				listRates.add(r);
+				if (newRate.getRateValue() != null) {
+					r.setRateValue(newRate.getRateValue());
+					rateDAO.update(r);
+				}
 			});
 		}
 //		for (Rate newRate : rates) {

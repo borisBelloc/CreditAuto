@@ -13,6 +13,7 @@ import { LoansimulateComponent } from './loansimulate/loansimulate.component';
 import { CreateClientComponent } from './create-client/create-client.component';
 import { ContractsearchComponent } from './contractsearch/contractsearch.component';
 import { CreateContratComponent } from './create-contrat/create-contrat.component';
+import { StatsComponent } from '../body/stats/stats.component';
 
 @NgModule({
   declarations: [LoansimulateComponent, CustomerComponent, ContractsearchComponent, CreateClientComponent, CreateContratComponent],
@@ -25,4 +26,4 @@ import { CreateContratComponent } from './create-contrat/create-contrat.componen
     ReactiveFormsModule,
   ]
 })
-export class FormsModule {}
+export class FormsModule { }
