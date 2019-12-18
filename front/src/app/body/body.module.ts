@@ -9,7 +9,7 @@ import { BodyRoutingModule } from './body-routing.module';
 import { TransionscreenComponent } from './transionscreen/transionscreen.component';
 import { ConfigurationtauxComponent } from './configurationtaux/configurationtaux.component';
 
-import { TransitionscreenComponent } from './transitionscreen/transitionscreen.component';
+
 import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
