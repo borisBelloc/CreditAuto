@@ -18,7 +18,7 @@ import fr.team.benks.model.Contract;
 import fr.team.benks.services.ContractService;
 
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/contracts")
 public class ContractController {
