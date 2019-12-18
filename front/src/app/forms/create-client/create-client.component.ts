@@ -31,7 +31,7 @@ export class CreateClientComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private clientCreateService: ClientCreateService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createClientForm = this.formBuilder.group({
@@ -61,7 +61,7 @@ export class CreateClientComponent implements OnInit {
 
     alert(
       'SUCCESS!! :-)\n\n' +
-        JSON.stringify(this.createClientForm.value, null, 10)
+      JSON.stringify(this.createClientForm.value, null, 10)
     );
 
     this.lastName = this.f.lastName.value;
