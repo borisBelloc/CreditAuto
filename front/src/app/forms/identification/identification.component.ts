@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-identification',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./identification.component.scss']
 })
 export class IdentificationComponent implements OnInit {
+  createDateForm: FormGroup;
 
-  constructor() { }
+  constructor( private formBuilder: FormBuilder) { }
 
   ngOnInit() {
   }
