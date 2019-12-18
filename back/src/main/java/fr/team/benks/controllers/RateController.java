@@ -55,7 +55,8 @@ public class RateController {
 	@RequestMapping( method = RequestMethod.PUT)
 	@ResponseBody
 	public List<Rate> updateAll(@RequestBody List<Rate> rates) {
-		return rs.updateAll(rates);
+		rs.updateAll(rates);
+		return getAll();
 	}
 
 //	//http://localhost:8080/benks/api/rates?categorie=A&montant=10001&duree=40

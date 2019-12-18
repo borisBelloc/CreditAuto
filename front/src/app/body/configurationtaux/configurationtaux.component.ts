@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { RatesService } from 'src/app/forms/service/rates.service';
+import { Rate } from 'src/app/forms/class/rate';
 
 @Component({
   selector: 'app-configurationtaux',
@@ -9,7 +10,7 @@ import { RatesService } from 'src/app/forms/service/rates.service';
 })
 export class ConfigurationtauxComponent implements OnInit {
   ratesForm: FormGroup;
-  ratesArray: Array <any> [][];
+  ratesArray: Rate[];
   submitted = false;
 
 
@@ -17,7 +18,7 @@ export class ConfigurationtauxComponent implements OnInit {
     private formBuilder: FormBuilder,
     private ratesService: RatesService
   ) {
-    this.ratesForm = formBuilder.group({
+    this.ratesForm = this.formBuilder.group({
         t1: [''],
         t2: [''],
         t3: [''],
@@ -25,28 +26,26 @@ export class ConfigurationtauxComponent implements OnInit {
         t5: [''],
         t6: [''],
     });
+
+    this.ratesArray = new Array<Rate>();
   }
-
-
-
 
   ngOnInit() {
     this.ratesService
     .getRatesValue()
     .subscribe(
       response => {
-        this.ratesArray = response as Array<any>[][];
+        this.ratesArray = response;
       },
       error => {
         console.log(error);
-
       }
 
     );
 
 
   }
-  onSubmit(formData) {
+  onSubmit() {
 
     console.log(this.ratesArray);
     console.log(this.ratesForm.value.t1);
@@ -56,17 +55,14 @@ export class ConfigurationtauxComponent implements OnInit {
     console.log(this.ratesForm.value.t5);
     console.log(this.ratesForm.value.t6);
 
-
-    this.ratesArray[0][1] = this.ratesForm.value.t1;
-    this.ratesArray[1][1] = this.ratesForm.value.t2;
-    this.ratesArray[2][1] = this.ratesForm.value.t3;
-    this.ratesArray[3][1] = this.ratesForm.value.t4;
-    this.ratesArray[4][1] = this.ratesForm.value.t5;
-    this.ratesArray[5][1] = this.ratesForm.value.t6;
+    this.ratesArray[0].rateValue = this.ratesForm.value.t1;
+    this.ratesArray[1].rateValue = this.ratesForm.value.t2;
+    this.ratesArray[2].rateValue = this.ratesForm.value.t3;
+    this.ratesArray[3].rateValue = this.ratesForm.value.t4;
+    this.ratesArray[4].rateValue = this.ratesForm.value.t5;
+    this.ratesArray[5].rateValue = this.ratesForm.value.t6;
 
     this.submitted = true;
-
-
 
     // stop here if form is invalid
     if (this.ratesForm.invalid) {
@@ -79,9 +75,9 @@ export class ConfigurationtauxComponent implements OnInit {
     // console.warn('FORM ICI -> ', formData);
     this.ratesService
       .putRatesValue(this.ratesArray
-      );
-
-
+      ).subscribe(response => {
+        this.ratesArray = response;
+      });
   }
 
 }

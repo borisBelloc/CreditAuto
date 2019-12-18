@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Rate } from '../class/rate';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +17,19 @@ export class RatesService {
       headers
     };
   }
-  getRatesValue() {
+  getRatesValue(): Observable<Rate[]> {
     return this.httpClient
-      .get(
+      .get<Rate[]>(
         `${this.baseUrl}`,
         this.httpOptions
       );
   }
-  putRatesValue(ratesarray: Array<any>[][]): Observable<Array<any>[][]> {
+  putRatesValue(ratesArray: Rate[]): Observable<Rate[]> {
     return this.httpClient
-    .put<Array<any>[][]>(
+    .put<Rate[]>(
       `${this.baseUrl}`,
-      ratesarray,
+      ratesArray,
       this.httpOptions
-
-
     );
 
   }
